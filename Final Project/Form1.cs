@@ -19,13 +19,24 @@ namespace Final_Project
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DatabaseConnection databaseConnection = new DatabaseConnection();
-            // databaseConnection.insert("INSERT Users VALUES ('Rick','paper0',4);");
-            // databaseConnection.select("SELECT * FROM Users");
-            String[] values = { "Kimmie", "popcorn13", "3" };
-           //  databaseConnection.formatInsert("Users",values );
-            databaseConnection.formatDelete("Users", "UserID", "3");
-            databaseConnection.selectFormat(values, values, "Users");
+            /*  DatabaseConnection databaseConnection = new DatabaseConnection();
+              // databaseConnection.insert("INSERT Users VALUES ('Rick','paper0',4);");
+              // databaseConnection.select("SELECT * FROM Users");
+              String[] values = { "Kimmie", "popcorn13", "3" };
+             // databaseConnection.formatInsert("Users",values );
+              String[] update = {"UserName = 'Bob'" };
+              String[] filter = new String [0];
+              String[] selection = { "*" };
+              //databaseConnection.formatUpdate("Users", update, "UserID", "4");
+              databaseConnection.formatDelete("Users", "UserName", "Bob");
+              databaseConnection.selectFormat(selection, filter, "Users");*/
+            Login login = new Login();
+           var results = login.validateUser("tyler", @"Betheduck13!");
+            Singleton singleton = Singleton.Instance;
+            Console.WriteLine(singleton.User.getUserName());
+
+         
+         
         }
     }
 }

@@ -8,28 +8,22 @@ namespace Final_Project
 {
     class User
     {
-        private String strUserName;
-        private int intRole;
-        private String strUserID;
-
-        public User(String strUserName, int intRole, String strUserID)
+        private String UserName;
+        private int UserRoleID;
+            
+        public User(String UserName, Int32 UserRoleID)
         {
-            this.strUserName = strUserName;
-            this.intRole = intRole;
-            this.strUserID = strUserID;
+            this.UserName = UserName;
+            this.UserRoleID = UserRoleID;
         }
+        
         public String getUserName()
         {
-            return strUserName;
+            return UserName;
         }
-        public int getIntRole()
+        public int getUserRoleID()
         {
-            return intRole;
+            return UserRoleID;
         }
-        public String getStrUserId()
-        {
-            return strUserID;
-        }
-
     }
 }
