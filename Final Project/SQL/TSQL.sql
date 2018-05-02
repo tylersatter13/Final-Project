@@ -141,6 +141,13 @@ INSERT RoofColor (RoofColorName)values ('Sablewood');
 INSERT RoofColor (RoofColorName) values ('Gray');
 INSERT RoofColor (RoofColorName)values ('Onyx Black');
 SELECT * FROM  RoofColor;
+CREATE TABLE KeyNumber(
+   KeyNumberID int identity(1,1),
+   KeyNumberCurrent varchar(6),
+   KeyNumberCurrentDate DATE,
+   KeyNumberPrevious varchar(6),
+   KeyNumberPrevDate varchar(6)
+);
 
 CREATE TABLE Siding(
   SidingID int primary key  identity(1,1),
@@ -149,9 +156,18 @@ CREATE TABLE Siding(
 INSERT Siding (SidngType)values ('Vertical');
 INSERT Siding (SidngType) values ('Horizontal');
 
+CREATE TABLE HouseInteriorColors(
+   fk_HouseInteriorID int ,
+   fk_InteriorColorID  INT,
+   CONSTRAINT pk_HouseInteriorColors PRIMARY KEY (fk_HouseInteriorID,fk_InteriorColorID),
+   FOREIGN  KEY  (fk_HouseInteriorID) REFERENCES HouseInterior(HouseInteriorID),
+   FOREIGN  KEY  (fk_InteriorColorID) REFERENCES InteriorColor(InteriorColorID)
+);
+
 CREATE TABLE HouseInterior(
   HouseInteriorID int identity(1,1) primary key,
-  fk_PaintColorID int,
+  fk_PrimaryColorID int,
+  fk_SecondaryColorID int,
   HouseLastPaintDate date,
   fk_CarpetColorID int,
   HouseInteriorCarpetDate DATE,
@@ -161,15 +177,17 @@ CREATE TABLE HouseInterior(
   fk_StainID int,
   HouseBlindReplacement DATE,
 
-  FOREIGN KEY (fk_PaintColorID) REFERENCES InteriorColor(InteriorColorID),
+  FOREIGN KEY (fk_PrimaryColorID) REFERENCES  InteriorColor(InteriorColorID),
+  FOREIGN KEY (fk_SecondaryColorID) REFERENCES InteriorColor(InteriorColorID),
   FOREIGN KEY (fk_CarpetColorID) REFERENCES Carpet (CarpetID),
   FOREIGN KEY (fk_VynlColorID) REFERENCES VAndFColor(VAndFID),
   FOREIGN KEY (fk_FermicaColorID) REFERENCES VAndFColor(VAndFID),
   FOREIGN KEY (fk_StainID) REFERENCES  Stain(StainID)
 );
 
-INSERT HouseInterior (fk_PaintColorID, HouseLastPaintDate, fk_CarpetColorID, HouseInteriorCarpetDate, fk_FermicaColorID, fk_VynlColorID,
-                      HouseInteriorVFInstall, fk_StainID, HouseBlindReplacement) VALUES (2,'2001-01-01',1,'2001-01-1',1,1,'2013-07-01',7,'2007-06-01');
+
+INSERT HouseInterior (HouseLastPaintDate, fk_CarpetColorID, HouseInteriorCarpetDate, fk_FermicaColorID, fk_VynlColorID,
+                      HouseInteriorVFInstall, fk_StainID, HouseBlindReplacement) VALUES ('2001-01-01',1,'2001-01-1',1,1,'2013-07-01',7,'2007-06-01');
 
 CREATE TABLE HouseExterior(
   HouseExteriorID INT primary key identity(1,1),
@@ -197,6 +215,8 @@ CREATE TABLE Tenant(
   TenantLast varchar(30),
   TenantPhone varchar(12)
 );
+
+
 CREATE TABLE Pet(
   PetID int primary key identity(1,1),
   PetType varchar(30),
@@ -204,13 +224,25 @@ CREATE TABLE Pet(
 );
 CREATE TABLE LeadTenant(
   LeadTenantID int PRIMARY KEY identity(1,1),
-  LeadTenantFirst varchar(30),
-  LeadTenantLast varchar(30),
-  LeadTenantPhone varchar(12),
+  fk_TenantID int,
   LeadPetFeePaid Bit,
   LeadTenantRentStart DATE,
   Children int
+
+  FOREIGN KEY (fk_TenantID) REFERENCES Tenant(TenantID)
 );
+INSERT LeadTenant( LeadTenantFirst,LeadTenantLast, LeadTenantPhone, LeadPetFeePaid,LeadTenantRentStart,Children) VALUES( 'Steve','Arnold', '805-404-1146',
+    NULL,'2017-07-17', 0 );
+
+CREATE TABLE HouseTenant (
+  fk_HouseID int,
+  fk_TenantID int,
+
+  PRIMARY KEY (fk_HouseID,fk_TenantID),
+  FOREIGN KEY (fk_HouseID) REFERENCES  House(HouseID),
+  FOREIGN KEY (fk_TenantID)REFERENCES  Tenant(TenantID)
+
+)
 CREATE TABLE FamilyPet(
   fk_LeadTenantID int,
   fk_Pet int,
@@ -222,6 +254,7 @@ CREATE TABLE FamilyPet(
 
 CREATE TABLE Dishwasher(
   DishwasherID int PRIMARY KEY identity(1,1),
+  DishwasherBrand varchar(30),
   DishwasherColor varchar(30),
   DishwasherModel varchar(30),
   DishwasherSerial varchar(30),
@@ -245,17 +278,36 @@ CREATE TABLE HouseAppliances(
   fk_Dishwasher int,
   HouseApplianceWHDate DATE,
   HouseApplianceGDDate DATE,
-  HouseApplianceGutterDate DATE,
-  HouseApplianceFurance Date,
   HouseApplianceHasRefer bit,
 
   FOREIGN KEY (fk_Dishwasher) REFERENCES Dishwasher(DishwasherID),
   FOREIGN KEY (fk_Ranger) REFERENCES CookingRange(RangeID)
 );
-INSERT HouseAppliances (fk_Ranger, fk_Dishwasher, HouseApplianceWHDate, HouseApplianceGDDate, HouseApplianceGutterDate,
-                        HouseApplianceFurance, HouseApplianceHasRefer) VALUES (1,1,'2010-03-1',NULL,'1997-08-01',NULL,NULL);
+INSERT HouseAppliances (fk_Ranger, fk_Dishwasher, HouseApplianceWHDate, HouseApplianceGDDate,
+                         HouseApplianceHasRefer) VALUES (1,1,'2010-03-1',NULL,0);
+CREATE TABLE InteriorFeatures (
+  InteriorFeaturesID int identity(1,1) primary key ,
+  InterriorFeaturesHallShowerDate Date,
+  InterriorFeaturesWaterHeaterDate Date,
+  InterriorFeaturesCelingFanDate DATE,
+  InterriorFeaturesFurnanceReplacement Date
+);
+INSERT InteriorFeatures(InterriorFeaturesHallShowerDate, InterriorFeaturesWaterHeaterDate, InterriorFeaturesCelingFanDate, InterriorFeaturesFurnanceReplacement) VALUES (NULL,'2010-3-1',NULL,NULL) ;
+SELECT  InteriorFeaturesID as houseInterriorFeaturesID, InterriorFeaturesHallShowerDate as  hallShowerReplacementDate ,InterriorFeaturesWaterHeaterDate as waterHeaterReplacementDate,
+  InterriorFeaturesCelingFanDate as cielingFanReplacementDate,InterriorFeaturesFurnanceReplacement as furnanceReplacementDate FROM InteriorFeatures
+WHERE InteriorFeaturesID = (SELECT fk_InterriorFeaturesID FROM House WHERE HouseID = 4);
 
-
+CREATE TABLE ExteriorFeatures(
+  ExteriorFeaturesID Int primary key  identity(1,1),
+  ExteriorFenece Date,
+  ExteriorGutterReplacement Date,
+  ExteriorGarageDoor Date,
+  ExteriorDriveWay Date,
+  ExteriorChimney Date
+);
+INSERT ExteriorFeatures(ExteriorFenece, ExteriorGutterReplacement, ExteriorGarageDoor, ExteriorDriveWay, ExteriorChimney) VALUES (NULL,'1997-8-1','2003-10-1',NULL,NULL);
+SELECT ExteriorFeaturesID as exteriorFeaturesID,ExteriorFenece as fenceReplacement,ExteriorGutterReplacement  as gutterReplacemengt ,
+  ExteriorGarageDoor  as grageDoorReplacement,ExteriorDriveWay as drivewayReplacemnt, ExteriorChimney as chimneyReplacement FROM ExteriorFeatures
 CREATE TABLE House (
   HouseID int primary key identity(1,1),
   HouseNumber varchar(4),
@@ -265,12 +317,14 @@ CREATE TABLE House (
   fk_SQPlan int,
   fk_HouseInterriorID int,
   fk_HouseExteriorID int,
-  HouseHasGarageOpener bit,
-  HouseHasFence bit,
-  HouseHasOver bit,
+  fk_KeyNunberID int,
+  fk_InterriorFeaturesID int,
+  fk_ExterriorFeaturesID int,
   HouseDidDiscloseLea bit,
+  HouseRentStartDate date,
   HouseRent double precision,
   fk_HouseAppliancesID int,
+  HouseMiscellaneous varchar(255)
 
   foreign key (fk_Street) REFERENCES  Street(StreetID),
   foreign key (fk_Owner) REFERENCES  Owner(OwnerID),
@@ -278,13 +332,17 @@ CREATE TABLE House (
   foreign key (fk_SQPlan) REFERENCES SQPlan(SQPlanID),
   foreign key (fk_HouseInterriorID) REFERENCES HouseInterior(HouseInteriorID),
   foreign key (fk_HouseExteriorID) REFERENCES  HouseExterior(HouseExteriorID),
+  foreign key (fk_KeyNunberID) REFERENCES  KeyNumber(KeyNumberID),
+  foreign key (fk_ExterriorFeaturesID) REFERENCES  ExteriorFeatures(ExteriorFeaturesID),
+  foreign key (fk_InterriorFeaturesID) REFERENCES InteriorFeatures(InteriorFeaturesID),
   foreign key (fk_HouseAppliancesID) REFERENCES  HouseAppliances(HouseApplianceID)
 
 );
 
-INSERT House (HouseNumber, fk_Street, fk_Owner, fk_LeadTenant, fk_SQPlan, fk_HouseInterriorID, fk_HouseExteriorID,
-              HouseHasGarageOpener, HouseHasFence, HouseHasOver, HouseDidDiscloseLea, HouseRent, fk_HouseAppliancesID)
-              VALUES('4611',1,1,NULL,1,1,1,FALSE,FALSE,TRUE,TRUE, 1099, 1);
+INSERT House (HouseNumber, fk_Street, fk_Owner, fk_LeadTenant, fk_SQPlan, fk_HouseInterriorID, fk_HouseExteriorID,fk_KeyNunberID,
+              fk_InterriorFeaturesID,fk_ExterriorFeaturesID, HouseDidDiscloseLea, HouseRentStartDate, HouseRent, fk_HouseAppliancesID,HouseMiscellaneous)
+              VALUES('4611',1,2,NULL,1,1,1,NULL,1,1,0,'2017-07-07',919,  1,NULL);
+
 
 CREATE TABLE MaintenanceTechnician (
   MaintenanceTechniciansID int primary key,
@@ -300,6 +358,7 @@ CREATE TABLE MaintenanceRequest (
   fk_LeadTenantID int NOT NULL,
   fk_MaintenanceTechnician Int,
   MaintenenceRequestDate INT,
+  MaintenenceIsAppliance Bit,
   MaintenenceRequestDescription varchar(255),
   MaintenenceeRequestDateStarted date,
   MaintenenceRequestDateCompleted date,
@@ -354,5 +413,45 @@ CREATE TABLE  TransactionFlags(
     FOREIGN KEY (fk_TransactonTypeID) REFERENCES  TransactionTypes(TransactionTypeID) ,
     FOREIGN KEY (fk_TransactionFlags) REFERENCES  TransactionFlags(TransactionFlagID)
 
-  );
-CREATE TABLE US
+);
+SELECT HouseID,fk_Owner, HouseNumber,fk_Street,fk_SQPlan,fk_LeadTenant,fk_LeadTenant,fk_HouseInterriorID,fk_HouseExteriorID,fk_HouseAppliancesID,
+  fk_InterriorFeaturesID,fk_ExterriorFeaturesID FROM House
+  INNER JOIN Street S2 on House.fk_Street = S2.StreetID
+  INNER JOIN SQPlan S3 on House.fk_SQPlan = S3.SQPlanID
+  INNER JOIN  Owner O on House.fk_Owner = O.OwnerID
+UPDATE HouseInterior SET fk_PrimaryColorID = 1 WHERE HouseInteriorID=1;
+
+SELECT HouseInteriorID,fk_PrimaryColorID,IC.InteriorColorName,fk_SecondaryColorID,IC2.InteriorColorName,HouseLastPaintDate,CarpetID,CarpetName,
+  HouseInteriorCarpetDate,fk_FermicaColorID,VAFC.VAndFColor,VAndFColor,Interior.HouseInteriorVFInstall,Interior.fk_StainID,StainName,Interior.HouseBlindReplacement FROM HouseInterior
+  INNER JOIN InteriorColor IC on HouseInterior.fk_PrimaryColorID = IC.InteriorColorID
+  INNER JOIN InteriorColor IC2 on HouseInterior.fk_SecondaryColorID = IC2.InteriorColorID
+  INNER JOIN Carpet C on HouseInterior.fk_CarpetColorID = C.CarpetID
+  INNER JOIN VAndFColor VAFC on HouseInterior.fk_FermicaColorID = VAFC.VAndFID
+  INNER JOIN HouseInterior Interior on VAFC.VAndFID = Interior.fk_VynlColorID
+  inner JOIN Stain S2 on HouseInterior.fk_StainID = S2.StainID
+
+SELECT  HouseInteriorID,fk_PrimaryColorID,IC.InteriorColorName,IC.InteriorColorCode,fk_SecondaryColorID,IC2.InteriorColorName,IC2.InteriorColorCode,C.CarpetID,C.CarpetName,HouseInteriorCarpetDate,
+  VAFC.VAndFID,VAFC.VAndFColor,C2.VAndFID,C2.VAndFColor,HouseInteriorVFInstall, S2.StainID,S2.StainName, HouseBlindReplacement FROM HouseInterior
+  INNER JOIN InteriorColor IC on HouseInterior.fk_PrimaryColorID = IC.InteriorColorID
+  INNER JOIN InteriorColor IC2 on HouseInterior.fk_SecondaryColorID = IC2.InteriorColorID
+  INNER JOIN Carpet C on HouseInterior.fk_CarpetColorID = C.CarpetID
+  INNER JOIN VAndFColor VAFC on HouseInterior.fk_FermicaColorID = VAFC.VAndFID
+  INNER JOIN VAndFColor C2 on HouseInterior.fk_VynlColorID = C2.VAndFID
+  INNER JOIN Stain S2 on HouseInterior.fk_StainID = S2.StainID
+
+SELECT HouseExteriorID,fk_SidingID,SidngType,ExteriorColorID,E.ExteriorColorName,E.ExteriorColorCode,HouseExteriorPaintDate,fk_TrimID, Color.TrimColor, fk_RoofMaterialID, RoofMaterial.RoofMaterialName,RoofColorID,RoofColorName FROM HouseExterior
+  LEFT JOIN Siding S2 on HouseExterior.fk_SidingID = S2.SidingID
+  LEFT JOIN ExteriorColor E on HouseExterior.fk_ExteriorColorID = E.ExteriorColorID
+  LEFT JOIN TrimColor Color on HouseExterior.fk_TrimID = Color.TrimID
+  LEFT JOIN RoofMaterial on HouseExterior.fk_RoofMaterialID = RoofMaterial.RoofMaterialID
+  LEFT JOIN RoofColor R on HouseExterior.fk_RoofColorID = R.RoofColorID
+
+SELECT HouseApplianceID as houseApplianceID,HouseApplianceWHDate as lastWaterHeaterReplacement, HouseApplianceGDDate as lastGarbageDisposalReplacement,
+  HouseApplianceHasRefer as hasRef FROM HouseAppliances;
+
+  SELECT * FROM CookingRange WHERE RangeID = (SELECT RangeID FROM HouseAppliances WHERE HouseApplianceID = 1);
+
+
+SELECT HouseExteriorID as houseExteriorID , fk_SidingID as sidingID , SidngType as sidingName , ExteriorColorID as exteriorColorID , E.ExteriorColorName as exteriorColor , E.ExteriorColorCode as exteriorColorCode ,HouseExteriorPaintDate as exteriorPaintDate , fk_TrimID as trimID , Color.TrimColor as trim , fk_RoofMaterialID as roofMaterialID , RoofMaterial.RoofMaterialName as roofMaterial , RoofColorID as roofColorID , RoofColorName as roofColorName , HouseExteriorRoofInstall as roofInstall FROM HouseExterior LEFT JOIN Siding S2 on HouseExterior.fk_SidingID = S2.SidingID LEFT JOIN ExteriorColor E on HouseExterior.fk_ExteriorColorID = E.ExteriorColorID LEFT JOIN TrimColor Color on HouseExterior.fk_TrimID = Color.TrimID LEFT JOIN RoofMaterial on HouseExterior.fk_RoofMaterialID = RoofMaterial.RoofMaterialID LEFT JOIN RoofColor R on HouseExterior.fk_RoofColorID = R.RoofColorID WHERE SELECT * FROM HouseExterior WHERE HouseExteriorID = (SELECT fk_HouseExteriorID FROM House WHERE HouseID = 4);
+
+SELECT LeadTenantID, L FROM LeadTenant

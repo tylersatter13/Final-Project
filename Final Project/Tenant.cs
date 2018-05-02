@@ -8,10 +8,10 @@ namespace Final_Project
 {
     class Tenant
     {
-        public int tenantId;
-        public string tenantFirst;
-        public string tenantLast;
-        public string tenantPhone;
+       private int tenantId;
+       private string tenantFirst;
+       private string tenantLast;
+       private string tenantPhone;
      
 
         
@@ -21,5 +21,10 @@ namespace Final_Project
             this.tenantFirst = tenantFirst;
             this.tenantLast = tenantLast;
         }
+
+        public int TenantId { get => tenantId; set => tenantId = value; }
+        public string TenantFirst { get => tenantFirst; set => tenantFirst = value; }
+        public string TenantLast { get => tenantLast; set => tenantLast = value; }
+        public string TenantPhone { get => tenantPhone; set => tenantPhone = value; }
     }
 }

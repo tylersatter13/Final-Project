@@ -175,7 +175,7 @@ CREATE TABLE HouseExterior(
   HouseExteriorID INT primary key auto_increment,
   fk_SidingID INT,
   fk_ExteriorColorID Int,
-  HouseExteriorPaintDate,
+  HouseExteriorPaintDate Date,
   fk_TrimID INT,
   fk_RoofMaterialID INT,
   fk_RoofColorID INT,
@@ -188,7 +188,7 @@ CREATE TABLE HouseExterior(
   FOREIGN KEY (fk_RoofColorID) REFERENCES  RoofColor(RoofColorID)
 
 );
-INSERT HouseExterior VALUES (1,2,4,2,1,1,'1996-01-01');
+INSERT HouseExterior VALUES (1,2,4, 2,1,1,'1996-01-01');
 
 CREATE TABLE Tenant(
   TenantID int primary key auto_increment,

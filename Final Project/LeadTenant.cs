@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +10,21 @@ namespace Final_Project
 {
     class LeadTenant : Tenant
     {
-        public int rentAmount;
-        public DateTime rentDate;
-        public String children;
-        public int balance;
-        public List<Pet> pets;
+        private int LeadTenantID;
+        private int rentAmount;
+        private DateTime rentDate;
+        private String children;
+        private int balance;
+        private List<Pet> pets;
 
-        LeadTenant(int rentAmount, DateTime rentDate, String children, int balance, int tenantID, String tenantFirst, String tenantLast, string tenantPhone, List<Pet> pets) : this(rentAmount, rentDate, children, balance, tenantID, tenantFirst, tenantLast, tenantPhone) 
+       public LeadTenant(int LeadTenantID, int rentAmount, DateTime rentDate, String children, int balance, int tenantID, String tenantFirst, String tenantLast, string tenantPhone, List<Pet> pets) : this(LeadTenantID, rentAmount, rentDate, children, balance, tenantID, tenantFirst, tenantLast, tenantPhone) 
         {
             this.pets = pets;
         }
-        LeadTenant(int rentAmount, DateTime rentDate, String children, int balance, int tenantID, String tenantFirst, String tenantLast, string tenantPhone) : base(tenantID, tenantFirst, tenantLast,
+        public LeadTenant(int LeadTenantID, int rentAmount, DateTime rentDate, String children, int balance, int tenantID, String tenantFirst, String tenantLast, string tenantPhone) : base(tenantID, tenantFirst, tenantLast,
         tenantPhone)
         {
+            this.LeadTenantID = LeadTenantID;
             this.rentAmount = rentAmount;
             this.rentDate = rentDate;
             this.children = children;

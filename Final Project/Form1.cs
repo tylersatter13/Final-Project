@@ -30,13 +30,27 @@ namespace Final_Project
               //databaseConnection.formatUpdate("Users", update, "UserID", "4");
               databaseConnection.formatDelete("Users", "UserName", "Bob");
               databaseConnection.selectFormat(selection, filter, "Users");*/
-            Login login = new Login();
-           var results = login.validateUser("tyler", @"Betheduck13!");
-            Singleton singleton = Singleton.Instance;
-            Console.WriteLine(singleton.User.getUserName());
+            // Login login = new Login();
+             Fetch fetch = new Fetch();
 
-         
-         
+           /* var results = fetch.HouseExteriors(4);
+              try
+              {
+                HouseExterior house = results[0];
+                  Console.WriteLine(house.ExteriorColor1);
+
+              }
+              catch{
+                  Alert alert = new Alert();
+                  alert.CreateBasicAlert(3, "No Matches Found", "Error");
+              }*/
+            HouseSearch houseSearch = new HouseSearch();
+            House home = houseSearch.findAHouseByNumber("4611");
+            Console.WriteLine(home.Owner.OwnerFirst1);
+
+
+
+
         }
     }
 }
