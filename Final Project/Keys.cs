@@ -13,6 +13,11 @@ namespace Final_Project
         private DateTime KeyNumberCurrentDate;
         private String KeyNumberPrevious;
         private DateTime KeyNumberPrevDate;
+
+        public Keys(int keysID)
+        {
+            KeysID = keysID;
+        }
         public Keys(string keyNumberCurrent, DateTime keyNumberCurrentDate,
             string keyNumberPrevious, DateTime keyNumberPrevDate)
         {
@@ -21,7 +26,7 @@ namespace Final_Project
             KeyNumberPrevious = keyNumberPrevious;
             KeyNumberPrevDate = keyNumberPrevDate;
         }
-        public Keys(int keysID, string keyNumberCurrent, DateTime keyNumberCurrentDate, string keyNumberPrevious, DateTime keyNumberPrevDate):
+        public Keys(Int32 keysID, String keyNumberCurrent, DateTime keyNumberCurrentDate, String keyNumberPrevious, DateTime keyNumberPrevDate):
             this(keyNumberCurrent, keyNumberCurrentDate, keyNumberPrevious, keyNumberPrevDate)
         {
             KeysID = keysID;

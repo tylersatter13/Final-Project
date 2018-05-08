@@ -14,7 +14,10 @@ namespace Final_Project
        private string tenantPhone;
      
 
-        
+        public Tenant(int tenantID)
+        {
+           tenantId = tenantID;
+        }
         public Tenant(int tenantID, string tenantFirst, string tenantLast, string tenantPhone)
         {
             this.tenantId = tenantID;

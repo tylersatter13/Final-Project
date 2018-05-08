@@ -14,7 +14,10 @@ namespace Final_Project
         private DateTime CielingFanReplacementDate;
         private DateTime FurnanceReplacementDate;
 
-
+        public HouseInterriorFeatures( int houseInterriorFeaturesID)
+        {
+            HouseInterriorFeaturesID = houseInterriorFeaturesID;
+        }
         public HouseInterriorFeatures( DateTime hallShowerReplacementDate,
             DateTime waterHeaterReplacementDate, DateTime cielingFanReplacementDate, DateTime furnanceReplacementDate)
         {

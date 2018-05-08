@@ -31,8 +31,8 @@ namespace Final_Project
         internal HouseInterrior HouseInterrior { get => houseInterrior; set => houseInterrior = value; }
         internal HouseExterior HouseExterior { get => houseExterior; set => houseExterior = value; }
         internal LeadTenant LeadTenant { get => leadTenant; set => leadTenant = value; }
-        public string HouseNumber1 { get => HouseNumber; }
-        public int StreetID1 { get => StreetID; }
+        public string HouseNumber1 { get => HouseNumber; set => HouseNumber = value; }
+        public int StreetID1 { get => StreetID; set => StreetID = value; }
         public string Streetname1 { get => Streetname; }
         public string FloorPlan1 { get => FloorPlan; }
         public int FloorPlanID1 { get => FloorPlanID; }
@@ -41,6 +41,12 @@ namespace Final_Project
         public bool LeadDisclosure1 { get => LeadDisclosure; set => LeadDisclosure = value; }
         internal Keys Keys { get => keys; set => keys = value; }
         public string Miscellaneous1 { get => Miscellaneous; set => Miscellaneous = value; }
+
+
+     public House(Int32 HouseID)
+        {
+            HouseID1 = HouseID;
+        }
 
         House(Int32 HouseID,String HouseNumber,Int32 fk_Street,String StreetName, bool HouseDidDiscloseLea, Int32 fk_SQPlan,String SQPlanName,String miscellaneous) 
 
@@ -53,9 +59,7 @@ namespace Final_Project
             Miscellaneous1 = miscellaneous;
         }
 
-        public House()
-        {
-        }
+       
 
         public void setStreet(int StreetID,String Streetname) // If both fields contain valid inputs then the House Owner is set
         {
@@ -80,14 +84,34 @@ namespace Final_Project
         
         public void setFloorPlan(String FloorPlan, int FloorPlanID) // If both fields contain valid inputs then the Floor plan is set
         {
-            if(validate.getValidationInt().fieldHasValue(StreetID1) == false)
+            Console.WriteLine("Did enter set floor plan");
+            if (validate.getValidationInt().fieldHasValue(FloorPlanID) == false)
             {
                 if (validate.getValidationString().fieldHasValue(FloorPlan) == false)
                 {
                     this.FloorPlan = FloorPlan;
                     this.FloorPlanID = FloorPlanID;
+                    Console.WriteLine("Floor Plan was set");
+                }
+                else
+                {
+                    Console.WriteLine("Floorplan name was nil Floorplan valus were not set");
+
                 }
             }
+            else
+            {
+                Console.WriteLine("Floorplan ID was nil Floorplan valus were not set");
+            }
+
+        }
+        public void print()
+        {
+            Console.WriteLine($"HouseID:{HouseID} Owner:{Owner.OwnerFirst1} " +
+                $"Address:{HouseNumber} {Streetname} Floorplan:{FloorPlan} Lead Disclosure:{LeadDisclosure} Miscellanous:{Miscellaneous} ");
+
+            Console.WriteLine($"LeadTenant FirstName:{LeadTenant.TenantFirst} LastName:{LeadTenant.TenantLast} Phone:{LeadTenant.TenantPhone}" +
+                $"Children:{LeadTenant.Children} Balance:{LeadTenant.Balance}");
         }
     
 

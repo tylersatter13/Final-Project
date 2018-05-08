@@ -10,6 +10,8 @@ namespace Final_Project
     class CreateHouse
     {
         private Fetch fetch = new Fetch();
+        //private Validation<DateTime> validation = new Validation<DateTime>();
+        private ValidationType validation = new ValidationType();
         public House CreateNewHouse(House house)
         {
             house.Keys.KeysID1 = CreateHouseKeys(house.Keys);
@@ -20,6 +22,7 @@ namespace Final_Project
             house.ExteriorFeatures.ExteriorFeaturesID1 = CreateExterrioFeatures(house.ExteriorFeatures);
             house.HouseInterrior.HouseInteriorID1 = CreateInterrior(house.HouseInterrior);
             house.HouseExterior.HouseExteriorID1 = CreateExterrior(house.HouseExterior);
+            
             return CreateFinishedHouse(house);
 
 
@@ -30,9 +33,9 @@ namespace Final_Project
             String spName = "spCreateKeys ";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@KeyNumberCurrent", key.KeyNumberCurrent1 );
-            parameters.Add("@KeyNumberCurrentDate", key.KeyNumberCurrentDate1 );
+            parameters.Add("@KeyNumberCurrentDate", validation.getValidationDateTime().checkNullDate((key.KeyNumberCurrentDate1 )));
             parameters.Add("@KeyNumberPrevious", key.KeyNumberPrevious1 );
-            parameters.Add("@KeyNumberPrevDate", key.KeyNumberPrevDate1 );
+            parameters.Add("@KeyNumberPrevDate", validation.getValidationDateTime().checkNullDate(key.KeyNumberPrevDate1 ));
 
             return fetch.fetchKeys(parameters, spName)[0].KeysID1;
         }
@@ -42,46 +45,49 @@ namespace Final_Project
             DynamicParameters parameters = new DynamicParameters();
 
             parameters.Add("@fk_ApplianceTypeID", appliance.Type1 );
-            parameters.Add("@ApplianceBrand", appliance.Brand1);
-            parameters.Add("@ ApplianceModel", appliance.Model1);
-            parameters.Add("@ ApplianceSerial", appliance.SerialNumber1);
-            parameters.Add("@ ApplianceLastRepalcementDate", appliance.LastReplacementDate1);
+            parameters.Add("@ApplianceBrand", appliance.Brand1 );
+            parameters.Add("@ApplianceModel", appliance.Model1);
+            parameters.Add("@ApplianceSerial", appliance.SerialNumber1);
+            parameters.Add("@ApplianceLastRepalcementDate", validation.getValidationDateTime().checkNullDate((appliance.LastReplacementDate1))?? null);
             parameters.Add("@ApplianceColor", appliance.Color1);
 
-           return fetch.fetchAppliances(parameters, spName)[0].ApplianceID1;
+          var results = fetch.fetchAppliances(parameters, spName)[0].ApplianceID1;
+            return results;
+
         }
         private int CreateHouseAppliances(HouseAppliances houseAppliances)
         {
             String spName = "spCreateHouseAppliances";
 
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@fk_Ranger ", houseAppliances.Range1.ApplianceID1);
-            parameters.Add("@fk_Dishwasher ", houseAppliances.Dishwasher1.ApplianceID1);
-            parameters.Add("@HouseApplianceWHDate ", houseAppliances.LastWaterHeaterReplacement1);
-            parameters.Add("@HouseApplianceGDDate ", houseAppliances.LastGarbageDisposalReplacement1);
+            parameters.Add("@fk_Ranger", validation.getValidationInt().CheckNullForeignKey(houseAppliances.Range1.ApplianceID1));
+            parameters.Add("@fk_Dishwasher", validation.getValidationInt().CheckNullForeignKey(houseAppliances.Dishwasher1.ApplianceID1));
+            parameters.Add("@HouseApplianceGDDate", validation.getValidationDateTime().checkNullDate((houseAppliances.LastGarbageDisposalReplacement1)) ?? null) ;
             parameters.Add("@HouseApplianceHasRefer", houseAppliances.HasRef1);
 
-            return fetch.fetchHouseAppliances(parameters, spName)[0].HouseApplianceID1;
+
+            var results = fetch.fetchHouseAppliances(parameters, spName);
+               return results[0].HouseApplianceID1;
         }
         private int CreateInterrioFeatures(HouseInterriorFeatures interriorFeatures)
         {
-            String spName = "SetInterriorFeatures";
+            String spName = "spSetInterriorFeatures";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@InterriorFeaturesHallShowerDate ", interriorFeatures.HallShowerReplacementDate1);
-            parameters.Add("@InterriorFeaturesWaterHeaterDate ", interriorFeatures.WaterHeaterReplacementDate1);
-            parameters.Add("@InterriorFeaturesCelingFanDate ", interriorFeatures.CielingFanReplacementDate1);
-            parameters.Add("@InterriorFeaturesFurnanceReplacement", interriorFeatures.FurnanceReplacementDate1);
+            parameters.Add("@InterriorFeaturesHallShowerDate ", validation.getValidationDateTime().checkNullDate((interriorFeatures.HallShowerReplacementDate1)));
+            parameters.Add("@InterriorFeaturesWaterHeaterDate ", validation.getValidationDateTime().checkNullDate((interriorFeatures.WaterHeaterReplacementDate1)));
+            parameters.Add("@InterriorFeaturesCelingFanDate ", validation.getValidationDateTime().checkNullDate((interriorFeatures.CielingFanReplacementDate1)));
+            parameters.Add("@InterriorFeaturesFurnanceReplacement", validation.getValidationDateTime().checkNullDate((interriorFeatures.FurnanceReplacementDate1)));
             return fetch.fetchHouseInterriorFeatures(parameters, spName)[0].HouseInterriorFeaturesID1;
         }
         private int CreateExterrioFeatures(HouseExteriorFeatures exteriorFeatures )
         {
             String spName = "CreateExterriorFeatures";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@ExteriorFenece Date", exteriorFeatures.FenceReplacement1);
-            parameters.Add("@ExteriorGutterReplacement Date", exteriorFeatures.GutterReplacemengt1);
-            parameters.Add("@ExteriorGarageDoor Date", exteriorFeatures.GrageDoorReplacement1);
-            parameters.Add("@ExteriorDriveWay Date", exteriorFeatures.DrivewayReplacemnt1);
-            parameters.Add("@ExteriorChimney Date", exteriorFeatures.ChimneyReplacement1);
+            parameters.Add("@ExteriorFenece",validation.getValidationDateTime().checkNullDate(( exteriorFeatures.FenceReplacement1)));
+            parameters.Add("@ExteriorGutterReplacement", validation.getValidationDateTime().checkNullDate((exteriorFeatures.GutterReplacemengt1)));
+            parameters.Add("@ExteriorGarageDoor", validation.getValidationDateTime().checkNullDate((exteriorFeatures.GrageDoorReplacement1)));
+            parameters.Add("@ExteriorDriveWay", validation.getValidationDateTime().checkNullDate((exteriorFeatures.DrivewayReplacemnt1)));
+            parameters.Add("@ExteriorChimney", validation.getValidationDateTime().checkNullDate((exteriorFeatures.ChimneyReplacement1)));
 
             return fetch.fetchHouseExteriorFeatures(parameters, spName)[0].ExteriorFeaturesID1;
         }
@@ -89,16 +95,16 @@ namespace Final_Project
         {
             String spName ="spCreateHouseInterrior";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@fk_PrimaryColorID", interrior.getPrimaryPaintColorID());
-            parameters.Add("@fk_SecondaryColorID", interrior.getSecondaryPaintColorID());
-            parameters.Add("@HouseLastPaintDate", interrior.getLastPaintDate());
-            parameters.Add("@fk_CarpetColorID", interrior.getCarpetColorName() );
-            parameters.Add("@HouseInteriorCarpetDate", interrior.getCarpetInstallDate());
-            parameters.Add("@fk_FermicaColorID", interrior.getFermicaColorID());
-            parameters.Add("@fk_VynlColorID", interrior.getVynalColorID());
-            parameters.Add("@HouseInteriorVFInstall", interrior.getVandFInstallDate());
-            parameters.Add("@fk_StainID", interrior.getStaindID());
-            parameters.Add("@HouseBlindReplacement", interrior.getBlindReplaceMent());
+            parameters.Add("@fk_PrimaryColorID", interrior.PrimaryPaintColorID1);
+            parameters.Add("@fk_SecondaryColorID",  validation.getValidationInt().CheckNullForeignKey(interrior.SecondaryPaintColorID1));
+            parameters.Add("@HouseLastPaintDate", validation.getValidationDateTime().checkNullDate((interrior.LastPaintDate1)));
+            parameters.Add("@fk_CarpetColorID", validation.getValidationInt().CheckNullForeignKey(interrior.CarpetColorID1) );
+            parameters.Add("@HouseInteriorCarpetDate", validation.getValidationDateTime().checkNullDate((interrior.CarpetInstallDate1)));
+            parameters.Add("@fk_FermicaColorID", validation.getValidationInt().CheckNullForeignKey(interrior.FermicaColorID1));
+            parameters.Add("@fk_VynlColorID", validation.getValidationInt().CheckNullForeignKey(interrior.VynalColorID1));
+            parameters.Add("@HouseInteriorVFInstall", validation.getValidationDateTime().checkNullDate(interrior.VandFInstall1));
+            parameters.Add("@fk_StainID", validation.getValidationInt().CheckNullForeignKey(interrior.StainID1));
+            parameters.Add("@HouseBlindReplacement", validation.getValidationDateTime().checkNullDate(interrior.Blindreplacement1));
 
             return fetch.fetchHouseInterrior(parameters, spName)[0].HouseInteriorID1;
         }
@@ -106,15 +112,15 @@ namespace Final_Project
         {
             String spName = "spCreateHouseExterior";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@fk_SidingID", exterior.SidingID1);
-            parameters.Add("@fk_ExteriorColorID",exterior.ExteriorColorID1);
-            parameters.Add("@HouseExteriorPaintDate", exterior.ExteriorPaintDate1);
-            parameters.Add("@fk_TrimID", exterior.TrimID1);
-            parameters.Add("@fk_RoofMaterialID", exterior.RoofMaterialID1);
-            parameters.Add("@fk_RoofColorID", exterior.RoofColorID1);
-            parameters.Add("@HousseExteriorRoofInstall",exterior.RoofInstall1);
+            parameters.Add("@fk_SidingID", validation.getValidationInt().CheckNullForeignKey(exterior.SidingID1));
+            parameters.Add("@fk_ExteriorColorID", validation.getValidationInt().CheckNullForeignKey(exterior.ExteriorColorID1));
+            parameters.Add("@HouseExteriorPaintDate", validation.getValidationDateTime().checkNullDate(exterior.ExteriorPaintDate1));
+            parameters.Add("@fk_TrimID", validation.getValidationInt().CheckNullForeignKey(exterior.TrimID1));
+            parameters.Add("@fk_RoofMaterialID", validation.getValidationInt().CheckNullForeignKey(exterior.RoofMaterialID1));
+            parameters.Add("@fk_RoofColorID", validation.getValidationInt().CheckNullForeignKey(exterior.RoofColorID1));
+            parameters.Add("@HouseExteriorRoofInstall", validation.getValidationDateTime().checkNullDate(exterior.RoofInstall1));
 
-            return fetch.HouseExteriors(parameters, spName)[0].ExteriorColorID1;
+            return fetch.HouseExteriors(parameters, spName)[0].HouseExteriorID1;
         }
         private House CreateFinishedHouse(House house)
         {
@@ -123,20 +129,21 @@ namespace Final_Project
 
             parameters.Add("@HouseNumber", house.HouseNumber1);
             parameters.Add("@fk_Street",house.StreetID1);
-            parameters.Add("@fk_Owner", house.Owner);
-            parameters.Add("@fk_LeadTenant", house.LeadTenant.LeadTenantID1);
+            parameters.Add("@fk_Owner", house.Owner.OwnerID1);
+            parameters.Add("@fk_LeadTenant", validation.getValidationInt().CheckNullForeignKey(house.LeadTenant.LeadTenantID1));
             parameters.Add("@fk_SQPlan", house.FloorPlanID1);
             parameters.Add("@fk_HouseInterriorID", house.HouseInterrior.HouseInteriorID1);
             parameters.Add("@fk_HouseExteriorID ", house.HouseExterior.HouseExteriorID1);
-            parameters.Add("@fk_KeyNunberID", house.Keys.KeysID1);
+            parameters.Add("@fk_KeyNunberID", validation.getValidationInt().CheckNullForeignKey(house.Keys.KeysID1));
             parameters.Add("@fk_interriorFeaturesID  ", house.InterriorFeatures.HouseInterriorFeaturesID1);
             parameters.Add("@fk_ExterriorFeaturesID  ", house.HouseExterior.HouseExteriorID1);
             parameters.Add("@HouseDidDiscloseLea", house.LeadDisclosure1);
-            parameters.Add("@fk_HouseAppliancesID  ", house.HouseAppliances);
+            parameters.Add("@fk_HouseAppliancesID  ", house.HouseAppliances.HouseApplianceID1);
             parameters.Add("@HouseMiscellaneous", house.Miscellaneous1);
 
            return fetch.fetchHouseInformation(parameters, spName)[0];
 
         }
-    }
+      
+    } 
 }

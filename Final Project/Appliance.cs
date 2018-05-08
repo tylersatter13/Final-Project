@@ -16,7 +16,13 @@ namespace Final_Project
         private DateTime LastReplacementDate;
         private int Type;
 
-        public Appliance(Int32 applianceID, String brand, String color, String model, String serialNumber, Int32 applianceType,  DateTime lastReplacementDate)
+
+        public Appliance(Int32 applianceID)
+        {
+            ApplianceID = applianceID;
+            LastReplacementDate = new DateTime();
+        }
+        public Appliance(Int32 applianceID, String brand, String color, String model, String serialNumber, Int32 applianceType, DateTime lastReplacementDate)
         {
             ApplianceID = applianceID;
             Brand = brand;

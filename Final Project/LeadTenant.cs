@@ -24,6 +24,10 @@ namespace Final_Project
         public decimal Balance { get => balance; set => balance = value; }
         internal List<Pet> Pets { get => pets; set => pets = value; }
 
+        public LeadTenant(Int32 LeadTenantID, Int32 TenantID):base(TenantID)
+        {
+            LeadTenantID1 = LeadTenantID;
+        }
         public LeadTenant(Int32 LeadTenantID, Decimal rentAmount, DateTime rentDate, Int32 Children, Int32 balance, Int32 TenantID,
            String TenantFirst, String TenantLast, String TenantPhone, List<Pet> pets) 
             : this(LeadTenantID, rentAmount, rentDate, Children, balance, TenantID, TenantFirst, TenantLast, TenantPhone) 

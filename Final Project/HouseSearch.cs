@@ -19,12 +19,14 @@ namespace Final_Project
             {
                 String spName = "spGetHouseByExterriorColor";
                 DynamicParameters parameters = new DynamicParameters();
-
+                parameters.Add("@colorID", ColorID);
                 var homes = fetch.fetchHouseInformation(parameters, spName);
-
+                
                 foreach (House house in homes )
                 {
                     house.HouseExterior = GetHouseExterior(house.HouseID1);
+                    house.Owner = fetch.fetchHouseOwner(house.HouseID1)[0];
+                    house.LeadTenant = fetch.fetchLeadTenants(house.HouseID1)[0];
                 }
                 return homes;
             }
@@ -50,6 +52,8 @@ namespace Final_Project
                 foreach(House house in homes)
                 {
                     house.HouseInterrior = GetHouseInterrior(house.HouseID1);
+                    house.Owner = fetch.fetchHouseOwner(house.HouseID1)[0];
+                    house.LeadTenant = fetch.fetchLeadTenants(house.HouseID1)[0];
                 }
                 return homes;
             }
@@ -112,7 +116,7 @@ namespace Final_Project
         }
     private HouseInterriorFeatures GetHouseInterriorFeatures(int HouseID)
         {
-            String spName = "spGetTheInterriorFeature";
+            String spName = "spGetTheInterriorFeatures";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@HouseID", HouseID);
 

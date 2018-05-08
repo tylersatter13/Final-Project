@@ -13,6 +13,10 @@ namespace Final_Project
         private String OwnerLast;
         private String OwnerInitals;
 
+        public Owner(int ownerID)
+        {
+            OwnerID = ownerID;
+        }
         public Owner(int ownerID, string ownerFirst, string ownerLast, string ownerInitals)
         {
             OwnerID1 = ownerID;
