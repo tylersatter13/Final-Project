@@ -11,23 +11,33 @@ namespace Final_Project
     class LeadTenant : Tenant
     {
         private int LeadTenantID;
-        private int rentAmount;
+        private Decimal rentAmount;
         private DateTime rentDate;
-        private String children;
-        private int balance;
+        private int children;
+        private Decimal balance;
         private List<Pet> pets;
 
-       public LeadTenant(int LeadTenantID, int rentAmount, DateTime rentDate, String children, int balance, int tenantID, String tenantFirst, String tenantLast, string tenantPhone, List<Pet> pets) : this(LeadTenantID, rentAmount, rentDate, children, balance, tenantID, tenantFirst, tenantLast, tenantPhone) 
+        public int LeadTenantID1 { get => LeadTenantID; set => LeadTenantID = value; }
+        public decimal RentAmount { get => rentAmount; set => rentAmount = value; }
+        public DateTime RentDate { get => rentDate; set => rentDate = value; }
+        public int Children { get => children; set => children = value; }
+        public decimal Balance { get => balance; set => balance = value; }
+        internal List<Pet> Pets { get => pets; set => pets = value; }
+
+        public LeadTenant(Int32 LeadTenantID, Decimal rentAmount, DateTime rentDate, Int32 Children, Int32 balance, Int32 TenantID,
+           String TenantFirst, String TenantLast, String TenantPhone, List<Pet> pets) 
+            : this(LeadTenantID, rentAmount, rentDate, Children, balance, TenantID, TenantFirst, TenantLast, TenantPhone) 
         {
             this.pets = pets;
         }
-        public LeadTenant(int LeadTenantID, int rentAmount, DateTime rentDate, String children, int balance, int tenantID, String tenantFirst, String tenantLast, string tenantPhone) : base(tenantID, tenantFirst, tenantLast,
-        tenantPhone)
+        public LeadTenant(Int32 LeadTenantID, Decimal rentAmount, DateTime rentDate, Int32 Children,
+            Decimal balance, Int32 TenantID, String TenantFirst, String TenantLast, String TenantPhone) 
+            : base(TenantID, TenantFirst, TenantLast, TenantPhone)
         {
             this.LeadTenantID = LeadTenantID;
             this.rentAmount = rentAmount;
             this.rentDate = rentDate;
-            this.children = children;
+            this.children = Children;
             this.balance = balance;
 
         }

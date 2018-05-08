@@ -15,6 +15,20 @@ namespace Final_Project
         private DateTime DrivewayReplacemnt;
         private DateTime ChimneyReplacement;
 
+        public HouseExteriorFeatures(int exteriorFeaturesID)
+        {
+            ExteriorFeaturesID = exteriorFeaturesID;
+        }
+        public HouseExteriorFeatures(DateTime fenceReplacement, DateTime gutterReplacemengt,
+            DateTime grageDoorReplacement, DateTime drivewayReplacemnt, DateTime chimneyReplacement)
+        {
+            FenceReplacement = fenceReplacement;
+            GutterReplacemengt = gutterReplacemengt;
+            GrageDoorReplacement = grageDoorReplacement;
+            DrivewayReplacemnt = drivewayReplacemnt;
+            ChimneyReplacement = chimneyReplacement;
+        }
+
         public HouseExteriorFeatures(int exteriorFeaturesID, DateTime fenceReplacement, DateTime gutterReplacemengt, DateTime grageDoorReplacement, DateTime drivewayReplacemnt, DateTime chimneyReplacement)
         {
             ExteriorFeaturesID = exteriorFeaturesID;

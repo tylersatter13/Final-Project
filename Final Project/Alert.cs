@@ -12,7 +12,7 @@ namespace Final_Project
         //Provides a  Yes or No question to the user an then returns a response to the calling method
         public bool CreateChoiceAlert(int AlertType, string title, string description)
         {
-            DialogResult result = MessageBox.Show(description, title, MessageBoxButtons.YesNo, DetermineMessageType(AlertType));
+            DialogResult result = MessageBox.Show(title,description, MessageBoxButtons.YesNo, DetermineMessageType(AlertType));
 
              
             if (result == DialogResult.Yes) //Determine if the user selected The postive or negative button

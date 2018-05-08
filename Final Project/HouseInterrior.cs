@@ -8,7 +8,7 @@ namespace Final_Project
 {
     class HouseInterrior
     {
-        private int HouseInteriorID { get; }
+        private int HouseInteriorID;
         private int PrimaryPaintColorID;
         private String PrimaryPaintColor;
         private String PrimaryPaintColorCode;
@@ -23,41 +23,63 @@ namespace Final_Project
         private String FermicaColorName { get; set; }
         private int VynalColorID { get; set; }
         private String VynalColorName { get; set; }
+        public int HouseInteriorID1 { get => HouseInteriorID; set => HouseInteriorID = value; }
+
         private DateTime VandFInstall;
         private int StainID;
         private String StainColor;
         private DateTime Blindreplacement;
         public ValidationType validation = new ValidationType();
-        public HouseInterrior(int HouseInteriorID, int PrimaryPaintColorID, String PrimaryPaintColor, String PrimaryPaintCode, int SecondaryPaintColorID, String SecondaryPiantColorCode, 
+        
+        public HouseInterrior(int HouseInteriorID)
+        {
+            HouseInteriorID1 = HouseInteriorID;
+        }
+        public HouseInterrior(int PrimaryPaintColorID, String PrimaryPaintColor, String PrimaryPaintCode, int SecondaryPaintColorID, String SecondaryPiantColorCode,
+     String SecondaryPaintColorCode, DateTime LastPaintDate, int CarpetColorID, String CarpetColorName, DateTime CarpetInstallDate, int FermicaColorID,
+      String FermicaColorName, int VynalColorID, String VynalColorName, DateTime VandFInstall, int StainID, String StainColor, DateTime Blindreplacement)
+        {
+            setLastPaintDate(LastPaintDate);
+            setPrimaryColor(PrimaryPaintColorID, PrimaryPaintColor, PrimaryPaintColorCode);
+            setSecondaryColor(SecondaryPaintColorID, SecondaryPaintColor, SecondaryPiantColorCode);
+            setCarpert(CarpetColorID, CarpetColorName);
+            setCarpetInstallDate(CarpetInstallDate);
+            setFermica(FermicaColorID, FermicaColorName);
+            setVynal(VynalColorID, VynalColorName);
+            setVandFInstall(VandFInstall);
+            setStain(StainID, StainColor);
+            setBlindReplacement(Blindreplacement);
+        }
+        public HouseInterrior(int HouseInteriorID, int PrimaryPaintColorID, String PrimaryPaintColor, String PrimaryPaintCode, int SecondaryPaintColorID, String SecondaryPiantColorCode,
             String SecondaryPaintColorCode, DateTime LastPaintDate, int CarpetColorID, String CarpetColorName, DateTime CarpetInstallDate, int FermicaColorID,
              String FermicaColorName, int VynalColorID, String VynalColorName, DateTime VandFInstall, int StainID, String StainColor, DateTime Blindreplacement)
         {
-            this.HouseInteriorID = HouseInteriorID;
+            this.HouseInteriorID1= HouseInteriorID;
             setLastPaintDate(LastPaintDate);
-            setPrimaryColor(PrimaryPaintColorID, PrimaryPaintColor,PrimaryPaintColorCode);
+            setPrimaryColor(PrimaryPaintColorID, PrimaryPaintColor, PrimaryPaintColorCode);
             setSecondaryColor(SecondaryPaintColorID, SecondaryPaintColor, SecondaryPiantColorCode);
-            setCarpert(CarpetColorID,CarpetColorName);
+            setCarpert(CarpetColorID, CarpetColorName);
             setCarpetInstallDate(CarpetInstallDate);
-            setFermica(FermicaColorID,FermicaColorName);
-            setVynal(VynalColorID,VynalColorName);
+            setFermica(FermicaColorID, FermicaColorName);
+            setVynal(VynalColorID, VynalColorName);
             setVandFInstall(VandFInstall);
-            setStain(StainID,StainColor);
+            setStain(StainID, StainColor);
             setBlindReplacement(Blindreplacement);
         }
         //SETTERs 
         //On setters where there is a two variables the String is just the human representation of the value
         //The ID properties are the values that impact actual changes when storing data to the database.
-        public void setPrimaryColor(int PrimaryPaintColorID, String PrimaryPaintColor,String PrimaryPaintColorCode )
+        public void setPrimaryColor(int PrimaryPaintColorID, String PrimaryPaintColor, String PrimaryPaintColorCode)
         {
-            if (validateSetters(PrimaryPaintColorID, PrimaryPaintColor,PrimaryPaintColorCode) == false)
+            if (validateSetters(PrimaryPaintColorID, PrimaryPaintColor, PrimaryPaintColorCode) == false)
             {
                 this.PrimaryPaintColor = PrimaryPaintColor;
                 this.PrimaryPaintColorID = PrimaryPaintColorID;
                 this.PrimaryPaintColorCode = PrimaryPaintColorCode;
             }
         }
-        public void setSecondaryColor(int SecondaryPaintColorID, String SecondaryPaintColor,String  SecondaryPiantColorCode)
-      
+        public void setSecondaryColor(int SecondaryPaintColorID, String SecondaryPaintColor, String SecondaryPiantColorCode)
+
         {
             if (validateSetters(SecondaryPaintColorID, SecondaryPaintColor, SecondaryPiantColorCode) == false)
             {
@@ -111,7 +133,7 @@ namespace Final_Project
         }
         public void setVandFInstall(DateTime VandFInstall)
         {
-           if (validation.getValidationDateTime().fieldHasValue(VandFInstall) == false)
+            if (validation.getValidationDateTime().fieldHasValue(VandFInstall) == false)
             {
                 this.VandFInstall = VandFInstall;
             }
@@ -120,10 +142,11 @@ namespace Final_Project
         {
             if (validation.getValidationDateTime().fieldHasValue(CarpetInstallDate) == false)
             {
-                this.CarpetInstallDate= CarpetInstallDate;
+                this.CarpetInstallDate = CarpetInstallDate;
             }
 
         }
+
         //Getters
 
         public int getPrimaryPaintColorID()
@@ -144,7 +167,7 @@ namespace Final_Project
         }
         public int getHouseInterriorID()
         {
-            return HouseInteriorID;
+            return HouseInteriorID1;
         }
         public DateTime getLastPaintDate()
         {
@@ -186,9 +209,12 @@ namespace Final_Project
         {
             return VandFInstall;
         }
-
+        public DateTime getBlindReplaceMent()
+        {
+            return Blindreplacement;
+        }
         //Makes sure that both fields are not emply
-        private bool validateSetters(int ID, String Name ,String code)
+        private bool validateSetters(int ID, String Name, String code)
         {
             if (validation.getValidationString().fieldHasValue(code) == false)
             {
@@ -203,7 +229,7 @@ namespace Final_Project
         {
             if (validation.getValidationInt().fieldHasValue(ID) == false)
             {
-                if (validation.getValidationString().fieldHasValue(Name)== false)
+                if (validation.getValidationString().fieldHasValue(Name) == false)
                 {
                     return false;
                 }

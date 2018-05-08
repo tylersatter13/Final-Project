@@ -226,8 +226,11 @@ CREATE TABLE LeadTenant(
   LeadTenantID int PRIMARY KEY identity(1,1),
   fk_TenantID int,
   LeadPetFeePaid Bit,
+  Children int,
   LeadTenantRentStart DATE,
-  Children int
+  LeadTenantRentAmount DECIMAL,
+  LeadTenantBalance DECIMAL,
+
 
   FOREIGN KEY (fk_TenantID) REFERENCES Tenant(TenantID)
 );
@@ -322,7 +325,7 @@ CREATE TABLE House (
   fk_ExterriorFeaturesID int,
   HouseDidDiscloseLea bit,
   HouseRentStartDate date,
-  HouseRent double precision,
+
   fk_HouseAppliancesID int,
   HouseMiscellaneous varchar(255)
 
@@ -343,7 +346,13 @@ INSERT House (HouseNumber, fk_Street, fk_Owner, fk_LeadTenant, fk_SQPlan, fk_Hou
               fk_InterriorFeaturesID,fk_ExterriorFeaturesID, HouseDidDiscloseLea, HouseRentStartDate, HouseRent, fk_HouseAppliancesID,HouseMiscellaneous)
               VALUES('4611',1,2,NULL,1,1,1,NULL,1,1,0,'2017-07-07',919,  1,NULL);
 
+CREATE TABLE ApplianceMaintenance(
+  fk_ApplianceID int,
+  fk_MaintenanceRequest int,
 
+  PRIMARY KEY (fk_ApplianceID,fk_MaintenanceRequest),
+  FOREIGN KEY (fk_ApplianceID) REFERENCES
+)
 CREATE TABLE MaintenanceTechnician (
   MaintenanceTechniciansID int primary key,
   MaintenanceTechnicianFirst varchar(20) NOT NULL,
@@ -353,6 +362,14 @@ CREATE TABLE MaintenanceRequestType(
   MaintenanceRequestTypeID int primary key identity(1,1),
   MaintenanceRequestTypeName varchar(30)
 );
+Insert MaintenanceRequestType (MaintenanceRequestTypeName)VALUES ('Appliance');
+Insert MaintenanceRequestType (MaintenanceRequestTypeName)VALUES ('Plumbing');
+Insert MaintenanceRequestType (MaintenanceRequestTypeName)VALUES ('Electrical');
+Insert MaintenanceRequestType (MaintenanceRequestTypeName)VALUES ('Roof');
+Insert MaintenanceRequestType (MaintenanceRequestTypeName)VALUES ('Paint');
+Insert MaintenanceRequestType (MaintenanceRequestTypeName)VALUES ('Landscape');
+Insert MaintenanceRequestType (MaintenanceRequestTypeName)VALUES ('Floor');
+Insert MaintenanceRequestType (MaintenanceRequestTypeName)VALUES ('Cabinet');
 CREATE TABLE MaintenanceRequest (
   MaintenenceRequestID int primary key identity(1,1),
   fk_LeadTenantID int NOT NULL,
@@ -370,6 +387,7 @@ CREATE TABLE MaintenanceRequest (
   FOREIGN KEY (fk_MaintenanceTechnician) REFERENCES  MaintenanceTechnician(MaintenanceTechniciansID),
   FOREIGN KEY (fk_MaintenanceRequestTypeID) REFERENCES MaintenanceRequestType(MaintenanceRequestTypeID)
 );
+SELECT MaintenenceIsAppliance FROM MaintenanceRequest
 CREATE TABLE PartBrand(
   PartBrandID int identity(1,1) primary key,
   PartBrandName varchar(20) NOT NULL
@@ -396,24 +414,51 @@ CREATE TABLE  TransactionTypes(
   TransactionTypeID int identity(1,1) primary key,
   TransactionType varchar(20) NOT NULL
 );
+INSERT TransactionTypes (TransactionType) VALUES ('Rent Charged')
+INSERT TransactionTypes (TransactionType) VALUES ('Rent Paid')
+INSERT TransactionTypes (TransactionType) VALUES ('Pet Fee Charged')
+INSERT TransactionTypes (TransactionType) VALUES ('Pet Fee Paid')
+INSERT TransactionTypes (TransactionType) VALUES ('Late Fee')
+INSERT TransactionTypes (TransactionType) VALUES ('Note')
+
 CREATE TABLE  TransactionFlags(
   TransactionFlagID int identity(1,1) primary key,
   TransactionFlagName varchar(30)
 );
   CREATE TABLE TenantTransaction(
     TransactionID int primary key identity(1,1),
-    fk_TennantID int,
+    fk_LeadTennantID int,
     TransactionDate date,
     fk_TransactonTypeID int,
     TransactionAmount double precision,
     TransactionNotes varchar(255),
-    fk_TransactionFlags int,
 
-    FOREIGN KEY (fk_TennantID) REFERENCES Tenant(TenantID),
+    FOREIGN KEY (fk_LeadTennantID) REFERENCES LeadTenant(LeadTenantID),
     FOREIGN KEY (fk_TransactonTypeID) REFERENCES  TransactionTypes(TransactionTypeID) ,
-    FOREIGN KEY (fk_TransactionFlags) REFERENCES  TransactionFlags(TransactionFlagID)
-
 );
+CREATE TABLE TenantFlag(
+  TenantFlagID int primary key identity(1,1),
+  TenantFlagName VARCHAR(30)
+)
+INSERT TenantTransaction (fk_LeadTennantID, TransactionDate, fk_TransactonTypeID, TransactionAmount, TransactionNotes, VALUES  (2,'2007-12-11',1,-989,NULL);
+INSERT TenantTransaction (fk_LeadTennantID, TransactionDate, fk_TransactonTypeID, TransactionAmount, TransactionNotes,  VALUES  (2,'2008-01-11',2, 989,NULL);
+INSERT TenantTransaction (fk_LeadTennantID, TransactionDate, fk_TransactonTypeID, TransactionAmount, TransactionNotes, VALUES  (2,'2008-02-11',1,-989,NULL);
+INSERT TenantTransaction (fk_LeadTennantID, TransactionDate, fk_TransactonTypeID, TransactionAmount, TransactionNotes, VALUES  (2,'2008-03-11',2, -989,NULL);
+INSERT TenantTransaction (fk_LeadTennantID, TransactionDate, fk_TransactonTypeID, TransactionAmount, TransactionNotes, VALUES  (2,'2008-04-11',1, 989,NULL);
+INSERT TenantTransaction (fk_LeadTennantID, TransactionDate, fk_TransactonTypeID, TransactionAmount, TransactionNotes, VALUES  (2,'2008-05-11',1, 989,NULL);
+
+SELECT LeadTenantID, SUM (TransactionAmount) AS Balance FROM TenantTransaction INNER JOIN LeadTenant L on TenantTransaction.fk_LeadTennantID = L.LeadTenantID
+CREATE TABLE PetType(
+		PetTypeID INT PRIMARY KEY IDENTITY(1,1),
+		PetTypeName VARCHAR(30));
+
+
+INSERT PetType (PetTypeName) VALUES ('Dog');
+INSERT PetType (PetTypeName) VALUES ('Cat');
+INSERT PetType (PetTypeName) VALUES ('Bird');
+INSERT PetType (PetTypeName) VALUES ('Hamster');
+INSERT PetType (PetTypeName) VALUES ('Snake');
+INSERT PetType (PetTypeName) VALUES ('Guinea Pig');
 SELECT HouseID,fk_Owner, HouseNumber,fk_Street,fk_SQPlan,fk_LeadTenant,fk_LeadTenant,fk_HouseInterriorID,fk_HouseExteriorID,fk_HouseAppliancesID,
   fk_InterriorFeaturesID,fk_ExterriorFeaturesID FROM House
   INNER JOIN Street S2 on House.fk_Street = S2.StreetID
@@ -453,5 +498,6 @@ SELECT HouseApplianceID as houseApplianceID,HouseApplianceWHDate as lastWaterHea
 
 
 SELECT HouseExteriorID as houseExteriorID , fk_SidingID as sidingID , SidngType as sidingName , ExteriorColorID as exteriorColorID , E.ExteriorColorName as exteriorColor , E.ExteriorColorCode as exteriorColorCode ,HouseExteriorPaintDate as exteriorPaintDate , fk_TrimID as trimID , Color.TrimColor as trim , fk_RoofMaterialID as roofMaterialID , RoofMaterial.RoofMaterialName as roofMaterial , RoofColorID as roofColorID , RoofColorName as roofColorName , HouseExteriorRoofInstall as roofInstall FROM HouseExterior LEFT JOIN Siding S2 on HouseExterior.fk_SidingID = S2.SidingID LEFT JOIN ExteriorColor E on HouseExterior.fk_ExteriorColorID = E.ExteriorColorID LEFT JOIN TrimColor Color on HouseExterior.fk_TrimID = Color.TrimID LEFT JOIN RoofMaterial on HouseExterior.fk_RoofMaterialID = RoofMaterial.RoofMaterialID LEFT JOIN RoofColor R on HouseExterior.fk_RoofColorID = R.RoofColorID WHERE SELECT * FROM HouseExterior WHERE HouseExteriorID = (SELECT fk_HouseExteriorID FROM House WHERE HouseID = 4);
-
-SELECT LeadTenantID, L FROM LeadTenant
+SELECT * FROM House WHERE fk_HouseInterriorID = (SELECT fk_HouseInterriorID from HouseInterior WHERE fk_PrimaryColorID = 1 OR fk_SecondaryColorID = 1)
+SELECT  * FROM  House WHERE fk_ExterriorFeaturesID = (SELECT  fk_HouseExteriorID from HouseExterior WHERE  fk_ExteriorColorID = 1);
+SELECT LeadTenantID, LeadTenantRentAmount,LeadTenantRentStart, Children, LeadTenantBalance as balance, TenantID,TenantFirst,TenantLast,TenantPhone FROM LeadTenant LEFT JOIN Tenant T on LeadTenant.fk_TenantID = T.TenantID WHERE LeadTenantID = (SELECT fk_LeadTenant FROM House WHERE HouseID=4)

@@ -31,25 +31,40 @@ namespace Final_Project
               databaseConnection.formatDelete("Users", "UserName", "Bob");
               databaseConnection.selectFormat(selection, filter, "Users");*/
             // Login login = new Login();
-             Fetch fetch = new Fetch();
+            //   Fetch fetch = new Fetch();
+            // HouseSearch search = new HouseSearch();
+            // var results = search.findAHouseByNumber("4611");
+            ///    try
+            /*   {
+                 House house = results;
+                   Console.WriteLine(house.HouseNumber1);
 
-           /* var results = fetch.HouseExteriors(4);
-              try
-              {
-                HouseExterior house = results[0];
-                  Console.WriteLine(house.ExteriorColor1);
+               }
+               catch{
+                   Alert alert = new Alert();
+                   alert.CreateBasicAlert(3, "No Matches Found", "Error");
+               }*/
+            //   SearchMaintenanceRequests search = new SearchMaintenanceRequests();
+            //List<MaintenanceRequest> maintenanceRequests = search.searchForRequestsByType(1);
+            // MaintenanceRequest request = search.searchByHouseNumber("4588");
+            // Console.WriteLine(request.Appliances[0].Brand1);
+              TransactionManager tenantTransaction = new TransactionManager();
+              var results = tenantTransaction.GetTenantTransactions("McAlpine");
+            //  DatabaseConnection<TransactionManager> databaseConnection = new DatabaseConnection<TransactionManager>();
+            //databaseConnection.insertTransaction();
+            results[1].notes.Append("ABCD");
+             results = tenantTransaction.UpdateTenantTransactions(results[1]);
+            results = tenantTransaction.DeleteTenantTransaction(results[1].transactionID, results[1].LeadtenantID);
+            foreach ( TenantTransaction result in results)
+            {
+                Console.WriteLine("Transaction ID:" + result.transactionID + " " + "Transaction Date: " + result.transactionDate+ " " + "Transaction Balance:" + result.currentBalance + " " +"Notes"+ result.notes.ToString());
+                
+            }
+         
+        
+           
 
-              }
-              catch{
-                  Alert alert = new Alert();
-                  alert.CreateBasicAlert(3, "No Matches Found", "Error");
-              }*/
-            HouseSearch houseSearch = new HouseSearch();
-            House home = houseSearch.findAHouseByNumber("4611");
-            Console.WriteLine(home.Owner.OwnerFirst1);
-
-
-
+           // MaintenanceRequest maintenanceRequest = new MaintenanceRequest(1,false,true, DateTime.Today,DateTime.Today,DateTime.Today,DateTime.Today,1,1," "," ");
 
         }
     }

@@ -9,24 +9,24 @@ namespace Final_Project
     class TenantTransaction
     {
        public int transactionID;
-       public int tenantID;
+       public int LeadtenantID;
        public DateTime transactionDate;
        public int transactiontype;
-       public double transactionAmount;
-       public double currentBalance;
+       public decimal transactionAmount;
+       public decimal currentBalance;
        public  int transactionFlag;
-       public StringBuilder notes;
+       public StringBuilder notes = new StringBuilder();
 
-        TenantTransaction(int transactionID, int tenantID, DateTime transactionDate, int transactiontype, double transactionAmount, double currentBalance, int transactionFlag, StringBuilder notes)
+        TenantTransaction(Int32  transactionID, Int32  LeadtenantID, DateTime transactionDate,
+            Int32  transactiontype, decimal transactionAmount, decimal currentBalance, String Notes)
         {
             this.transactionID = transactionID;
-            this.tenantID = tenantID;
+            this.LeadtenantID = LeadtenantID;
             this.transactionDate = transactionDate;
             this.transactiontype = transactiontype;
             this.transactionAmount = transactionAmount;
             this.currentBalance = currentBalance;
-            this.transactionFlag = transactionFlag;
-            this.notes = notes;
+            notes.Append(Notes);
         }
         public String getTransactionType()
         {
@@ -34,8 +34,10 @@ namespace Final_Project
             {
                 case 1:
                     return "Debt";
-                case 2: return "Credit";
-                default: return "Unkown";
+                case 2:
+                    return "Credit";
+                default:
+                    return "Unkown";
             }
         }
         public String getTransactionFlag()

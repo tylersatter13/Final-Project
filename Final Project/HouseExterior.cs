@@ -23,7 +23,27 @@ namespace Final_Project
         private String RoofColorName;
         private DateTime RoofInstall;
 
-        public HouseExterior(Int32 houseExteriorID, Int32 sidingID, String sidingName, Int32 exteriorColorID, String exteriorColor,String exteriorColorCode, DateTime exteriorPaintDate, Int32 trimID,String trim, Int32 roofMaterialID,String roofMaterial, Int32 roofColorID, String roofColorName, DateTime roofInstall)
+        public HouseExterior(Int32 houseExteriorID)
+        {
+            HouseExteriorID = houseExteriorID;
+        }
+        public HouseExterior(Int32 sidingID, String sidingName, Int32 exteriorColorID, String exteriorColor, String exteriorColorCode, DateTime exteriorPaintDate, Int32 trimID, String trim, Int32 roofMaterialID, String roofMaterial, Int32 roofColorID, String roofColorName, DateTime roofInstall)
+        {
+            SidingID1 = sidingID;
+            SidingName1 = sidingName;
+            ExteriorColorID1 = exteriorColorID;
+            ExteriorColor1 = exteriorColor;
+            ExteriorPaintDate1 = exteriorPaintDate;
+            TrimID1 = trimID;
+            Trim1 = trim;
+            RoofMaterialID1 = roofMaterialID;
+            RoofMaterial1 = roofMaterial;
+            RoofInstall1 = roofInstall;
+            RoofColorID1 = roofColorID;
+            RoofColorName1 = roofColorName;
+        }
+        public HouseExterior(Int32 houseExteriorID, Int32 sidingID, String sidingName, Int32 exteriorColorID, String exteriorColor,String exteriorColorCode, DateTime exteriorPaintDate, 
+            Int32 trimID,String trim, Int32 roofMaterialID,String roofMaterial, Int32 roofColorID, String roofColorName, DateTime roofInstall)
         {
             HouseExteriorID1 = houseExteriorID;
             SidingID1 = sidingID;
@@ -36,8 +56,8 @@ namespace Final_Project
             RoofMaterialID1 = roofMaterialID;
             RoofMaterial1 = roofMaterial;
             RoofInstall1 = roofInstall;
-            RoofColorID = roofColorID;
-            RoofColorName = roofColorName;
+            RoofColorID1 = roofColorID;
+            RoofColorName1 = roofColorName;
         }
 
         public int HouseExteriorID1 { get => HouseExteriorID; set => HouseExteriorID = value; }
@@ -51,5 +71,7 @@ namespace Final_Project
         public int RoofMaterialID1 { get => RoofMaterialID; set => RoofMaterialID = value; }
         public string RoofMaterial1 { get => RoofMaterial; set => RoofMaterial = value; }
         public DateTime RoofInstall1 { get => RoofInstall; set => RoofInstall = value; }
+        public int RoofColorID1 { get => RoofColorID; set => RoofColorID = value; }
+        public string RoofColorName1 { get => RoofColorName; set => RoofColorName = value; }
     }
 }

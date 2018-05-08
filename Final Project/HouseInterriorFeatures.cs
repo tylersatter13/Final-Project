@@ -14,7 +14,17 @@ namespace Final_Project
         private DateTime CielingFanReplacementDate;
         private DateTime FurnanceReplacementDate;
 
-        public HouseInterriorFeatures(int houseInterriorFeaturesID, DateTime hallShowerReplacementDate, DateTime waterHeaterReplacementDate, DateTime cielingFanReplacementDate, DateTime furnanceReplacementDate)
+
+        public HouseInterriorFeatures( DateTime hallShowerReplacementDate,
+            DateTime waterHeaterReplacementDate, DateTime cielingFanReplacementDate, DateTime furnanceReplacementDate)
+        {
+            HallShowerReplacementDate = hallShowerReplacementDate;
+            WaterHeaterReplacementDate = waterHeaterReplacementDate;
+            CielingFanReplacementDate = cielingFanReplacementDate;
+            FurnanceReplacementDate = furnanceReplacementDate;
+        }
+        public HouseInterriorFeatures(int houseInterriorFeaturesID,   DateTime hallShowerReplacementDate, DateTime waterHeaterReplacementDate,
+            DateTime cielingFanReplacementDate, DateTime furnanceReplacementDate)
         {
             HouseInterriorFeaturesID = houseInterriorFeaturesID;
             HallShowerReplacementDate = hallShowerReplacementDate;

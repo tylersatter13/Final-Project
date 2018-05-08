@@ -10,17 +10,17 @@ using Dapper;
 
 namespace Final_Project
 {
-    class DatabaseConnection <T> where T:class // T can only repesent a class
+    class DatabaseConnection<T> where T : class // T can only repesent a class
     {
         Alert alert = new Alert();
 
-          public List<T> selectFormat(String[] fields, String[] filters, String tablename)
+        public List<T> selectFormat(String[] fields, String[] filters, String tablename)
         {
             StringBuilder SQL = new StringBuilder();
             int lastField = fields.Length - 1;
             SQL.Append("SELECT" + " ");
-           foreach (string field in fields) // adds all fields to be returned in the search Query
-           {
+            foreach (string field in fields) // adds all fields to be returned in the search Query
+            {
                 SQL.Append(field);
                 if (field == fields[lastField]) // no comma comma will be added on the last field
                 {
@@ -32,7 +32,7 @@ namespace Final_Project
 
                 }
 
-           }
+            }
             SQL.Append("FROM" + " " + tablename + " ");
 
             if (filters.Length != 0)
@@ -43,23 +43,23 @@ namespace Final_Project
                     {
                         SQL.Append("WHERE" + " ");
                     }
-                    SQL.Append(filter); // Filter is added to the query
+                    SQL.Append(filter + " "); // Filter is added to the query
                 }
             }
-           Console.WriteLine(SQL);
+            Console.WriteLine(SQL);
 
-           return select(SQL);
-       }
-        public void formatInsert(String tableName,String[] values)
+            return select(SQL);
+        }
+        public void formatInsert(String tableName, String[] values)
         {
             int lastValuePostion = values.Length - 1;
             StringBuilder SQL = new StringBuilder(); //String Builder is used to save system memory
-            SQL.Append( "INSERT"+" "+ tableName+" " + "VALUES (");
+            SQL.Append("INSERT" + " " + tableName + " " + "VALUES (");
 
             foreach (String value in values)
             {
                 SQL.Append("'" + value + "'");
-              if (value == values[lastValuePostion])
+                if (value == values[lastValuePostion])
                 {
                     SQL.Append(")"); //Closes the value collection after the last value in the loop
                 }
@@ -82,7 +82,7 @@ namespace Final_Project
             foreach (String column in updateColumns)
             {
                 SQL.Append(column);
-               
+
                 if (column == updateColumns[lastPostion])
                 {
                     SQL.Append(" ");
@@ -96,7 +96,12 @@ namespace Final_Project
             //  Console.WriteLine(SQL);
             insert(SQL);
         }
-   
+        public void insertTransaction()
+        {
+            StringBuilder SQL = new StringBuilder();
+              SQL.Append ("INSERT dbo.Users ( UserName,UserPassword,UserRoleID) VALUES('John ', '1234',2 )");
+            insert(SQL);
+        }
         public void formatDelete(String tableName, String objectID, String idName)
         {
             StringBuilder SQL = new StringBuilder();
@@ -122,6 +127,14 @@ namespace Final_Project
 
                 return results;
 
+            }
+        }
+        public List<T> selectStoredProcedure(DynamicParameters parameters, String spName)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("property_manager")))
+            {  
+               
+                return connection.Query<T> (spName , parameters, commandType: CommandType.StoredProcedure).ToList();
             }
         }
     }

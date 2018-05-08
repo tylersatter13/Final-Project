@@ -9,13 +9,18 @@ namespace Final_Project
     class HouseAppliances
     {
         private int HouseApplianceID;
-        private int RangeID;
-        private int DishwasherID;
         private Appliance Range;
         private Appliance Dishwasher;
         private DateTime LastWaterHeaterReplacement;
         private DateTime LastGarbageDisposalReplacement;
         private bool HasRef;
+
+        public HouseAppliances(DateTime lastWaterHeaterReplacement, DateTime lastGarbageDisposalReplacement, bool hasRef)
+        {
+            LastWaterHeaterReplacement = lastWaterHeaterReplacement;
+            LastGarbageDisposalReplacement = lastGarbageDisposalReplacement;
+            HasRef = hasRef;
+        }
 
         public HouseAppliances(int houseApplianceID, DateTime lastWaterHeaterReplacement, DateTime lastGarbageDisposalReplacement, bool hasRef)
         {
