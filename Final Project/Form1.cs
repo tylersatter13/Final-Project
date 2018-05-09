@@ -71,11 +71,13 @@ namespace Final_Project
             house.setFloorPlan("3-1426", 9);
 
             //Create Keys
-            Keys keys = new Keys(0);
-            keys.KeyNumberCurrent1 = "000000";
-            keys.KeyNumberCurrentDate1 = DateTime.Today;
-            keys.KeyNumberPrevious1 = "000000";
-            keys.KeyNumberPrevDate1 = DateTime.Today;
+            Keys keys = new Keys(0)
+            {
+                KeyNumberCurrent1 = "000000",
+                KeyNumberCurrentDate1 = DateTime.Today,
+                KeyNumberPrevious1 = "000000",
+                KeyNumberPrevDate1 = DateTime.Today
+            };
             house.Keys = keys;
 
             house.HouseAppliances = new HouseAppliances(0);
@@ -84,7 +86,6 @@ namespace Final_Project
             house.HouseAppliances.Range1 = new Appliance(0);
             house.HouseAppliances.Range1.Type1 = 1;
 
-           
             house.HouseAppliances.LastGarbageDisposalReplacement1 = new DateTime(2008, 11, 1);
             house.HouseAppliances.HasRef1 = false;
 
@@ -123,25 +124,18 @@ namespace Final_Project
 
             house.LeadTenant = new LeadTenant(0,0);
 
-   
+            house.Keys.KeyNumberCurrent1 = "123456";
+
              create.CreateNewHouse(house).print();
 
+            UpdateHouse update = new UpdateHouse();
+            var results = update.generatUpdatedHouse(house);
 
-             //Create House Appliance
-        /*     HouseAppliances houseAppliances = new HouseAppliances(0);
+            HouseSearch search = new HouseSearch();
+          var updatedHouse = search.findAHouseByNumber(house.HouseNumber1);
 
-             Appliance range = new Appliance(0);
-             Appliance dishwasher = new Appliance(0);
+            updatedHouse.print();
 
-             range.Brand1
-             create.CreateNewHouse();
-
-             HouseSearch search = new HouseSearch();
-            var houses = search.findHouseByInterriorColor(1);
-            /*foreach (House house in houses)
-            {
-                house.print();
-            }*/
         }
     }
 }

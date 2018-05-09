@@ -112,6 +112,7 @@ namespace Final_Project
 
             Console.WriteLine($"LeadTenant FirstName:{LeadTenant.TenantFirst} LastName:{LeadTenant.TenantLast} Phone:{LeadTenant.TenantPhone}" +
                 $"Children:{LeadTenant.Children} Balance:{LeadTenant.Balance}");
+            Console.WriteLine($"KeyID:{Keys.KeysID1} Current Key Number:{Keys.KeyNumberCurrent1} ");
         }
     
 

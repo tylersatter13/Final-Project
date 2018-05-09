@@ -118,6 +118,7 @@
     <Compile Include="Tenant.cs" />
     <Compile Include="TenantTransaction.cs" />
     <Compile Include="TransactionManager.cs" />
+    <Compile Include="UpdateHouse.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Validation.cs" />
     <Compile Include="ValidationType.cs" />
