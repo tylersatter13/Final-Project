@@ -24,10 +24,22 @@ namespace Final_Project
         private int RequestTypeID;
        /// private LeadTenant Tenant;
         private House house;
-        private List<Appliance> appliances;
-        private List<MaintenancePart> parts;
-        private MaintenanceTechnician maintenanceTechnician;
+        private List<Appliance> appliances = new List<Appliance>();
+        private List<MaintenancePart> parts = new List<MaintenancePart>();
+        private MaintenanceTechnician maintenanceTechnician = new MaintenanceTechnician(0);
         public ValidationType validation = new ValidationType();
+
+        public MaintenanceRequest(Int32 MaintenenceRequestID)
+        {
+            this.MaintenenceRequestID = MaintenenceRequestID;
+            
+        }
+        public MaintenanceRequest(House House)
+        {
+            house = House;
+            MaintenanceTechnician = new MaintenanceTechnician(0);
+            house.LeadTenant = new LeadTenant(0,0);
+        }
         public MaintenanceRequest(  Int32 maintenanceRequestID, Boolean isAppliance,  Boolean permissionToEnter, DateTime dateCreated,
             DateTime dateStarted,  DateTime dateCompleted, DateTime appointmentDate,  Int32 Dogs, Int32 Cats, String jobdescription, 
             String workPerformed ,  Int32 hoursWorked, Int32 requestTypeID )
@@ -44,9 +56,13 @@ namespace Final_Project
             WorkPerformed.Append(workPerformed);
                 this.HoursWorked = hoursWorked;
             RequestTypeID1 = requestTypeID;
-            
-        }
 
+        }
+        public void print()
+        {
+            Console.WriteLine($"MaintenaceRequestID:{MaintenenceRequestID} DateCreated:{DateCreated} " +
+                $"DateStarted:{DateStarted} DateCompleted:{DateCompleted}");
+        }
         public int MaintenenceRequestID1 { get => MaintenenceRequestID; set => MaintenenceRequestID = value; }
         public bool IsAppliance1 { get => IsAppliance; set => IsAppliance = value; }
         public bool PermissionToEnter1 { get => PermissionToEnter; set => PermissionToEnter = value; }

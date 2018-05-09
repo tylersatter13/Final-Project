@@ -13,7 +13,7 @@ namespace Final_Project
         private DatabaseConnection<User> userFetch = new DatabaseConnection<User>();
         private DatabaseConnection<TenantTransaction> transactionFetch = new DatabaseConnection<TenantTransaction>();
         private DatabaseConnection<Tenant> tenantFetch = new DatabaseConnection<Tenant>();
-        private DatabaseConnection<LeadTenant> leadTennantFetcH = new DatabaseConnection<LeadTenant>();
+        private DatabaseConnection<LeadTenant> leadTennantFetch = new DatabaseConnection<LeadTenant>();
         private DatabaseConnection<House> houseFetch = new DatabaseConnection<House>();
         private DatabaseConnection<HouseInterrior> houseIntFetch = new DatabaseConnection<HouseInterrior>();
         private DatabaseConnection<HouseExterior> houseExterFetch = new DatabaseConnection<HouseExterior>();
@@ -27,6 +27,11 @@ namespace Final_Project
         private DatabaseConnection<MaintenancePart> partFetch = new DatabaseConnection<MaintenancePart>();
         private DatabaseConnection<TenantTransaction> transationFetch = new DatabaseConnection<TenantTransaction>();
         private DatabaseConnection<Keys> keysFetch = new DatabaseConnection<Keys>();
+
+        public List<Tenant> fetchHouseTenants(DynamicParameters parameters, String spName)
+        {
+            return tenantFetch.selectStoredProcedure(parameters, spName);
+        }
         public List<Owner> fetchHouseOwner(int HouseID)
         {
             return fetchOwner.selectFormat(new[] { "*" }, new[] { $"OwnerID = (SELECT fk_Owner FROM House WHERE HouseID = {HouseID})" }, "Owner");
@@ -72,13 +77,15 @@ namespace Final_Project
         {
             return applianceFetch.selectStoredProcedure(parameters, spName);
         }
-        public List<LeadTenant> fetchLeadTenants(int HouseID)
+        public List<LeadTenant> fetchLeadTenants(DynamicParameters parameters, String spName)
         {
-            return leadTennantFetcH.selectFormat(new[]{"LeadTenantID", "LeadTenantRentAmount AS rentAmount"
+
+            return leadTennantFetch.selectStoredProcedure(parameters, spName);
+            /*return leadTennantFetcH.selectFormat(new[]{"LeadTenantID", "LeadTenantRentAmount AS rentAmount"
                 ,"LeadTenantRentStart AS rentDate", "Children" ,"LeadTenantBalance as balance",
                 "TenantID","TenantFirst","TenantLast","TenantPhone" },
                 new[] { $"LeadTenantID = (SELECT fk_LeadTenant FROM House WHERE HouseID = {HouseID})" },
-                "LeadTenant LEFT JOIN Tenant T on LeadTenant.fk_TennantID = T.TenantID");
+                "LeadTenant LEFT JOIN Tenant T on LeadTenant.fk_TennantID = T.TenantID");*/
         }
 
         public List<MaintenanceRequest> fetchMaintenanceRequests(DynamicParameters parameters, String spName)

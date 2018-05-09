@@ -11,6 +11,7 @@ namespace Final_Project
         private int LeadTenant;
         private HouseSearch houseSearch = new HouseSearch();
         private Fetch fetch = new Fetch();
+        ValidationType validation = new ValidationType();
        public MaintenanceRequest searchByLastName( String LastName)
         {
             DynamicParameters parameters = new DynamicParameters();
@@ -24,7 +25,8 @@ namespace Final_Project
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@houseNumber", HouseNumber); 
             String spName = "spGetMaintenceRequestByHouse";
-            return GetMaintenanceRequests(parameters, spName)[0];
+            var results = GetMaintenanceRequests(parameters, spName)[0];
+            return results;
         }
         public List<MaintenanceRequest> searchForOpenRequests()
 
@@ -42,9 +44,10 @@ namespace Final_Project
         private List <Appliance> searchFormMaintenanceAppliance(int MaintenanceRequestID)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@MaintenanceRequestId", MaintenanceRequestID);
+            parameters.Add("@MaintenanceRequestID", MaintenanceRequestID);
             String spName = "spGetApplianceByMaintenance";
-            return fetch.fetchAppliances(parameters, spName);
+            var results = fetch.fetchAppliances(parameters, spName);
+            return results;
         }
         private MaintenanceTechnician getMaintenanceTechnician (int MaintenanceRequestID)
         {
@@ -52,15 +55,26 @@ namespace Final_Project
             parameters.Add("@MaintenanceRequestID", MaintenanceRequestID);
             String spName = "spGetMaintenaceTechID";
 
-            return fetch.fetchMaintenanceTechnicians(parameters, spName)[0]; 
+            var results = fetch.fetchMaintenanceTechnicians(parameters, spName)[0];
+            return results;
         }
         private List<MaintenancePart> getMaintenaceParts( int MaintenaceRequestID)
         {
+            Console.WriteLine(MaintenaceRequestID);
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@MaintenceRequestID", MaintenaceRequestID);
+            
 
-            String spName = "getPartsForMaintenceRequest";
-            return fetch.fetchMaintenaceParts(parameters, spName);
+            String spName = "spGetPartsForMaintenceRequest";
+            var results = fetch.fetchMaintenaceParts(parameters, spName);
+            if (!results.Any())
+            {
+                return results;
+            }
+            else
+            {
+                return new List<MaintenancePart>();
+            }
 
         }
        private List<MaintenanceRequest> GetMaintenanceRequests(DynamicParameters paramaters, String spName)
@@ -68,8 +82,10 @@ namespace Final_Project
             try
             {
                 var result = fetch.fetchMaintenanceRequests(paramaters, spName);
-               
-                return result;
+
+                var fullresults = generateFullMaintenanceRequest(result);
+
+                return fullresults;
             }
             catch (Exception ex)
             {
@@ -89,15 +105,24 @@ namespace Final_Project
         {
             request.House = houseSearch.findHouseByMaintenaceID(request.MaintenenceRequestID1);
 
-            List<Appliance> appliances = searchFormMaintenanceAppliance(request.MaintenenceRequestID1);
-            request.Appliances = appliances;
+            Console.WriteLine("Printing retreiced house");
+            //   request.House.print();
 
-            request.MaintenanceTechnician = getMaintenanceTechnician(request.MaintenenceRequestID1);
-            List<MaintenancePart> parts = getMaintenaceParts(request.MaintenenceRequestID1);
+             if (request.IsAppliance1 == true) {
+             List<Appliance> appliances = searchFormMaintenanceAppliance(1);
+                request.Appliances = appliances;
+             }
+            request.MaintenanceTechnician = getMaintenanceTechnician(1);
 
-            request.Parts = parts;
-            return request;
-            
+            if (validation.getValidationDateTime().fieldHasValue(request.DateCompleted1) == false)
+            {
+            List<MaintenancePart> parts = getMaintenaceParts(1);
+            request.Parts.Concat(parts);
+               
+            }
+          
+            return request;    
         }
+        
     }
 }

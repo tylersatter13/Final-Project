@@ -63,7 +63,7 @@ namespace Final_Project
 
 
             // MaintenanceRequest maintenanceRequest = new MaintenanceRequest(1,false,true, DateTime.Today,DateTime.Today,DateTime.Today,DateTime.Today,1,1," "," ");
-            CreateHouse create = new CreateHouse();
+            /*CreateHouse create = new CreateHouse();
             House house = new House(0);
             house.HouseNumber1 = "4617";
             house.StreetID1 = 4;
@@ -134,8 +134,37 @@ namespace Final_Project
             HouseSearch search = new HouseSearch();
           var updatedHouse = search.findAHouseByNumber(house.HouseNumber1);
 
-            updatedHouse.print();
+            updatedHouse.print();*/
 
+            /*  CreateMaintenaceRequest create = new CreateMaintenaceRequest();
+              MaintenanceRequest request = create.GenerateBasicMaintenceRequest("Arnold");
+              MaintenanceRequest results = create.CreateFullMaintenanceRequest(request);
+              results.Jobdescription.Append("Broken pipe");
+              results.MaintenanceTechnician = new MaintenanceTechnician(0);
+              results.House.LeadTenant = new LeadTenant(0,0);
+              Console.WriteLine($"Maintenace RequestID:{results.MaintenenceRequestID1}");*/
+
+            /*SearchMaintenanceRequests search = new SearchMaintenanceRequests();
+              var results = search.searchByHouseNumber("4611");
+              results.DateCompleted1 = DateTime.Today;
+
+           
+           
+
+            UpdateMaintenaceRequest update = new UpdateMaintenaceRequest();
+            update.MaintenaceRequestUpdate(results);
+
+            MaintenancePart part = new MaintenancePart(1, "hammer", 15, false);
+            results.Parts.Add(part);
+            update.UpdatePart(results.Parts[0], results.MaintenenceRequestID1);
+            results = search.searchByHouseNumber("4611");
+            results.print();*/
+           /* TenantManager manager = new TenantManager();
+            Tenant tenant = new Tenant(0, "General", "Jennings", "503-409-9350");
+           var  results = manager.addTenant(tenant);
+            LeadTenant lead = new LeadTenant(0, 0);
+            lead.LeadTenantID1 = results.TenantId;
+            var leadTenant = manager.addLeadTenant(lead);*/
         }
     }
 }

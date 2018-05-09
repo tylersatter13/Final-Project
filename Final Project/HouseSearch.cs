@@ -26,7 +26,7 @@ namespace Final_Project
                 {
                     house.HouseExterior = GetHouseExterior(house.HouseID1);
                     house.Owner = fetch.fetchHouseOwner(house.HouseID1)[0];
-                    house.LeadTenant = fetch.fetchLeadTenants(house.HouseID1)[0];
+                    house.LeadTenant = GetLeadTenant(house.HouseID1);
                 }
                 return homes;
             }
@@ -53,7 +53,7 @@ namespace Final_Project
                 {
                     house.HouseInterrior = GetHouseInterrior(house.HouseID1);
                     house.Owner = fetch.fetchHouseOwner(house.HouseID1)[0];
-                    house.LeadTenant = fetch.fetchLeadTenants(house.HouseID1)[0];
+                    house.LeadTenant = GetLeadTenant(house.HouseID1);
                 }
                 return homes;
             }
@@ -100,8 +100,8 @@ namespace Final_Project
             house.HouseInterrior = GetHouseInterrior(houseID);
             house.HouseExterior = GetHouseExterior(houseID);
             house.Owner = fetch.fetchHouseOwner(houseID)[0];
-            house.LeadTenant = fetch.fetchLeadTenants(houseID)[0];
-
+            house.LeadTenant = GetLeadTenant(houseID);
+            Console.Write(house.LeadTenant.LeadTenantID1);
             return house;
 
 
@@ -158,6 +158,13 @@ namespace Final_Project
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@HouseID", HouseID);
             return fetch.HouseExteriors(parameters, spName)[0];
+        }
+   public LeadTenant GetLeadTenant( int HouseID)
+        {
+            String spName = "spGetLeadTenant";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@HouseID", HouseID);
+            return fetch.fetchLeadTenants(parameters, spName)[0];
         }
     }
 }

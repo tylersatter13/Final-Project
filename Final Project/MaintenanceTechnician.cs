@@ -12,6 +12,11 @@ namespace Final_Project
         private String FirstName;
         private String LastName;
 
+        public MaintenanceTechnician(Int32 maintenanceTechnicianID)
+        {
+            MaintenanceTechnicianID = maintenanceTechnicianID;
+            
+        }
         public MaintenanceTechnician(Int32 maintenanceTechnicianID, String firstName, String lastName)
         {
             MaintenanceTechnicianID = maintenanceTechnicianID;

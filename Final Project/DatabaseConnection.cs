@@ -134,7 +134,16 @@ namespace Final_Project
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("property_manager")))
             {  
                
-                return connection.Query<T> (spName , parameters, commandType: CommandType.StoredProcedure).ToList();
+                var results = connection.Query<T> (spName , parameters, commandType: CommandType.StoredProcedure).ToList();
+
+               if (!results.Any())
+                {
+                    return new List<T>();
+                }
+                else
+                {
+                    return results;
+                }
             }
         }
     }

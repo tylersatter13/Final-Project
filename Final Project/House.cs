@@ -45,12 +45,14 @@ namespace Final_Project
 
      public House(Int32 HouseID)
         {
+            Console.WriteLine("Contstructor 1");
             HouseID1 = HouseID;
         }
 
         House(Int32 HouseID,String HouseNumber,Int32 fk_Street,String StreetName, bool HouseDidDiscloseLea, Int32 fk_SQPlan,String SQPlanName,String miscellaneous) 
 
         {
+            Console.WriteLine("Contstructor 2");
             LeadDisclosure1 = HouseDidDiscloseLea;
             this.HouseID1 = HouseID;
             this.HouseNumber = HouseNumber;

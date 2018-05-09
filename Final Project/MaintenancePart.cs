@@ -13,11 +13,11 @@ namespace Final_Project
        private Decimal PartCost;
        bool InStock;
 
-        public MaintenancePart(int partID, string partName, decimal partCost, bool inStock)
+        public MaintenancePart(Int32 partID, String partName, Double partCost, Boolean inStock)
         {
             PartID1 = partID;
             PartName1 = partName;
-            PartCost1 = partCost;
+            PartCost1 = decimal.Parse(partCost.ToString());
             InStock1 = inStock;
         }
 
