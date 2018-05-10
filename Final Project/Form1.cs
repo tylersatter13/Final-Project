@@ -12,6 +12,8 @@ namespace Final_Project
 {
     public partial class Form1 : Form
     {
+        private Login login = new Login();
+        private Alert alert = new Alert();
         public Form1()
         {
             InitializeComponent();
@@ -19,6 +21,8 @@ namespace Final_Project
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+           
             /*  DatabaseConnection databaseConnection = new DatabaseConnection();
               // databaseConnection.insert("INSERT Users VALUES ('Rick','paper0',4);");
               // databaseConnection.select("SELECT * FROM Users");
@@ -165,6 +169,20 @@ namespace Final_Project
             LeadTenant lead = new LeadTenant(0, 0);
             lead.LeadTenantID1 = results.TenantId;
             var leadTenant = manager.addLeadTenant(lead);*/
+   }
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (login.validateUser(txtUserName.Text, txtPassword.Text))
+            {
+                this.Hide();
+               // Menu mainMenu = new Menu() ;
+               // mainMenu.Show();
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

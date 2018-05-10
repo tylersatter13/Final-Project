@@ -28,7 +28,7 @@ namespace Final_Project
         //Provides and alert message of a selected type but 
         public void CreateBasicAlert(int AlertType, string description, string title)
         {
-            MessageBox.Show(title, description, MessageBoxButtons.OK, DetermineMessageType(AlertType) );
+            MessageBox.Show( description, title, MessageBoxButtons.OK, DetermineMessageType(AlertType) );
         }
         //Makes it easier to set Message Type and collect error by assigning them an a number based on their severity.
         public MessageBoxIcon DetermineMessageType( int  alertType)
