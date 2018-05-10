@@ -35,7 +35,7 @@ namespace Final_Project
         public int StreetID1 { get => StreetID; set => StreetID = value; }
         public string Streetname1 { get => Streetname; }
         public string FloorPlan1 { get => FloorPlan; }
-        public int FloorPlanID1 { get => FloorPlanID; }
+        public int FloorPlanID1 {  get => FloorPlanID; set => FloorPlanID = value; }
         public int HouseID1 { get => HouseID; set => HouseID = value; }
         internal Owner Owner { get => owner; set => owner = value; }
         public bool LeadDisclosure1 { get => LeadDisclosure; set => LeadDisclosure = value; }

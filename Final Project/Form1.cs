@@ -175,8 +175,10 @@ namespace Final_Project
             if (login.validateUser(txtUserName.Text, txtPassword.Text))
             {
                 this.Hide();
-               // Menu mainMenu = new Menu() ;
-               // mainMenu.Show();
+                // Menu mainMenu = new Menu() ;
+                 // mainMenu.Show();
+                CreateBasicHouseInformation createBasicHouse = new CreateBasicHouseInformation();
+                createBasicHouse.Show(); 
             }
         }
 
