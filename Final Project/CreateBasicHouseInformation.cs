@@ -14,6 +14,14 @@ namespace Final_Project
     {
         private Alert alert = new Alert();
         private House house;
+        private ValidationType validation = new ValidationType();
+        public CreateBasicHouseInformation(House home)
+        {
+            
+            house = home;
+            InitializeComponent();
+           
+        }
         public CreateBasicHouseInformation()
         {
             InitializeComponent();
@@ -23,8 +31,13 @@ namespace Final_Project
         {
             // TODO: This line of code loads data into the 'propertyManagerDataSet.HouseInteriorColors' table. You can move, or remove it, as needed.
             this.houseInteriorColorsTableAdapter.Fill(this.propertyManagerDataSet.HouseInteriorColors);
+
             FillComboBox();
-            
+
+            if (house != null)
+            {
+                SetChosenFields();
+            }
         }
         void FillComboBox()
         {
@@ -51,17 +64,17 @@ namespace Final_Project
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
+            var dateVal = validation.getValidationDateTime();
             if (validateHouseNumber(textHouseNumber) == false)
             {
 
-            }else if (CheckComboBox(drpOwner,"Owner") == false)
+            }else if (dateVal.CheckComboBox(drpOwner,"Owner") == false)
             {
 
-            }else if (CheckComboBox(drpSQPlan,"Sqaure Feet") == false){
+            }else if (dateVal.CheckComboBox(drpSQPlan,"Sqaure Feet") == false){
 
-            }else if (CheckComboBox(drpStreetName,"Streetname")== false)
+            }else if (dateVal.CheckComboBox(drpStreetName,"Streetname")== false)
             {
-
             }
             else
             {
@@ -81,25 +94,32 @@ namespace Final_Project
                 //paint
                 house.HouseInterrior.PrimaryPaintColorID1 = drpPrimaryColor.SelectedIndex;
                 house.HouseInterrior.SecondaryPaintColorID1 = drpSecondaryColor.SelectedIndex;
-                house.HouseInterrior.LastPaintDate1 = ConvertDatePickerDefault(dateLastPaint);
+
+                
+                house.HouseInterrior.LastPaintDate1 = dateVal.ConvertDatePickerDefault(dateLastPaint);
 
                 //carpet
-                house.HouseInterrior.CarpetInstallDate1 = ConvertDatePickerDefault(dateCarpetInstall);
-                house.HouseInterrior.CarpetColorID1 = drpCarpetColor.SelectedIndex;
+                house.HouseInterrior.CarpetInstallDate1 = dateVal.ConvertDatePickerDefault(dateCarpetInstall);
+                house.HouseInterrior.CarpetColorID1 =  drpCarpetColor.SelectedIndex;
 
                 //Vyanal and Formica
                 house.HouseInterrior.FermicaColorID1 = drpFermica.SelectedIndex;
                 house.HouseInterrior.VynalColorID1 = drpVynl.SelectedIndex;
-                house.HouseInterrior.VandFInstall1 = ConvertDatePickerDefault(dateVF);
+                house.HouseInterrior.VandFInstall1 = dateVal.ConvertDatePickerDefault(dateVF);
 
                 //W.W Work
                 house.HouseInterrior.StainID1 = drpWoodWork.SelectedIndex;
 
                 //Blinds
-                house.HouseInterrior.Blindreplacement1 = ConvertDatePickerDefault(dateBlindReplacement);
+                house.HouseInterrior.Blindreplacement1 = dateVal.ConvertDatePickerDefault(dateBlindReplacement);
 
                 Console.WriteLine($"HouseNumber:{house.HouseNumber1}, $StreetID:{house.StreetID1}, SQ:{house.FloorPlanID1}, Owner:{house.Owner.OwnerID1}");
                 Console.WriteLine($"Last Painted:{house.HouseInterrior.LastPaintDate1} Carpet Install:{house.HouseInterrior.CarpetInstallDate1} VandF Install:{house.HouseInterrior.VandFInstall1} Blind:{house.HouseInterrior.Blindreplacement1}");
+
+                CreateHouseExterriorInformation exterriorInformation = new CreateHouseExterriorInformation(house);
+                this.Hide();
+                exterriorInformation.Show();
+                
             }
         }
         private bool validateHouseNumber(TextBox textbox)
@@ -126,40 +146,13 @@ namespace Final_Project
                 return true;
             }
         }
-        private bool CheckComboBox(ComboBox comboBox,String Field) // Checks is no data is avaliable for combox
-        {
-            if(comboBox.SelectedIndex == 0)
-            {
-                alert.CreateBasicAlert(3, $"{Field} field is required", "Invalid Entry");
-                return false;
-            }
-            else if (comboBox.SelectedItem == null)
-            {
-                alert.CreateBasicAlert(1, $"A selection is required fo field {Field}", "Selection Required");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+
         private void AddListToBox(ComboBox combobox, List<String> items)
         {
             combobox.Items.Add("Add Item");
             foreach(String item in items)
             {
                 combobox.Items.Add(item);
-            }
-        }
-        private DateTime ConvertDatePickerDefault(DateTimePicker dateTimePicker)
-        {
-            if (dateTimePicker.Checked == false)
-            {
-                return new DateTime();
-            }
-            else
-            {
-                return dateTimePicker.Value;
             }
         }
         private void SelectedIndexChanged(object sender, EventArgs e)
@@ -171,6 +164,49 @@ namespace Final_Project
                 Console.WriteLine("Add new item selected");
             }
 
+        }
+        private void SetChosenFields()
+        {
+            var datevalidation = validation.getValidationDateTime();
+            var interrior = house.HouseInterrior;
+            //basic house information
+            textHouseNumber.Text = house.HouseNumber1;
+            drpStreetName.SelectedIndex = house.StreetID1;
+            drpSQPlan.SelectedIndex = house.FloorPlanID1;
+            drpOwner.SelectedIndex = house.Owner.OwnerID1;
+
+            //Paint Colors
+            drpPrimaryColor.SelectedIndex = house.HouseInterrior.PrimaryPaintColorID1;
+            drpSecondaryColor.SelectedIndex = house.HouseInterrior.SecondaryPaintColorID1;
+            if(datevalidation.fieldHasValue(interrior.LastPaintDate1)== false)
+            {
+                dateLastPaint.Value = interrior.LastPaintDate1;
+            }
+
+            //Carpet
+            drpCarpetColor.SelectedIndex = house.HouseInterrior.CarpetColorID1;
+            if (datevalidation.fieldHasValue(interrior.CarpetInstallDate1) == false)
+            {
+                dateCarpetInstall.Value = house.HouseInterrior.CarpetInstallDate1;
+            }
+
+            //Vyanl and Fermica
+            drpVynl.SelectedIndex = house.HouseInterrior.VynalColorID1;
+            drpFermica.SelectedIndex = house.HouseInterrior.FermicaColorID1;
+            if (datevalidation.fieldHasValue(interrior.VandFInstall1) == false)
+            {
+                dateVF.Value = house.HouseInterrior.CarpetInstallDate1;
+            }
+
+            drpWoodWork.SelectedIndex = house.HouseInterrior.StainID1; //Wood Work
+            if(datevalidation.fieldHasValue(interrior.Blindreplacement1) == false){
+                dateBlindReplacement.Value = house.HouseInterrior.Blindreplacement1;
+            }// 
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            SetChosenFields();
         }
     }
 }

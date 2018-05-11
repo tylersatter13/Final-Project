@@ -88,6 +88,12 @@
   <ItemGroup>
     <Compile Include="Alert.cs" />
     <Compile Include="Appliance.cs" />
+    <Compile Include="Appliances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appliances.Designer.cs">
+      <DependentUpon>Appliances.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateBasicHouseInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
       <DependentUpon>CreateBasicHouseInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="CreateHouse.cs" />
+    <Compile Include="CreateHouseExterriorInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateHouseExterriorInformation.Designer.cs">
+      <DependentUpon>CreateHouseExterriorInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateMaintenaceRequest.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Fetch.cs" />
@@ -151,6 +163,9 @@
     <Compile Include="ValidationType.cs" />
     <EmbeddedResource Include="CreateBasicHouseInformation.resx">
       <DependentUpon>CreateBasicHouseInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateHouseExterriorInformation.resx">
+      <DependentUpon>CreateHouseExterriorInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

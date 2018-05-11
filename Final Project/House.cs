@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    class House
+   public class House
     {
         private int HouseID;
         private String HouseNumber;
@@ -49,7 +49,7 @@ namespace Final_Project
             HouseID1 = HouseID;
         }
 
-        House(Int32 HouseID,String HouseNumber,Int32 fk_Street,String StreetName, bool HouseDidDiscloseLea, Int32 fk_SQPlan,String SQPlanName,String miscellaneous) 
+     public   House(Int32 HouseID,String HouseNumber,Int32 fk_Street,String StreetName, bool HouseDidDiscloseLea, Int32 fk_SQPlan,String SQPlanName,String miscellaneous) 
 
         {
             Console.WriteLine("Contstructor 2");

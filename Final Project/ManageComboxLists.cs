@@ -37,6 +37,26 @@ namespace Final_Project
         {
             return GetList("Carpet", "CarpetName");
         }
+        public List<String> GetExteriorColor()
+        {
+            return GetList("ExteriorColor", "ExteriorColorName");
+        }
+        public List<String> GetTrimColor()
+        {
+            return GetList("TrimColor", "TrimColor");
+        }
+        public List<String> GetSidingType()
+        {
+            return GetList("Siding", "SidngType");
+        }
+        public List<String> GetRoofMaterial()
+        {
+            return GetList("RoofMaterial", "RoofMaterialName");
+        }
+        public List<String> GetRoofColor()
+        {
+            return GetList("RoofColor", "RoofColorName"); 
+        }
         public List<String> GetList(String TableName, String FieldName)
         {
             DatabaseConnection<String> connection = new DatabaseConnection<String>();

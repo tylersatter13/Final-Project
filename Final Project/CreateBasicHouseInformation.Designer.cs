@@ -34,7 +34,7 @@
             this.drpSQPlan = new System.Windows.Forms.ComboBox();
             this.drpOwner = new System.Windows.Forms.ComboBox();
             this.drpStreetName = new System.Windows.Forms.ComboBox();
-            this.InterriorFeatures = new System.Windows.Forms.GroupBox();
+            this.InterriorColors = new System.Windows.Forms.GroupBox();
             this.drpWoodWork = new System.Windows.Forms.ComboBox();
             this.dateBlindReplacement = new System.Windows.Forms.DateTimePicker();
             this.dateVF = new System.Windows.Forms.DateTimePicker();
@@ -65,7 +65,7 @@
             this.houseInteriorColorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.houseInteriorColorsTableAdapter = new Final_Project.PropertyManagerDataSetTableAdapters.HouseInteriorColorsTableAdapter();
             this.gbBasicInfo.SuspendLayout();
-            this.InterriorFeatures.SuspendLayout();
+            this.InterriorColors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.propertyManagerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.houseInteriorColorsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -135,35 +135,35 @@
             this.drpStreetName.TabIndex = 1;
             this.drpStreetName.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
             // 
-            // InterriorFeatures
+            // InterriorColors
             // 
-            this.InterriorFeatures.AccessibleName = "grpInterriorFeatures";
-            this.InterriorFeatures.Controls.Add(this.lblStainDate);
-            this.InterriorFeatures.Controls.Add(this.lblVanFInstall);
-            this.InterriorFeatures.Controls.Add(this.lblInstallDate);
-            this.InterriorFeatures.Controls.Add(this.lblLastPainted);
-            this.InterriorFeatures.Controls.Add(this.label2);
-            this.InterriorFeatures.Controls.Add(this.label1);
-            this.InterriorFeatures.Controls.Add(this.lblWWork);
-            this.InterriorFeatures.Controls.Add(this.lblFormicaColor);
-            this.InterriorFeatures.Controls.Add(this.lblCarpetColor);
-            this.InterriorFeatures.Controls.Add(this.lblPrimaryColor);
-            this.InterriorFeatures.Controls.Add(this.drpWoodWork);
-            this.InterriorFeatures.Controls.Add(this.dateBlindReplacement);
-            this.InterriorFeatures.Controls.Add(this.dateVF);
-            this.InterriorFeatures.Controls.Add(this.dateCarpetInstall);
-            this.InterriorFeatures.Controls.Add(this.drpVynl);
-            this.InterriorFeatures.Controls.Add(this.drpFermica);
-            this.InterriorFeatures.Controls.Add(this.drpCarpetColor);
-            this.InterriorFeatures.Controls.Add(this.dateLastPaint);
-            this.InterriorFeatures.Controls.Add(this.drpSecondaryColor);
-            this.InterriorFeatures.Controls.Add(this.drpPrimaryColor);
-            this.InterriorFeatures.Location = new System.Drawing.Point(24, 176);
-            this.InterriorFeatures.Name = "InterriorFeatures";
-            this.InterriorFeatures.Size = new System.Drawing.Size(871, 293);
-            this.InterriorFeatures.TabIndex = 2;
-            this.InterriorFeatures.TabStop = false;
-            this.InterriorFeatures.Text = "InterriorFeatures";
+            this.InterriorColors.AccessibleName = "grpInterriorFeatures";
+            this.InterriorColors.Controls.Add(this.lblStainDate);
+            this.InterriorColors.Controls.Add(this.lblVanFInstall);
+            this.InterriorColors.Controls.Add(this.lblInstallDate);
+            this.InterriorColors.Controls.Add(this.lblLastPainted);
+            this.InterriorColors.Controls.Add(this.label2);
+            this.InterriorColors.Controls.Add(this.label1);
+            this.InterriorColors.Controls.Add(this.lblWWork);
+            this.InterriorColors.Controls.Add(this.lblFormicaColor);
+            this.InterriorColors.Controls.Add(this.lblCarpetColor);
+            this.InterriorColors.Controls.Add(this.lblPrimaryColor);
+            this.InterriorColors.Controls.Add(this.drpWoodWork);
+            this.InterriorColors.Controls.Add(this.dateBlindReplacement);
+            this.InterriorColors.Controls.Add(this.dateVF);
+            this.InterriorColors.Controls.Add(this.dateCarpetInstall);
+            this.InterriorColors.Controls.Add(this.drpVynl);
+            this.InterriorColors.Controls.Add(this.drpFermica);
+            this.InterriorColors.Controls.Add(this.drpCarpetColor);
+            this.InterriorColors.Controls.Add(this.dateLastPaint);
+            this.InterriorColors.Controls.Add(this.drpSecondaryColor);
+            this.InterriorColors.Controls.Add(this.drpPrimaryColor);
+            this.InterriorColors.Location = new System.Drawing.Point(24, 176);
+            this.InterriorColors.Name = "InterriorColors";
+            this.InterriorColors.Size = new System.Drawing.Size(871, 293);
+            this.InterriorColors.TabIndex = 2;
+            this.InterriorColors.TabStop = false;
+            this.InterriorColors.Text = "InterriorFeatures";
             // 
             // drpWoodWork
             // 
@@ -294,6 +294,7 @@
             this.btnBack.TabIndex = 15;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnNext
             // 
@@ -467,7 +468,7 @@
             this.ClientSize = new System.Drawing.Size(919, 554);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.InterriorFeatures);
+            this.Controls.Add(this.InterriorColors);
             this.Controls.Add(this.gbBasicInfo);
             this.Name = "CreateBasicHouseInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -475,8 +476,8 @@
             this.Load += new System.EventHandler(this.CreateBasicHouseInformation_Load);
             this.gbBasicInfo.ResumeLayout(false);
             this.gbBasicInfo.PerformLayout();
-            this.InterriorFeatures.ResumeLayout(false);
-            this.InterriorFeatures.PerformLayout();
+            this.InterriorColors.ResumeLayout(false);
+            this.InterriorColors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.propertyManagerDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.houseInteriorColorsBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -490,7 +491,7 @@
         private System.Windows.Forms.ComboBox drpOwner;
         private System.Windows.Forms.ComboBox drpStreetName;
         private System.Windows.Forms.ComboBox drpSQPlan;
-        private System.Windows.Forms.GroupBox InterriorFeatures;
+        private System.Windows.Forms.GroupBox InterriorColors;
         private System.Windows.Forms.ComboBox drpWoodWork;
         private System.Windows.Forms.DateTimePicker dateBlindReplacement;
         private System.Windows.Forms.DateTimePicker dateVF;
