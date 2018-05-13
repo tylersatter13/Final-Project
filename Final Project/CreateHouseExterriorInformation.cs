@@ -29,8 +29,13 @@ namespace Final_Project
         private void CreateHouseExterriorInformation_Load(object sender, EventArgs e)
         {
             FillComboxBox();
-            if (house.HouseExterior != null)
+            if (house.HouseExterior == null) //If value have already filled in populate them
             {
+                Console.WriteLine("Did return new house");
+            }
+            else
+            {
+                Console.WriteLine("Did return house exterrior");
                 SetChosenFields();
             }
         }
@@ -65,7 +70,7 @@ namespace Final_Project
         private void btnBack_Click(object sender, EventArgs e)
         {
             setupHouse();
-            CreateBasicHouseInformation createBasicHouse = new CreateBasicHouseInformation(house);
+            var createBasicHouse = new CreateBasicHouseInformation(house);
             this.Hide();
             createBasicHouse.ShowDialog();
             
@@ -119,21 +124,26 @@ namespace Final_Project
         private void btnNext_Click(object sender, EventArgs e)
         {
             setupHouse();
+            Appliances appliance = new Appliances(house);
+            Hide();
+            appliance.ShowDialog();
 
         }
 
         public void setupHouse()
         {
-            var exterior = house.HouseExterior;
-            var exteriorFeatures = house.ExteriorFeatures;
+      
             var dateVal = validation.getValidationDateTime();
             if (house.HouseExterior == null)
             {
-                exterior = new HouseExterior(0);
-                exteriorFeatures = new HouseExteriorFeatures(0);
+                house.HouseExterior= new HouseExterior(0);
+                house.ExteriorFeatures = new HouseExteriorFeatures(0);
+          
             }
+            var exterior = house.HouseExterior;
+            var exteriorFeatures = house.ExteriorFeatures;
             //Exterior Paint
-            exterior.ExteriorColorID1 = drpExteriorColor.SelectedIndex;
+            house.HouseExterior.ExteriorColorID1 = drpExteriorColor.SelectedIndex;
             exterior.TrimID1 = drpTrimColor.SelectedIndex;
             exterior.SidingID1 = drpSiding.SelectedIndex;
             exterior.ExteriorPaintDate1 = dateVal.ConvertDatePickerDefault(dateLastPaint);
@@ -149,6 +159,8 @@ namespace Final_Project
             exteriorFeatures.FenceReplacement1 = dateVal.ConvertDatePickerDefault(dateFence);
             exteriorFeatures.DrivewayReplacemnt1 = dateVal.ConvertDatePickerDefault(dateDriveWay);
             exteriorFeatures.ChimneyReplacement1 = dateVal.ConvertDatePickerDefault(dateChimney);
+
+            Console.WriteLine(house.HouseExterior.ExteriorColorID1);
         }
 
     

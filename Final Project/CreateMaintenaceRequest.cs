@@ -18,16 +18,33 @@ namespace Final_Project
             var finshedRequest = CreateFullMaintenanceRequest(request).MaintenenceRequestID1;
             
             List<MaintenancePart> parts = AddParts(request.Parts,finshedRequest);
-            return searchMain.searchByLastName(request.House.LeadTenant.TenantLast);
+            return searchMain.searchByLastName(request.House.LeadTenant.TenantLast)[0];
             
         } 
         public MaintenanceRequest GenerateBasicMaintenceRequest(String LastName)
         {
-            House house = search.findAHouseByLastName(LastName);
-            MaintenanceRequest request = new MaintenanceRequest(house);
+            House house = null;
+             house = search.findAHouseByLastName(LastName).clone();
+
+            Console.WriteLine("Did House created a returned");
+            Console.WriteLine(house.LeadTenant.TenantLast);
+            Console.WriteLine(house.LeadTenant.TenantFirst);
+            Console.WriteLine(house.LeadTenant.TenantPhone);
+
+
+            MaintenanceRequest request = new MaintenanceRequest(house.clone());
+
+            Console.WriteLine("House added to maintenace Request");
+            Console.WriteLine(request.House.LeadTenant.TenantLast);
+            Console.WriteLine(request.House.LeadTenant.TenantFirst);
+            Console.WriteLine(request.House.LeadTenant.TenantPhone);
 
             return request; 
         }
+     /*   public MaintenanceRequest GetPetCount(String LastName, int PetType)
+        {
+            
+        }*/
         public List<MaintenancePart> AddParts(List<MaintenancePart> parts, int MaintenaceRequestID)
         {
             foreach (MaintenancePart part in parts)

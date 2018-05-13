@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    class MaintenanceRequest
+   public class MaintenanceRequest
     {
         private int MaintenenceRequestID;
         private bool IsAppliance;
@@ -36,12 +36,12 @@ namespace Final_Project
         }
         public MaintenanceRequest(House House)
         {
-            house = House;
+            house = House.clone();
             MaintenanceTechnician = new MaintenanceTechnician(0);
-            house.LeadTenant = new LeadTenant(0,0);
+            //house.LeadTenant = new LeadTenant(0,0);
         }
         public MaintenanceRequest(  Int32 maintenanceRequestID, Boolean isAppliance,  Boolean permissionToEnter, DateTime dateCreated,
-            DateTime dateStarted,  DateTime dateCompleted, DateTime appointmentDate,  Int32 Dogs, Int32 Cats, String jobdescription, 
+            DateTime dateStarted,  DateTime dateCompleted, DateTime appointmentDate, /* Int32 Dogs, Int32 Cats,*/ String jobdescription, 
             String workPerformed ,  Int32 hoursWorked, Int32 requestTypeID )
         {
             MaintenenceRequestID1 = maintenanceRequestID;
@@ -50,8 +50,8 @@ namespace Final_Project
             DateCreated1 = dateCreated;
             DateCompleted1 = dateCompleted;
             AppointmentDate1 = appointmentDate;
-            Cats1 = Cats;
-            Dogs1 = Dogs;
+            //Cats1 = Cats;
+           // Dogs1 = Dogs;
             Jobdescription.Append(jobdescription);
             WorkPerformed.Append(workPerformed);
                 this.HoursWorked = hoursWorked;
@@ -62,6 +62,10 @@ namespace Final_Project
         {
             Console.WriteLine($"MaintenaceRequestID:{MaintenenceRequestID} DateCreated:{DateCreated} " +
                 $"DateStarted:{DateStarted} DateCompleted:{DateCompleted}");
+        }
+        public MaintenanceRequest clone()
+        {
+            return (MaintenanceRequest)this.MemberwiseClone();
         }
         public int MaintenenceRequestID1 { get => MaintenenceRequestID; set => MaintenenceRequestID = value; }
         public bool IsAppliance1 { get => IsAppliance; set => IsAppliance = value; }

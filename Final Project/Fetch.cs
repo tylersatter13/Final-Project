@@ -90,7 +90,8 @@ namespace Final_Project
 
         public List<MaintenanceRequest> fetchMaintenanceRequests(DynamicParameters parameters, String spName)
         {
-            return maintenanceRequestFetch.selectStoredProcedure(parameters, spName);
+            var results = maintenanceRequestFetch.selectStoredProcedure(parameters, spName);
+            return results;
         }
         public List<MaintenanceTechnician> fetchMaintenanceTechnicians(DynamicParameters parameters, String spName)
         {

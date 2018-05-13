@@ -12,20 +12,23 @@ namespace Final_Project
         private HouseSearch houseSearch = new HouseSearch();
         private Fetch fetch = new Fetch();
         ValidationType validation = new ValidationType();
-       public MaintenanceRequest searchByLastName( String LastName)
+
+       
+        public List<MaintenanceRequest> searchByLastName( String LastName)
         {
             DynamicParameters parameters = new DynamicParameters();
             String spName = "spGetMaintenceRequest";// Stored Procedure Name
             parameters.Add("@LastName", LastName);
 
-            return GetMaintenanceRequests(parameters, spName)[0];
+            var results = GetMaintenanceRequests(parameters, spName);
+            return results;
         }
-        public MaintenanceRequest searchByHouseNumber( String HouseNumber)
+        public List<MaintenanceRequest> searchByHouseNumber( String HouseNumber)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@houseNumber", HouseNumber); 
             String spName = "spGetMaintenceRequestByHouse";
-            var results = GetMaintenanceRequests(parameters, spName)[0];
+            var results = GetMaintenanceRequests(parameters, spName);
             return results;
         }
         public List<MaintenanceRequest> searchForOpenRequests()
@@ -38,7 +41,7 @@ namespace Final_Project
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@RepairTypeID", TypeID);
-            String spName = "spGetMaintenceRequestByType ";
+            String spName = "spGetMaintenceRequestByType";
             return GetMaintenanceRequests(parameters, spName);
         }
         private List <Appliance> searchFormMaintenanceAppliance(int MaintenanceRequestID)
@@ -116,11 +119,13 @@ namespace Final_Project
 
             if (validation.getValidationDateTime().fieldHasValue(request.DateCompleted1) == false)
             {
-            List<MaintenancePart> parts = getMaintenaceParts(1);
-            request.Parts.Concat(parts);
+           
                
             }
-          
+            List<MaintenancePart> parts = getMaintenaceParts(request.MaintenenceRequestID1);
+            Console.WriteLine($"Part Count;{parts.Count}");
+            request.Parts.Concat(parts);
+
             return request;    
         }
         

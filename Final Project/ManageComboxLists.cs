@@ -57,11 +57,20 @@ namespace Final_Project
         {
             return GetList("RoofColor", "RoofColorName"); 
         }
+        public List<String> GetMaintenceRequestType()
+        {
+            return GetList("MaintenanceRequestType", "MaintenanceRequestTypeName");
+        }
+        public List<String> GetMaintenceTechnicans()
+        {
+            return GetList("MaintenanceTechnician", "MaintenanceTechnicianFirst");
+        }
         public List<String> GetList(String TableName, String FieldName)
         {
             DatabaseConnection<String> connection = new DatabaseConnection<String>();
             return connection.selectFormat(new[] { FieldName }, new String[0], TableName);
         }
+        
 
     }
 }

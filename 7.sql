@@ -1,0 +1,1 @@
+﻿SELECT SidngType FROM dbo.Siding

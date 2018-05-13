@@ -23,11 +23,35 @@ namespace Final_Project
             house.HouseInterrior.HouseInteriorID1 = CreateInterrior(house.HouseInterrior);
             house.HouseExterior.HouseExteriorID1 = CreateExterrior(house.HouseExterior);
             
-            return CreateFinishedHouse(house);
+            var results = CreateFinishedHouse(house);
+
+          /*  if (house.Tenants1.Count > 0) // if Additional Tennats are avaliable add them to the house
+            {
+               foreach (Tenant tenant in house.Tenants1)
+                {
+                   CreateHouseTenant(tenant, house.HouseID1);
+                }
+            }
+            if (house.LeadTenant.Pets.Count > 0) // if the owner has pets attach them to the lead tenant
+            {
+            
+
+            }*/
+
+            return house;
 
 
         }
-
+        private Tenant CreateHouseTenant(Tenant tenant,int HouseID)
+        {
+            String spName="spCreateHouseTenant";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@TenantFirst",tenant.TenantFirst);
+            parameters.Add("@TenantLast",tenant.TenantLast);
+            parameters.Add("@TenantPhone",tenant.TenantPhone);
+            parameters.Add("@HouseID",HouseID);
+            return tenant;
+        }
         private int CreateHouseKeys(Keys key)
         {
             String spName = "spCreateKeys ";
@@ -44,7 +68,7 @@ namespace Final_Project
             String spName = "spCreateAppliance";
             DynamicParameters parameters = new DynamicParameters();
 
-            parameters.Add("@fk_ApplianceTypeID", appliance.Type1 );
+            parameters.Add("@fk_ApplianceTypeID",validation.getValidationInt().CheckNullForeignKey(appliance.Type1) );
             parameters.Add("@ApplianceBrand", appliance.Brand1 );
             parameters.Add("@ApplianceModel", appliance.Model1);
             parameters.Add("@ApplianceSerial", appliance.SerialNumber1);
@@ -125,20 +149,21 @@ namespace Final_Project
         private House CreateFinishedHouse(House house)
         {
             String spName = "spCreateHouse";
+            var fkVal = validation.getValidationInt();
             DynamicParameters parameters = new DynamicParameters();
 
             parameters.Add("@HouseNumber", house.HouseNumber1);
             parameters.Add("@fk_Street",house.StreetID1);
             parameters.Add("@fk_Owner", house.Owner.OwnerID1);
-            parameters.Add("@fk_LeadTenant", validation.getValidationInt().CheckNullForeignKey(house.LeadTenant.LeadTenantID1));
-            parameters.Add("@fk_SQPlan", house.FloorPlanID1);
-            parameters.Add("@fk_HouseInterriorID", house.HouseInterrior.HouseInteriorID1);
-            parameters.Add("@fk_HouseExteriorID ", house.HouseExterior.HouseExteriorID1);
-            parameters.Add("@fk_KeyNunberID", validation.getValidationInt().CheckNullForeignKey(house.Keys.KeysID1));
-            parameters.Add("@fk_interriorFeaturesID  ", house.InterriorFeatures.HouseInterriorFeaturesID1);
-            parameters.Add("@fk_ExterriorFeaturesID  ", house.HouseExterior.HouseExteriorID1);
+            parameters.Add("@fk_LeadTenant", fkVal.CheckNullForeignKey(house.LeadTenant.LeadTenantID1));
+            parameters.Add("@fk_SQPlan", fkVal.CheckNullForeignKey(house.FloorPlanID1));
+            parameters.Add("@fk_HouseInterriorID", fkVal.CheckNullForeignKey(house.HouseInterrior.HouseInteriorID1));
+            parameters.Add("@fk_HouseExteriorID ", fkVal.CheckNullForeignKey(house.HouseExterior.HouseExteriorID1));
+            parameters.Add("@fk_KeyNunberID", fkVal.CheckNullForeignKey(house.Keys.KeysID1));
+            parameters.Add("@fk_interriorFeaturesID  ", fkVal.CheckNullForeignKey(house.InterriorFeatures.HouseInterriorFeaturesID1));
+            parameters.Add("@fk_ExterriorFeaturesID  ", fkVal.CheckNullForeignKey(house.HouseExterior.HouseExteriorID1));
             parameters.Add("@HouseDidDiscloseLea", house.LeadDisclosure1);
-            parameters.Add("@fk_HouseAppliancesID  ", house.HouseAppliances.HouseApplianceID1);
+            parameters.Add("@fk_HouseAppliancesID  ", fkVal.CheckNullForeignKey(house.HouseAppliances.HouseApplianceID1));
             parameters.Add("@HouseMiscellaneous", house.Miscellaneous1);
 
            return fetch.fetchHouseInformation(parameters, spName)[0];

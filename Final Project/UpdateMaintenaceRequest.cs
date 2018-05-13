@@ -16,7 +16,7 @@ namespace Final_Project
         public MaintenanceRequest MaintenaceRequestUpdate(MaintenanceRequest request)
         {
             UpdateMaintenanceRequest(request);
-            return searchMain.searchByLastName(request.House.LeadTenant.TenantLast);
+            return searchMain.searchByLastName(request.House.LeadTenant.TenantLast)[0];
         }
         
         public void UpdatePart(MaintenancePart part, int MaintenaceRequestID)

@@ -452,6 +452,13 @@ CREATE TABLE PetType(
 		PetTypeID INT PRIMARY KEY IDENTITY(1,1),
 		PetTypeName VARCHAR(30));
 
+CREATE TABLE HouseTenant(
+  fk_HouseID int,
+  fk_TenantID int,
+
+  PRIMARY KEY (fk_HouseID,fk_TenantID),
+  FOREIGN KEY (fk_TenantID) REFERENCES Tenant(TenantID),
+  FOREIGN KEY (fk_HouseID) REFERENCES  House(HouseID));
 
 INSERT PetType (PetTypeName) VALUES ('Dog');
 INSERT PetType (PetTypeName) VALUES ('Cat');

@@ -174,11 +174,28 @@ namespace Final_Project
         {
             if (login.validateUser(txtUserName.Text, txtPassword.Text))
             {
-                this.Hide();
+
                 // Menu mainMenu = new Menu() ;
-                 // mainMenu.Show();
-                CreateBasicHouseInformation createBasicHouse = new CreateBasicHouseInformation();
-                createBasicHouse.Show(); 
+                // mainMenu.Show();
+                // CreateBasicHouseInformation createBasicHouse = new CreateBasicHouseInformation();
+                // createBasicHouse.Show(); 
+                //   CreateMaintenaceRequest request = new CreateMaintenaceRequest();
+                //SearchMaintenanceRequests rsearch = new SearchMaintenanceRequests();
+
+                // MaintenanceRequest result = rsearch.searchByLastName("Arnold");
+                //    HouseSearch search = new HouseSearch();
+                //   var house = search.findAHouseByLastName("Arnold");
+                //  Console.WriteLine("Did return Maintenace Request");
+                //   Console.WriteLine(result.House.LeadTenant.TenantLast);
+                //   Console.WriteLine(result.House.LeadTenant.TenantFirst);
+                //   Console.WriteLine(result.House.LeadTenant.TenantPhone);
+
+                //  var requests = request.GenerateBasicMaintenceRequest(house.LeadTenant.TenantLast);
+                ///  Hide();
+                // create.Show();
+                MaintenaceRequestsSearchScreen searchScreen = new MaintenaceRequestsSearchScreen();
+                Hide();
+                searchScreen.ShowDialog();
             }
         }
 

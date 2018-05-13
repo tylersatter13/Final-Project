@@ -65,7 +65,7 @@ namespace Final_Project
         private void btnNext_Click(object sender, EventArgs e)
         {
             var dateVal = validation.getValidationDateTime();
-            if (validateHouseNumber(textHouseNumber) == false)
+            if (dateVal.validateHouseNumber(textHouseNumber) == false)
             {
 
             }else if (dateVal.CheckComboBox(drpOwner,"Owner") == false)
@@ -122,30 +122,7 @@ namespace Final_Project
                 
             }
         }
-        private bool validateHouseNumber(TextBox textbox)
-        {
-            int houseNumber;
-            var isNumeric = int.TryParse(textbox.Text, out houseNumber);
-            if (isNumeric == false)
-            {
-                alert.CreateBasicAlert(3, "House number may only contain numerical values", "Invalid House Number");
-                return false;
-            }
-            else if(textbox.Text.Length != 4)
-            {
-                alert.CreateBasicAlert(3, "House number must be 4 Digits", "Invalid House Number");
-                return false;
-            }
-            else if(houseNumber <1000)
-            {
-                alert.CreateBasicAlert(3, "House number must be Greater then 1000", "Invalid House Number");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+       
 
         private void AddListToBox(ComboBox combobox, List<String> items)
         {
@@ -206,7 +183,13 @@ namespace Final_Project
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            SetChosenFields();
+            var descsion = alert.CreateChoiceAlert(4, "Unsaved Data", "If you exit you will loose any unsaved data");
+            if (descsion == true)
+            {
+                Menu menu = new Menu();
+                Hide();
+                menu.ShowDialog();
+            }
         }
     }
 }

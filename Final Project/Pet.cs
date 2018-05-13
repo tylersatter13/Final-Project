@@ -8,17 +8,21 @@ namespace Final_Project
 {
     class Pet
     {
+        public int PetID;
         public String petType;
         public String petBreed;
-        public String petFee;
+        public decimal petFee;
         public bool petFeePaid;
-
-        public Pet(String petType, String petBreed, String petFee, bool petFeePaid)
+        public decimal petRent;
+        public Pet(int PetID,String petType, String petBreed, decimal petFee, decimal petRent, bool petFeePaid)
         {
+            this.PetID = PetID;
             this.petType = petType;
             this.petBreed = petBreed;
             this.petFee = petFee;
+            this.petRent = petRent;
             this.petFeePaid = petFeePaid;
+
         }
     }
 }

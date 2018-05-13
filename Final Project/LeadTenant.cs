@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
+    [Serializable]
     class LeadTenant : Tenant
     {
         private int LeadTenantID;
@@ -29,6 +30,7 @@ namespace Final_Project
         public LeadTenant(Int32 LeadTenantID, Int32 TenantID):base(TenantID)
         {
             LeadTenantID1 = LeadTenantID;
+            pets = new List<Pet>();
         }
         public LeadTenant(Int32 LeadTenantID, Decimal rentAmount, DateTime rentDate, Int32 Children, Int32 balance, Int32 TenantID,
            String TenantFirst, String TenantLast, String TenantPhone, Int32 TenantFlag, List<Pet> pets) 
@@ -47,6 +49,10 @@ namespace Final_Project
             this.balance = balance;
             this.tenantFlag = TenantFlag;
 
+        }
+        public LeadTenant clone()
+        {
+            return (LeadTenant)this.MemberwiseClone();
         }
     }
 }

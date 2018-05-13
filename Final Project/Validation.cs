@@ -9,6 +9,81 @@ namespace Final_Project
    public class Validation<T> where T : IComparable
     {
         private Alert alert = new Alert();
+
+        //if string is valid the convert the decimal else return 0
+        public bool validateHouseNumber(TextBox textbox)
+        {
+            int houseNumber;
+            var isNumeric = int.TryParse(textbox.Text, out houseNumber);
+            if (isNumeric == false)
+            {
+                alert.CreateBasicAlert(3, "House number may only contain numerical values", "Invalid House Number");
+                return false;
+            }
+            else if (textbox.Text.Length != 4)
+            {
+                alert.CreateBasicAlert(3, "House number must be 4 Digits", "Invalid House Number");
+                return false;
+            }
+            else if (houseNumber < 1000)
+            {
+                alert.CreateBasicAlert(3, "House number must be Greater then 1000", "Invalid House Number");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public decimal convertStringToDecimal(String testvalue)
+        {
+            decimal decimalResult;
+            if (fieldHasValue(testvalue))
+            {
+              var result = decimal.TryParse(testvalue, out decimalResult);
+                if (result == true)
+                {
+                    return decimalResult;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+    
+        public bool checkInt(String testvalue,String FieldName)
+        {
+            if (fieldHasValue(testvalue))
+            {
+                return testIntConversion(testvalue, FieldName);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool testIntConversion(String test, String FieldName)
+        {
+            int newInt;
+
+            var isNumeric = int.TryParse(test, out newInt);
+            if (isNumeric == false)
+            {
+                alert.CreateBasicAlert(4,$"{FieldName} must be a numerical value","Invalid Entry");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
         public DateTime ConvertDatePickerDefault(DateTimePicker dateTimePicker)
         {
             if (dateTimePicker.Checked == false)
@@ -78,3 +153,4 @@ namespace Final_Project
       
     }
 }
+

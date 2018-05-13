@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
+    [Serializable]
    public class House
     {
         private int HouseID;
@@ -23,6 +24,7 @@ namespace Final_Project
         private HouseExterior houseExterior;
         private LeadTenant leadTenant;
         private Owner owner;
+        private List<Tenant> Tenants = new List<Tenant>();
         private ValidationType validate = new ValidationType();
         private String Miscellaneous;
         internal HouseAppliances HouseAppliances { get => houseAppliances; set => houseAppliances = value; }
@@ -41,9 +43,9 @@ namespace Final_Project
         public bool LeadDisclosure1 { get => LeadDisclosure; set => LeadDisclosure = value; }
         internal Keys Keys { get => keys; set => keys = value; }
         public string Miscellaneous1 { get => Miscellaneous; set => Miscellaneous = value; }
+        internal List<Tenant> Tenants1 { get => Tenants; set => Tenants = value; }
 
-
-     public House(Int32 HouseID)
+        public House(Int32 HouseID)
         {
             Console.WriteLine("Contstructor 1");
             HouseID1 = HouseID;
@@ -116,7 +118,10 @@ namespace Final_Project
                 $"Children:{LeadTenant.Children} Balance:{LeadTenant.Balance}");
             Console.WriteLine($"KeyID:{Keys.KeysID1} Current Key Number:{Keys.KeyNumberCurrent1} ");
         }
-    
+        public House clone()
+        {
+            return (House)this.MemberwiseClone();
+        }
 
     }
 }

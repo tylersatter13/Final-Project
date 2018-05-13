@@ -13,6 +13,17 @@ namespace Final_Project
         private Fetch fetch = new Fetch();
       //  private String[] HouseSelect = new[] { "HouseID", "HouseNumber", "fk_Street", "StreetName", "HouseDidDiscloseLea", "fk_SQPlan", "S3.SQPlanName" };
       //  private String[] HouseJoin = new[]
+
+       public List<House> findInterriorColorByHouse(String houseNumber)
+        {
+            var house = findAHouseByNumber(houseNumber);
+            return findHouseByInterriorColor(house.HouseInterrior.PrimaryPaintColorID1);
+        }
+       public List<House> findExteriorColorByHouse(String houseNumber)
+        {
+            var house = findAHouseByNumber(houseNumber);
+            return findHouseByExteriorColor(house.HouseExterior.ExteriorColorID1);
+        }
         public List<House> findHouseByExteriorColor(int ColorID)
         {
             try
@@ -24,9 +35,7 @@ namespace Final_Project
                 
                 foreach (House house in homes )
                 {
-                    house.HouseExterior = GetHouseExterior(house.HouseID1);
-                    house.Owner = fetch.fetchHouseOwner(house.HouseID1)[0];
-                    house.LeadTenant = GetLeadTenant(house.HouseID1);
+                    generateHouse(house);
                 }
                 return homes;
             }
@@ -51,9 +60,10 @@ namespace Final_Project
            
                 foreach(House house in homes)
                 {
-                    house.HouseInterrior = GetHouseInterrior(house.HouseID1);
+                    generateHouse(house);
+                   /* house.HouseInterrior = GetHouseInterrior(house.HouseID1);
                     house.Owner = fetch.fetchHouseOwner(house.HouseID1)[0];
-                    house.LeadTenant = GetLeadTenant(house.HouseID1);
+                    house.LeadTenant = GetLeadTenant(house.HouseID1);*/
                 }
                 return homes;
             }
@@ -79,7 +89,14 @@ namespace Final_Project
             String spName = "spGetHouseByLastName";
 
             var results = fetch.fetchHouseInformation(parameters, spName)[0];
-            return  generateHouse(results);
+        
+            House finalresults =  generateHouse(results).clone();
+            Console.WriteLine("Results returned from By LastName");
+            Console.WriteLine(finalresults.LeadTenant.TenantLast);
+            Console.WriteLine(finalresults.LeadTenant.TenantFirst);
+            Console.WriteLine(finalresults.LeadTenant.TenantPhone);
+
+            return finalresults.clone();
         }
         public House findHouseByMaintenaceID(int MaintenanceID)
         {
@@ -93,15 +110,25 @@ namespace Final_Project
        
        private House generateHouse(House house)
         {
+            Cloner clone = new Cloner();
             var houseID = house.HouseID1;
-            house.ExteriorFeatures = GetHouseExteriorFeatures(houseID);
-            house.InterriorFeatures = GetHouseInterriorFeatures(houseID);
+            LeadTenant leadTenant = new LeadTenant(0, 0);
+            leadTenant = GetLeadTenant(houseID);
+            house.LeadTenant = leadTenant.clone();
+           house.ExteriorFeatures = GetHouseExteriorFeatures(houseID);
+           house.InterriorFeatures = GetHouseInterriorFeatures(houseID);
             house.HouseAppliances = GetHouseAppliances(houseID);
-            house.HouseInterrior = GetHouseInterrior(houseID);
-            house.HouseExterior = GetHouseExterior(houseID);
+           house.HouseInterrior = GetHouseInterrior(houseID);
+           house.HouseExterior = GetHouseExterior(houseID);
             house.Owner = fetch.fetchHouseOwner(houseID)[0];
-            house.LeadTenant = GetLeadTenant(houseID);
-            Console.Write(house.LeadTenant.LeadTenantID1);
+
+            //house.LeadTenant = GetLeadTenant(houseID);
+            Console.WriteLine("Did complete generating houses");
+           
+            Console.WriteLine(house.LeadTenant.TenantFirst);
+            Console.WriteLine(house.Owner.OwnerInitals1);
+            Console.WriteLine(house.ExteriorFeatures.DrivewayReplacemnt1);
+            Console.WriteLine(house.HouseAppliances.LastGarbageDisposalReplacement1);
             return house;
 
 
@@ -164,7 +191,12 @@ namespace Final_Project
             String spName = "spGetLeadTenant";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@HouseID", HouseID);
-            return fetch.fetchLeadTenants(parameters, spName)[0];
+           LeadTenant results = fetch.fetchLeadTenants(parameters, spName)[0];
+
+            Console.WriteLine(results.TenantLast);
+            Console.WriteLine(results.TenantFirst);
+            Console.WriteLine(results.TenantPhone);
+            return results;
         }
     }
 }

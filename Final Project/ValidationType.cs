@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    class ValidationType
+   public class ValidationType
     {
        public Validation<String> getValidationString()
         {

@@ -9,25 +9,26 @@ namespace Final_Project
     class Tenant
     {
        private int tenantId;
-       private string tenantFirst;
-       private string tenantLast;
-       private string tenantPhone;
+       private String tenantFirst;
+       private String tenantLast;
+       private String tenantPhone;
      
 
         public Tenant(int tenantID)
         {
            tenantId = tenantID;
         }
-        public Tenant(int tenantID, string tenantFirst, string tenantLast, string tenantPhone)
+        public Tenant(Int32 tenantID, String tenantFirst, String tenantLast, String tenantPhone)
         {
             this.tenantId = tenantID;
             this.tenantFirst = tenantFirst;
             this.tenantLast = tenantLast;
+            this.TenantPhone = tenantPhone;
         }
 
         public int TenantId { get => tenantId; set => tenantId = value; }
-        public string TenantFirst { get => tenantFirst; set => tenantFirst = value; }
-        public string TenantLast { get => tenantLast; set => tenantLast = value; }
-        public string TenantPhone { get => tenantPhone; set => tenantPhone = value; }
+        public String TenantFirst { get => tenantFirst; set => tenantFirst = value; }
+        public String TenantLast { get => tenantLast; set => tenantLast = value; }
+        public String TenantPhone { get => tenantPhone; set => tenantPhone = value; }
     }
 }

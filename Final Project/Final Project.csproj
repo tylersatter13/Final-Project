@@ -72,9 +72,12 @@
     <Reference Include="Ookii.Dialogs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0c15020868fd6249, processorArchitecture=MSIL">
       <HintPath>..\packages\Ookii.Dialogs.WindowsForms.1.0\lib\net35\Ookii.Dialogs.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +87,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alert.cs" />
@@ -94,6 +100,7 @@
     <Compile Include="Appliances.Designer.cs">
       <DependentUpon>Appliances.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cloner.cs" />
     <Compile Include="CreateBasicHouseInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,9 +115,27 @@
       <DependentUpon>CreateHouseExterriorInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="CreateMaintenaceRequest.cs" />
+    <Compile Include="CreateMaintenaceRequestScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateMaintenaceRequestScreen.Designer.cs">
+      <DependentUpon>CreateMaintenaceRequestScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Fetch.cs" />
     <Compile Include="FetchComboxList.cs" />
+    <Compile Include="FinalizeHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinalizeHouse.Designer.cs">
+      <DependentUpon>FinalizeHouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenaceRequestsSearchScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintenaceRequestsSearchScreen.Designer.cs">
+      <DependentUpon>MaintenaceRequestsSearchScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageComboxLists.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -140,6 +165,12 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Owner.cs" />
+    <Compile Include="PaintSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaintSearch.Designer.cs">
+      <DependentUpon>PaintSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,11 +179,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PropertyManagerDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PropertyManagerDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertyManagerDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SearchMaintenanceRequests.cs" />
     <Compile Include="SelectRequest.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="StreetNames.cs" />
     <Compile Include="Tenant.cs" />
+    <Compile Include="TenantInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TenantInfo.Designer.cs">
+      <DependentUpon>TenantInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="TenantManager.cs" />
     <Compile Include="TenantTransaction.cs" />
     <Compile Include="TransactionManager.cs" />
@@ -161,14 +203,29 @@
     <Compile Include="User.cs" />
     <Compile Include="Validation.cs" />
     <Compile Include="ValidationType.cs" />
+    <EmbeddedResource Include="Appliances.resx">
+      <DependentUpon>Appliances.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateBasicHouseInformation.resx">
       <DependentUpon>CreateBasicHouseInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateHouseExterriorInformation.resx">
       <DependentUpon>CreateHouseExterriorInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateMaintenaceRequestScreen.resx">
+      <DependentUpon>CreateMaintenaceRequestScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalizeHouse.resx">
+      <DependentUpon>FinalizeHouse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintenaceRequestsSearchScreen.resx">
+      <DependentUpon>MaintenaceRequestsSearchScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintSearch.resx">
+      <DependentUpon>PaintSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -179,6 +236,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TenantInfo.resx">
+      <DependentUpon>TenantInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -199,6 +259,17 @@
     </None>
     <None Include="PropertyManagerDataSet.xss">
       <DependentUpon>PropertyManagerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PropertyManagerDataSet1.xsc">
+      <DependentUpon>PropertyManagerDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PropertyManagerDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PropertyManagerDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PropertyManagerDataSet1.xss">
+      <DependentUpon>PropertyManagerDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
