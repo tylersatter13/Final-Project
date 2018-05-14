@@ -13,7 +13,7 @@ namespace Final_Project
     public partial class PaintSearch : Form
     {
         private ManageComboxLists comboxLists = new ManageComboxLists();
-        private List<House> houses = new List<House>();
+        private List<House> Houses = new List<House>();
         public PaintSearch()
         {
             InitializeComponent();
@@ -43,11 +43,11 @@ namespace Final_Project
         }
         private void PopulateDatabase(List<House> houses)
         {
-            houses.Clear();
+            
             foreach (House house in houses)
            {
                 AddHouseToTable(house);
-                houses.Add(house);
+                Houses.Add(house);
             }
         }
         private void AddHouseToTable(House house)
@@ -69,7 +69,7 @@ namespace Final_Project
         private void btnSearch_Click(object sender, EventArgs e)
         {
             HouseSearch search = new HouseSearch();
-
+            Houses.Clear();
             dataHouse.Rows.Clear();
             dataHouse.Refresh();
             // Console.WriteLine(drpExteriorColor.SelectedItem.ToString());
@@ -96,7 +96,7 @@ namespace Final_Project
                 List<House> houses = search.findHouseByInterriorColor(drpInterriorColor.SelectedIndex);
                 PopulateDatabase(houses);
             }
-           
+            
             ClearInputs();
           
         }
@@ -139,7 +139,7 @@ namespace Final_Project
         private void dataHouse_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = e.RowIndex;
-            CreateBasicHouseInformation createBasic = new CreateBasicHouseInformation(houses[row]);
+            CreateBasicHouseInformation createBasic = new CreateBasicHouseInformation(Houses[row]);
             Hide();
             createBasic.Show();
             

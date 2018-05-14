@@ -181,6 +181,7 @@
             // btnBack
             // 
             this.btnBack.AccessibleName = "btnBack";
+            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnBack.Location = new System.Drawing.Point(23, 503);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(156, 39);
@@ -318,6 +319,7 @@
             this.lblFirstName.Size = new System.Drawing.Size(71, 20);
             this.lblFirstName.TabIndex = 51;
             this.lblFirstName.Text = "Pet Type";
+            this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // textPetType
             // 

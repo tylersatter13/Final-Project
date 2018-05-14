@@ -27,6 +27,7 @@ namespace Final_Project
         private DatabaseConnection<MaintenancePart> partFetch = new DatabaseConnection<MaintenancePart>();
         private DatabaseConnection<TenantTransaction> transationFetch = new DatabaseConnection<TenantTransaction>();
         private DatabaseConnection<Keys> keysFetch = new DatabaseConnection<Keys>();
+        private DatabaseConnection<Pet> petFetch = new DatabaseConnection<Pet>();
 
         public List<Tenant> fetchHouseTenants(DynamicParameters parameters, String spName)
         {
@@ -108,6 +109,10 @@ namespace Final_Project
         public List<Keys> fetchKeys(DynamicParameters parameters, String spName)
         {
             return keysFetch.selectStoredProcedure(parameters, spName);
+        }
+        public List<Pet> fetchPets(DynamicParameters parameters, String spName)
+        {
+            return petFetch.selectStoredProcedure(parameters, spName);
         }
         
     }

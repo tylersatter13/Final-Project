@@ -61,10 +61,10 @@ namespace Final_Project
             setStreet(fk_Street,StreetName);
             setFloorPlan(SQPlanName, fk_SQPlan);
             Miscellaneous1 = miscellaneous;
+            Tenants1 = new List<Tenant>();
         }
 
        
-
         public void setStreet(int StreetID,String Streetname) // If both fields contain valid inputs then the House Owner is set
         {
             if (validate.getValidationInt().fieldHasValue(StreetID) == false)
@@ -122,6 +122,13 @@ namespace Final_Project
         {
             return (House)this.MemberwiseClone();
         }
-
+        public int getTenants()
+        {
+           return  Tenants1.Count();
+        }
+        public String getAddress()
+        {
+            return HouseNumber + " " + Streetname;
+        }
     }
 }

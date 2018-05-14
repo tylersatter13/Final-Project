@@ -10,6 +10,39 @@ namespace Final_Project
     {
         Fetch fetch = new Fetch();
         ValidationType validation = new ValidationType();
+
+        public LeadTenant GetLeadTenantByLastName( String LastName)
+        {
+            String spName = "spGetLeadTenatByLastName";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@LastName", LastName );
+
+            LeadTenant leadTenant = fetch.fetchLeadTenants(parameters, spName)[0];
+
+            return FinalizeLeadTenant(leadTenant);  
+        }
+        public LeadTenant GetLeadTenant(int TenantID)
+        {
+            String spName = "spGetLeadTenantByID";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@LeadTenantID", TenantID);
+
+            LeadTenant leadTenant =  fetch.fetchLeadTenants(parameters, spName)[0];
+
+     
+            return  FinalizeLeadTenant(leadTenant);
+
+        }
+        public LeadTenant FinalizeLeadTenant(LeadTenant leadTenant)
+        {
+            TransactionManager transactionManager = new TransactionManager();
+
+            HouseSearch search = new HouseSearch();
+            leadTenant.Pets = search.GetLeadTenantPets(leadTenant.LeadTenantID1);
+            leadTenant.Transactions = transactionManager.GetTenantTransactions(leadTenant.TenantLast);
+            return leadTenant;
+        }
+
         public LeadTenant addLeadTenant(LeadTenant leadTenant)
         {
            Tenant tenant = new Tenant(0, leadTenant.TenantFirst, leadTenant.TenantLast, leadTenant.TenantPhone);

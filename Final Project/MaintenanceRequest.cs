@@ -11,6 +11,7 @@ namespace Final_Project
         private int MaintenenceRequestID;
         private bool IsAppliance;
         private bool PermissionToEnter;
+        
         private DateTime DateCreated;
         private DateTime DateStarted;
         private DateTime DateCompleted;

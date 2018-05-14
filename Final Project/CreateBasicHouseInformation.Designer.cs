@@ -31,10 +31,24 @@
             this.components = new System.ComponentModel.Container();
             this.textHouseNumber = new System.Windows.Forms.TextBox();
             this.gbBasicInfo = new System.Windows.Forms.GroupBox();
+            this.lblOwner = new System.Windows.Forms.Label();
+            this.lblStreetName = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblHouseNumber = new System.Windows.Forms.Label();
             this.drpSQPlan = new System.Windows.Forms.ComboBox();
             this.drpOwner = new System.Windows.Forms.ComboBox();
             this.drpStreetName = new System.Windows.Forms.ComboBox();
             this.InterriorColors = new System.Windows.Forms.GroupBox();
+            this.lblStainDate = new System.Windows.Forms.Label();
+            this.lblVanFInstall = new System.Windows.Forms.Label();
+            this.lblInstallDate = new System.Windows.Forms.Label();
+            this.lblLastPainted = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblWWork = new System.Windows.Forms.Label();
+            this.lblFormicaColor = new System.Windows.Forms.Label();
+            this.lblCarpetColor = new System.Windows.Forms.Label();
+            this.lblPrimaryColor = new System.Windows.Forms.Label();
             this.drpWoodWork = new System.Windows.Forms.ComboBox();
             this.dateBlindReplacement = new System.Windows.Forms.DateTimePicker();
             this.dateVF = new System.Windows.Forms.DateTimePicker();
@@ -47,20 +61,6 @@
             this.drpPrimaryColor = new System.Windows.Forms.ComboBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.lblPrimaryColor = new System.Windows.Forms.Label();
-            this.lblCarpetColor = new System.Windows.Forms.Label();
-            this.lblFormicaColor = new System.Windows.Forms.Label();
-            this.lblWWork = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblLastPainted = new System.Windows.Forms.Label();
-            this.lblInstallDate = new System.Windows.Forms.Label();
-            this.lblVanFInstall = new System.Windows.Forms.Label();
-            this.lblStainDate = new System.Windows.Forms.Label();
-            this.lblHouseNumber = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblStreetName = new System.Windows.Forms.Label();
-            this.lblOwner = new System.Windows.Forms.Label();
             this.propertyManagerDataSet = new Final_Project.PropertyManagerDataSet();
             this.houseInteriorColorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.houseInteriorColorsTableAdapter = new Final_Project.PropertyManagerDataSetTableAdapters.HouseInteriorColorsTableAdapter();
@@ -98,6 +98,46 @@
             this.gbBasicInfo.TabIndex = 1;
             this.gbBasicInfo.TabStop = false;
             this.gbBasicInfo.Text = "Basic Information";
+            // 
+            // lblOwner
+            // 
+            this.lblOwner.AutoSize = true;
+            this.lblOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOwner.Location = new System.Drawing.Point(639, 83);
+            this.lblOwner.Name = "lblOwner";
+            this.lblOwner.Size = new System.Drawing.Size(55, 20);
+            this.lblOwner.TabIndex = 27;
+            this.lblOwner.Text = "Owner";
+            // 
+            // lblStreetName
+            // 
+            this.lblStreetName.AutoSize = true;
+            this.lblStreetName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStreetName.Location = new System.Drawing.Point(596, 27);
+            this.lblStreetName.Name = "lblStreetName";
+            this.lblStreetName.Size = new System.Drawing.Size(93, 20);
+            this.lblStreetName.TabIndex = 26;
+            this.lblStreetName.Text = "Streetname";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(20, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 20);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Sqaure Feet";
+            // 
+            // lblHouseNumber
+            // 
+            this.lblHouseNumber.AutoSize = true;
+            this.lblHouseNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHouseNumber.Location = new System.Drawing.Point(10, 27);
+            this.lblHouseNumber.Name = "lblHouseNumber";
+            this.lblHouseNumber.Size = new System.Drawing.Size(116, 20);
+            this.lblHouseNumber.TabIndex = 24;
+            this.lblHouseNumber.Text = "House Number";
             // 
             // drpSQPlan
             // 
@@ -164,6 +204,106 @@
             this.InterriorColors.TabIndex = 2;
             this.InterriorColors.TabStop = false;
             this.InterriorColors.Text = "InterriorFeatures";
+            // 
+            // lblStainDate
+            // 
+            this.lblStainDate.AutoSize = true;
+            this.lblStainDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStainDate.Location = new System.Drawing.Point(512, 243);
+            this.lblStainDate.Name = "lblStainDate";
+            this.lblStainDate.Size = new System.Drawing.Size(182, 20);
+            this.lblStainDate.TabIndex = 23;
+            this.lblStainDate.Text = "Blind Replacement Date";
+            // 
+            // lblVanFInstall
+            // 
+            this.lblVanFInstall.AutoSize = true;
+            this.lblVanFInstall.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVanFInstall.Location = new System.Drawing.Point(604, 175);
+            this.lblVanFInstall.Name = "lblVanFInstall";
+            this.lblVanFInstall.Size = new System.Drawing.Size(90, 20);
+            this.lblVanFInstall.TabIndex = 22;
+            this.lblVanFInstall.Text = "Install Date";
+            // 
+            // lblInstallDate
+            // 
+            this.lblInstallDate.AutoSize = true;
+            this.lblInstallDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstallDate.Location = new System.Drawing.Point(604, 102);
+            this.lblInstallDate.Name = "lblInstallDate";
+            this.lblInstallDate.Size = new System.Drawing.Size(90, 20);
+            this.lblInstallDate.TabIndex = 21;
+            this.lblInstallDate.Text = "Install Date";
+            // 
+            // lblLastPainted
+            // 
+            this.lblLastPainted.AutoSize = true;
+            this.lblLastPainted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastPainted.Location = new System.Drawing.Point(604, 35);
+            this.lblLastPainted.Name = "lblLastPainted";
+            this.lblLastPainted.Size = new System.Drawing.Size(98, 20);
+            this.lblLastPainted.TabIndex = 20;
+            this.lblLastPainted.Text = "Last Painted";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(313, 176);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 20);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Primary Color";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(289, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Secondary Color";
+            // 
+            // lblWWork
+            // 
+            this.lblWWork.AutoSize = true;
+            this.lblWWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWWork.Location = new System.Drawing.Point(30, 243);
+            this.lblWWork.Name = "lblWWork";
+            this.lblWWork.Size = new System.Drawing.Size(92, 20);
+            this.lblWWork.TabIndex = 17;
+            this.lblWWork.Text = "Wood Work";
+            // 
+            // lblFormicaColor
+            // 
+            this.lblFormicaColor.AutoSize = true;
+            this.lblFormicaColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormicaColor.Location = new System.Drawing.Point(21, 177);
+            this.lblFormicaColor.Name = "lblFormicaColor";
+            this.lblFormicaColor.Size = new System.Drawing.Size(107, 20);
+            this.lblFormicaColor.TabIndex = 16;
+            this.lblFormicaColor.Text = "Formica Color";
+            // 
+            // lblCarpetColor
+            // 
+            this.lblCarpetColor.AutoSize = true;
+            this.lblCarpetColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarpetColor.Location = new System.Drawing.Point(24, 107);
+            this.lblCarpetColor.Name = "lblCarpetColor";
+            this.lblCarpetColor.Size = new System.Drawing.Size(98, 20);
+            this.lblCarpetColor.TabIndex = 15;
+            this.lblCarpetColor.Text = "Carpet Color";
+            // 
+            // lblPrimaryColor
+            // 
+            this.lblPrimaryColor.AutoSize = true;
+            this.lblPrimaryColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrimaryColor.Location = new System.Drawing.Point(24, 38);
+            this.lblPrimaryColor.Name = "lblPrimaryColor";
+            this.lblPrimaryColor.Size = new System.Drawing.Size(102, 20);
+            this.lblPrimaryColor.TabIndex = 14;
+            this.lblPrimaryColor.Text = "Primary Color";
             // 
             // drpWoodWork
             // 
@@ -306,146 +446,6 @@
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // lblPrimaryColor
-            // 
-            this.lblPrimaryColor.AutoSize = true;
-            this.lblPrimaryColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrimaryColor.Location = new System.Drawing.Point(24, 38);
-            this.lblPrimaryColor.Name = "lblPrimaryColor";
-            this.lblPrimaryColor.Size = new System.Drawing.Size(102, 20);
-            this.lblPrimaryColor.TabIndex = 14;
-            this.lblPrimaryColor.Text = "Primary Color";
-            // 
-            // lblCarpetColor
-            // 
-            this.lblCarpetColor.AutoSize = true;
-            this.lblCarpetColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarpetColor.Location = new System.Drawing.Point(24, 107);
-            this.lblCarpetColor.Name = "lblCarpetColor";
-            this.lblCarpetColor.Size = new System.Drawing.Size(98, 20);
-            this.lblCarpetColor.TabIndex = 15;
-            this.lblCarpetColor.Text = "Carpet Color";
-            // 
-            // lblFormicaColor
-            // 
-            this.lblFormicaColor.AutoSize = true;
-            this.lblFormicaColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormicaColor.Location = new System.Drawing.Point(21, 177);
-            this.lblFormicaColor.Name = "lblFormicaColor";
-            this.lblFormicaColor.Size = new System.Drawing.Size(107, 20);
-            this.lblFormicaColor.TabIndex = 16;
-            this.lblFormicaColor.Text = "Formica Color";
-            // 
-            // lblWWork
-            // 
-            this.lblWWork.AutoSize = true;
-            this.lblWWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWWork.Location = new System.Drawing.Point(30, 243);
-            this.lblWWork.Name = "lblWWork";
-            this.lblWWork.Size = new System.Drawing.Size(92, 20);
-            this.lblWWork.TabIndex = 17;
-            this.lblWWork.Text = "Wood Work";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(289, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 20);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Secondary Color";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(313, 176);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 20);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Primary Color";
-            // 
-            // lblLastPainted
-            // 
-            this.lblLastPainted.AutoSize = true;
-            this.lblLastPainted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastPainted.Location = new System.Drawing.Point(604, 35);
-            this.lblLastPainted.Name = "lblLastPainted";
-            this.lblLastPainted.Size = new System.Drawing.Size(98, 20);
-            this.lblLastPainted.TabIndex = 20;
-            this.lblLastPainted.Text = "Last Painted";
-            // 
-            // lblInstallDate
-            // 
-            this.lblInstallDate.AutoSize = true;
-            this.lblInstallDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstallDate.Location = new System.Drawing.Point(604, 102);
-            this.lblInstallDate.Name = "lblInstallDate";
-            this.lblInstallDate.Size = new System.Drawing.Size(90, 20);
-            this.lblInstallDate.TabIndex = 21;
-            this.lblInstallDate.Text = "Install Date";
-            // 
-            // lblVanFInstall
-            // 
-            this.lblVanFInstall.AutoSize = true;
-            this.lblVanFInstall.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVanFInstall.Location = new System.Drawing.Point(604, 175);
-            this.lblVanFInstall.Name = "lblVanFInstall";
-            this.lblVanFInstall.Size = new System.Drawing.Size(90, 20);
-            this.lblVanFInstall.TabIndex = 22;
-            this.lblVanFInstall.Text = "Install Date";
-            // 
-            // lblStainDate
-            // 
-            this.lblStainDate.AutoSize = true;
-            this.lblStainDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStainDate.Location = new System.Drawing.Point(512, 243);
-            this.lblStainDate.Name = "lblStainDate";
-            this.lblStainDate.Size = new System.Drawing.Size(182, 20);
-            this.lblStainDate.TabIndex = 23;
-            this.lblStainDate.Text = "Blind Replacement Date";
-            // 
-            // lblHouseNumber
-            // 
-            this.lblHouseNumber.AutoSize = true;
-            this.lblHouseNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHouseNumber.Location = new System.Drawing.Point(10, 27);
-            this.lblHouseNumber.Name = "lblHouseNumber";
-            this.lblHouseNumber.Size = new System.Drawing.Size(116, 20);
-            this.lblHouseNumber.TabIndex = 24;
-            this.lblHouseNumber.Text = "House Number";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 20);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Sqaure Feet";
-            // 
-            // lblStreetName
-            // 
-            this.lblStreetName.AutoSize = true;
-            this.lblStreetName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreetName.Location = new System.Drawing.Point(596, 27);
-            this.lblStreetName.Name = "lblStreetName";
-            this.lblStreetName.Size = new System.Drawing.Size(93, 20);
-            this.lblStreetName.TabIndex = 26;
-            this.lblStreetName.Text = "Streetname";
-            // 
-            // lblOwner
-            // 
-            this.lblOwner.AutoSize = true;
-            this.lblOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOwner.Location = new System.Drawing.Point(639, 83);
-            this.lblOwner.Name = "lblOwner";
-            this.lblOwner.Size = new System.Drawing.Size(55, 20);
-            this.lblOwner.TabIndex = 27;
-            this.lblOwner.Text = "Owner";
             // 
             // propertyManagerDataSet
             // 

@@ -59,14 +59,14 @@ namespace Final_Project
             DynamicParameters parameters = new DynamicParameters();
 
             parameters.Add("@MaintenaceRequestID", MaintenaceRequestID);
-            parameters.Add("@PartName ", part.PartName1);
+            parameters.Add("@PartName", part.PartName1);
             parameters.Add("@fk_PartBrand", null);
-            parameters.Add("@PartCost DECIMAL", part.PartCost1);
+            parameters.Add("@PartCost", part.PartCost1);
             parameters.Add("@PartPurchaseLocation",null);
             parameters.Add("@PartStockorCharge", part.InStock1);
 
            var results = fetch.fetchMaintenaceParts(parameters, spName);
-           return results[0];
+           return part;
         }
         public MaintenanceRequest CreateFullMaintenanceRequest(MaintenanceRequest request)
         {

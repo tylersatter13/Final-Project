@@ -230,13 +230,13 @@
             this.radioExterrior.Name = "radioExterrior";
             this.radioExterrior.Size = new System.Drawing.Size(90, 17);
             this.radioExterrior.TabIndex = 55;
-            this.radioExterrior.TabStop = true;
             this.radioExterrior.Text = "Exterrior Color";
             this.radioExterrior.UseVisualStyleBackColor = true;
             // 
             // radioInterrior
             // 
             this.radioInterrior.AutoSize = true;
+            this.radioInterrior.Checked = true;
             this.radioInterrior.Location = new System.Drawing.Point(11, 7);
             this.radioInterrior.Name = "radioInterrior";
             this.radioInterrior.Size = new System.Drawing.Size(87, 17);

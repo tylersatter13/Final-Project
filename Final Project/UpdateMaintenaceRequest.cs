@@ -9,6 +9,7 @@ namespace Final_Project
 {
     class UpdateMaintenaceRequest
     {
+        private CreateMaintenaceRequest create = new CreateMaintenaceRequest();
         private HouseSearch search = new HouseSearch();
         private Fetch fetch = new Fetch();
         private SearchMaintenanceRequests searchMain = new SearchMaintenanceRequests();
@@ -55,7 +56,28 @@ namespace Final_Project
             parameters.Add("@MaintenancRequesteIsAppliance", request.IsAppliance1);
 
             var results = fetch.fetchMaintenanceRequests(parameters, spName);
+            checkParts(request.Parts, request.MaintenenceRequestID1);
            // return results[0];
         }
+        public void checkParts(List<MaintenancePart> Parts,int MaintenaceRequestID)
+        {
+            foreach (MaintenancePart part in Parts)
+            {
+                if (part.PartID1 == 0)
+                {
+                    Console.WriteLine("Part Created");
+                    create.AddPart(part, MaintenaceRequestID);
+                }else if(part.PartID1 == -1)
+                {
+                    Console.WriteLine("Part Deleted");
+                }
+                else
+                {
+                    Console.WriteLine("Part Updated");
+                    UpdatePart(part, MaintenaceRequestID);
+                }
+            }
+        }
+       
     }
 }

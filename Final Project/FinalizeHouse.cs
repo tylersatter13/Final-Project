@@ -90,20 +90,30 @@ namespace Final_Project
         private void btnFinish_Click(object sender, EventArgs e)
         {
             SetupHouse();
-            CreateHouse createHouse = new CreateHouse();
-            createHouse.CreateNewHouse(house);
-            Menu mainMenu = new Menu();
+            if (house.HouseID1 == 0)
+            {
+               
+                CreateHouse createHouse = new CreateHouse();
+                createHouse.CreateNewHouse(house);
+                
+            }
+            else
+            {
+                UpdateHouse updateHouse = new UpdateHouse();
+                updateHouse.generatUpdatedHouse(house);
+            }
             Hide();
+            Menu mainMenu = new Menu();
             mainMenu.ShowDialog();
         }
 
         private void btnAddPet_Click(object sender, EventArgs e)
         {
             var intval = validation.getValidationInt();
-            house.LeadTenant.Pets.Add(new Pet(0, textPetType.Text, textPetBread.Text,
+          /*  house.LeadTenant.Pets.Add(new Pet(0, textPetType.Text, textPetBread.Text,
                 intval.convertStringToDecimal(textPetFee.Text),
                 intval.convertStringToDecimal(textPetRent.Text),  checkPetFee.Checked
-                ));
+                ));*/
             var entry = house.LeadTenant.Pets.Count-1;
             AddPetToTable(house.LeadTenant.Pets[entry]);
             clearPetInputs();

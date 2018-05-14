@@ -24,6 +24,15 @@ namespace Final_Project
             var house = findAHouseByNumber(houseNumber);
             return findHouseByExteriorColor(house.HouseExterior.ExteriorColorID1);
         }
+       public List<House> findHouses()
+        {
+            var spName = "spGetAllHouses";
+            DynamicParameters parameters = new DynamicParameters();
+
+           var results = fetch.fetchHouseInformation(parameters, spName);
+            return generateHouse(results);
+
+        }
         public List<House> findHouseByExteriorColor(int ColorID)
         {
             try
@@ -107,10 +116,19 @@ namespace Final_Project
 
             return generateHouse(results);
         }
-       
+       private List<House> generateHouse(List<House> houses)
+        {
+            foreach(House house in houses)
+            {
+                generateHouse(house);
+            }
+            return houses;
+        }
+
+
        private House generateHouse(House house)
         {
-            Cloner clone = new Cloner();
+           
             var houseID = house.HouseID1;
             LeadTenant leadTenant = new LeadTenant(0, 0);
             leadTenant = GetLeadTenant(houseID);
@@ -121,7 +139,7 @@ namespace Final_Project
            house.HouseInterrior = GetHouseInterrior(houseID);
            house.HouseExterior = GetHouseExterior(houseID);
             house.Owner = fetch.fetchHouseOwner(houseID)[0];
-
+            house.Tenants1 = GetHouseTenant(houseID);
             //house.LeadTenant = GetLeadTenant(houseID);
             Console.WriteLine("Did complete generating houses");
            
@@ -186,17 +204,33 @@ namespace Final_Project
             parameters.Add("@HouseID", HouseID);
             return fetch.HouseExteriors(parameters, spName)[0];
         }
+   private List<Tenant> GetHouseTenant( int HouseID)
+        {
+            String spName = "spGetHouseTenants";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@HouseID", HouseID);
+            return fetch.fetchHouseTenants(parameters, spName);
+
+        }
    public LeadTenant GetLeadTenant( int HouseID)
         {
             String spName = "spGetLeadTenant";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@HouseID", HouseID);
-           LeadTenant results = fetch.fetchLeadTenants(parameters, spName)[0];
+            LeadTenant results = fetch.fetchLeadTenants(parameters, spName)[0];
 
-            Console.WriteLine(results.TenantLast);
-            Console.WriteLine(results.TenantFirst);
-            Console.WriteLine(results.TenantPhone);
+            results.Pets.AddRange(GetLeadTenantPets(results.LeadTenantID1));
             return results;
         }
+        public List<Pet> GetLeadTenantPets(int LeadTenantID)
+        {
+            String spName = "spGetTenantPets";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@LeadTenantID", LeadTenantID);
+
+            var results = fetch.fetchPets(parameters, spName);
+            return results;
     }
+    }
+ 
 }

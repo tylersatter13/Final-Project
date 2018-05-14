@@ -80,6 +80,7 @@
             this.dataHouse.Size = new System.Drawing.Size(1141, 464);
             this.dataHouse.TabIndex = 48;
             this.dataHouse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataHouse_CellContentClick);
+            this.dataHouse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataHouse_CellContentClick_1);
             // 
             // dataIsSelected
             // 

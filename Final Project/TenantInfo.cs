@@ -38,7 +38,7 @@ namespace Final_Project
         {
             textLeadTenantFirst.Text = house.LeadTenant.TenantLast;
             textLeadTenantLast.Text = house.LeadTenant.TenantLast;
-            textTenantPhone.Text = house.LeadTenant.TenantPhone;
+            textLeadPhone.Text = house.LeadTenant.TenantPhone;
             numChildren.Value = house.LeadTenant.Children;
             numRent.Text = house.LeadTenant.RentAmount.ToString();
 

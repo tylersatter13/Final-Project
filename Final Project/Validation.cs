@@ -38,7 +38,7 @@ namespace Final_Project
         public decimal convertStringToDecimal(String testvalue)
         {
             decimal decimalResult;
-            if (fieldHasValue(testvalue))
+            if (fieldHasValue(testvalue)==false)
             {
               var result = decimal.TryParse(testvalue, out decimalResult);
                 if (result == true)

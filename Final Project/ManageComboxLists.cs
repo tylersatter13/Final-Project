@@ -70,7 +70,10 @@ namespace Final_Project
             DatabaseConnection<String> connection = new DatabaseConnection<String>();
             return connection.selectFormat(new[] { FieldName }, new String[0], TableName);
         }
+        public List<String> GetPaymentTypes()
+        {
+            return GetList("TransactionTypes", "TransactionType"); 
+        }
         
-
     }
 }

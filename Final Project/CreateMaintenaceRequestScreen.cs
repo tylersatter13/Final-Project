@@ -14,16 +14,16 @@ namespace Final_Project
     {
         private Alert alert = new Alert();
         private House house;
+        private LeadTenant leadTenant;
         private MaintenanceRequest maintenanceRequest;
         private ManageComboxLists comboxLists = new ManageComboxLists();
         private ValidationType validation = new ValidationType();
         public CreateMaintenaceRequestScreen(MaintenanceRequest request)
         {
-            Console.WriteLine(request.House.LeadTenant.TenantLast);
-            Console.WriteLine(request.House.LeadTenant.TenantFirst);
-            Console.WriteLine(request.House.LeadTenant.TenantPhone);
+           
             maintenanceRequest = request;
             house = maintenanceRequest.House;
+            leadTenant = maintenanceRequest.House.LeadTenant;
             InitializeComponent();
         }
         private void CreateMaintenaceRequestScreen_Load(object sender, EventArgs e)
@@ -86,12 +86,15 @@ namespace Final_Project
         private void SetBasicHouseInformation()
         {
             
-            textTenantFirstName.Text = house.LeadTenant.TenantFirst;
-            textTenantLast.Text = house.LeadTenant.TenantLast;
-            textTennantPhone.Text = house.LeadTenant.TenantPhone;
+            textTenantFirstName.Text =leadTenant.TenantFirst;
+            textTenantLast.Text =leadTenant.TenantLast;
+            textTennantPhone.Text =leadTenant.TenantPhone;
             textHouseNumber.Text = house.HouseNumber1;
 
             drpStreetName.SelectedIndex = house.StreetID1;
+
+            numCats.Value = leadTenant.getNumberOfCats();
+            numericUpDogs.Value = leadTenant.getNumberOfDogs();
 
             dateJobCreated.Checked = true;
             dateJobCreated.Value = DateTime.Today;
@@ -117,7 +120,7 @@ namespace Final_Project
         }
         private void PopulateDatabase(List<MaintenancePart> parts)
         {
-           
+          
             foreach (MaintenancePart part in parts)
             {
                 AddPartToTable(part);
@@ -127,6 +130,7 @@ namespace Final_Project
         {
             dataRepairParts.Rows.Add(part.PartName1, part.InStock1,
                 part.PartCost1, "Edit", "Delete");
+            
         }
         private void checkAppliance_CheckedChanged(object sender, EventArgs e)
         {
@@ -176,7 +180,7 @@ namespace Final_Project
 
         private void btnAddPart_Click(object sender, EventArgs e)
         {
-            var val = validation.getValidationInt();
+            var val = validation.getValidationString();
             bool partaquired;
             if (radioCharge.Checked == true)
             {
@@ -186,7 +190,8 @@ namespace Final_Project
             {
                 partaquired = true;
             }
-            AddPartToTable(new MaintenancePart(0, textPartName.Text,(double) val.convertStringToDecimal(textPartCost.Text), partaquired));
+            maintenanceRequest.Parts.Add( new MaintenancePart(0, textPartName.Text,(double) val.convertStringToDecimal(textPartCost.Text), partaquired));
+            AddPartToTable(maintenanceRequest.Parts.Last());
         }
 
         private void dataRepairParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -215,7 +220,7 @@ namespace Final_Project
             else if (column == 4)
             {
                 dataRepairParts.Rows.RemoveAt(row);
-
+                maintenanceRequest.Parts[row].PartID1 = -1;
             }
         }
 
@@ -225,13 +230,14 @@ namespace Final_Project
             Console.Write(maintenanceRequest.Jobdescription);
             if (maintenanceRequest.MaintenenceRequestID1 == 0)
             {
-                
+                Console.Write("Maintenace Request Created");
                 CreateMaintenaceRequest createMaintenaceRequest = new CreateMaintenaceRequest();
-                createMaintenaceRequest.CreateFullMaintenanceRequest(maintenanceRequest);
+                createMaintenaceRequest.CreateNewMaintenaceRequest(maintenanceRequest);
 
             }
             else
             {
+                Console.Write("Maintenace Request Updated");
                 UpdateMaintenaceRequest updateMaintenace = new UpdateMaintenaceRequest();
                 updateMaintenace.MaintenaceRequestUpdate(maintenanceRequest);
             }

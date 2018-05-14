@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 namespace Final_Project
 {
     [Serializable]
-    class LeadTenant : Tenant
+   public class LeadTenant : Tenant
     {
+        private String HouseNumber;
+        private String HouseStreetname;
         private int LeadTenantID;
         private Decimal rentAmount;
         private DateTime rentDate;
@@ -18,7 +20,7 @@ namespace Final_Project
         private Decimal balance;
         private List<Pet> pets;
         private int tenantFlag;
-
+        private List<TenantTransaction> transactions;
         public int LeadTenantID1 { get => LeadTenantID; set => LeadTenantID = value; }
         public decimal RentAmount { get => rentAmount; set => rentAmount = value; }
         public DateTime RentDate { get => rentDate; set => rentDate = value; }
@@ -26,6 +28,7 @@ namespace Final_Project
         public decimal Balance { get => balance; set => balance = value; }
         internal List<Pet> Pets { get => pets; set => pets = value; }
         public int TenantFlag { get => tenantFlag; set => tenantFlag = value; }
+        public List<TenantTransaction> Transactions { get => transactions; set => transactions = value; }
 
         public LeadTenant(Int32 LeadTenantID, Int32 TenantID):base(TenantID)
         {
@@ -48,7 +51,21 @@ namespace Final_Project
             this.children = Children;
             this.balance = balance;
             this.tenantFlag = TenantFlag;
+            pets = new List<Pet>();
 
+        }
+        public int getNumberOfPets()
+        {
+           
+            return Pets.Count();
+        }
+        public int getNumberOfDogs()
+        {
+           return Pets.Where(pet => (pet.PetTypeID == 1)).Count();
+        }
+        public int getNumberOfCats()
+        {
+            return Pets.Where(pet => (pet.PetTypeID == 2)).Count();
         }
         public LeadTenant clone()
         {

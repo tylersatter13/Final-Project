@@ -170,9 +170,15 @@ namespace Final_Project
         private void dataHouse_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = e.RowIndex;
+
             CreateMaintenaceRequestScreen requestScreen = new CreateMaintenaceRequestScreen(requestlist[row]);
             Hide();
             requestScreen.Show();
+        }
+
+        private void dataHouse_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

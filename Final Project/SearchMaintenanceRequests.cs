@@ -66,11 +66,12 @@ namespace Final_Project
             Console.WriteLine(MaintenaceRequestID);
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@MaintenceRequestID", MaintenaceRequestID);
-            
+
+
 
             String spName = "spGetPartsForMaintenceRequest";
             var results = fetch.fetchMaintenaceParts(parameters, spName);
-            if (!results.Any())
+            if (results.Any())
             {
                 return results;
             }
@@ -124,7 +125,7 @@ namespace Final_Project
             }
             List<MaintenancePart> parts = getMaintenaceParts(request.MaintenenceRequestID1);
             Console.WriteLine($"Part Count;{parts.Count}");
-            request.Parts.Concat(parts);
+            request.Parts = parts;
 
             return request;    
         }

@@ -53,6 +53,9 @@
             this.numericUpDogs = new System.Windows.Forms.NumericUpDown();
             this.numCats = new System.Windows.Forms.NumericUpDown();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.radioDishwasher = new System.Windows.Forms.RadioButton();
+            this.radioRange = new System.Windows.Forms.RadioButton();
             this.textJobDescsription = new System.Windows.Forms.TextBox();
             this.lblJobDescription = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -77,28 +80,25 @@
             this.Part = new System.Windows.Forms.Label();
             this.textPartName = new System.Windows.Forms.TextBox();
             this.dataRepairParts = new System.Windows.Forms.DataGridView();
+            this.btnFinish = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.dataPartName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataInventory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataEditbtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.data = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnFinish = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.radioRange = new System.Windows.Forms.RadioButton();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.radioDishwasher = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCats)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numJobHours)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRepairParts)).BeginInit();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -351,6 +351,7 @@
             // 
             // numericUpDogs
             // 
+            this.numericUpDogs.Enabled = false;
             this.numericUpDogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDogs.Location = new System.Drawing.Point(451, 17);
             this.numericUpDogs.Name = "numericUpDogs";
@@ -359,6 +360,7 @@
             // 
             // numCats
             // 
+            this.numCats.Enabled = false;
             this.numCats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numCats.Location = new System.Drawing.Point(66, 17);
             this.numCats.Name = "numCats";
@@ -375,6 +377,39 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(607, 197);
             this.panel3.TabIndex = 2;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.radioDishwasher);
+            this.panel8.Controls.Add(this.radioRange);
+            this.panel8.Location = new System.Drawing.Point(122, 32);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(353, 33);
+            this.panel8.TabIndex = 40;
+            // 
+            // radioDishwasher
+            // 
+            this.radioDishwasher.AutoSize = true;
+            this.radioDishwasher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioDishwasher.Location = new System.Drawing.Point(231, 3);
+            this.radioDishwasher.Name = "radioDishwasher";
+            this.radioDishwasher.Size = new System.Drawing.Size(110, 24);
+            this.radioDishwasher.TabIndex = 40;
+            this.radioDishwasher.TabStop = true;
+            this.radioDishwasher.Text = "Dishwasher";
+            this.radioDishwasher.UseVisualStyleBackColor = true;
+            // 
+            // radioRange
+            // 
+            this.radioRange.AutoSize = true;
+            this.radioRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioRange.Location = new System.Drawing.Point(8, 3);
+            this.radioRange.Name = "radioRange";
+            this.radioRange.Size = new System.Drawing.Size(75, 24);
+            this.radioRange.TabIndex = 39;
+            this.radioRange.TabStop = true;
+            this.radioRange.Text = "Range";
+            this.radioRange.UseVisualStyleBackColor = true;
             // 
             // textJobDescsription
             // 
@@ -632,9 +667,32 @@
             this.data});
             this.dataRepairParts.Location = new System.Drawing.Point(3, 57);
             this.dataRepairParts.Name = "dataRepairParts";
+            this.dataRepairParts.ReadOnly = true;
             this.dataRepairParts.Size = new System.Drawing.Size(524, 183);
             this.dataRepairParts.TabIndex = 0;
             this.dataRepairParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataRepairParts_CellContentClick);
+            // 
+            // btnFinish
+            // 
+            this.btnFinish.AccessibleName = "btnNext";
+            this.btnFinish.Location = new System.Drawing.Point(993, 545);
+            this.btnFinish.Name = "btnFinish";
+            this.btnFinish.Size = new System.Drawing.Size(156, 39);
+            this.btnFinish.TabIndex = 35;
+            this.btnFinish.Text = "Create";
+            this.btnFinish.UseVisualStyleBackColor = true;
+            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.AccessibleName = "btnBack";
+            this.btnBack.Location = new System.Drawing.Point(12, 545);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(156, 39);
+            this.btnBack.TabIndex = 36;
+            this.btnBack.Text = "Cancel";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // dataPartName
             // 
@@ -668,61 +726,6 @@
             this.data.Name = "data";
             this.data.ReadOnly = true;
             // 
-            // btnFinish
-            // 
-            this.btnFinish.AccessibleName = "btnNext";
-            this.btnFinish.Location = new System.Drawing.Point(993, 545);
-            this.btnFinish.Name = "btnFinish";
-            this.btnFinish.Size = new System.Drawing.Size(156, 39);
-            this.btnFinish.TabIndex = 35;
-            this.btnFinish.Text = "Create";
-            this.btnFinish.UseVisualStyleBackColor = true;
-            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.AccessibleName = "btnBack";
-            this.btnBack.Location = new System.Drawing.Point(12, 545);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(156, 39);
-            this.btnBack.TabIndex = 36;
-            this.btnBack.Text = "Cancel";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // radioRange
-            // 
-            this.radioRange.AutoSize = true;
-            this.radioRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioRange.Location = new System.Drawing.Point(8, 3);
-            this.radioRange.Name = "radioRange";
-            this.radioRange.Size = new System.Drawing.Size(75, 24);
-            this.radioRange.TabIndex = 39;
-            this.radioRange.TabStop = true;
-            this.radioRange.Text = "Range";
-            this.radioRange.UseVisualStyleBackColor = true;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.radioDishwasher);
-            this.panel8.Controls.Add(this.radioRange);
-            this.panel8.Location = new System.Drawing.Point(122, 32);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(353, 33);
-            this.panel8.TabIndex = 40;
-            // 
-            // radioDishwasher
-            // 
-            this.radioDishwasher.AutoSize = true;
-            this.radioDishwasher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioDishwasher.Location = new System.Drawing.Point(231, 3);
-            this.radioDishwasher.Name = "radioDishwasher";
-            this.radioDishwasher.Size = new System.Drawing.Size(110, 24);
-            this.radioDishwasher.TabIndex = 40;
-            this.radioDishwasher.TabStop = true;
-            this.radioDishwasher.Text = "Dishwasher";
-            this.radioDishwasher.UseVisualStyleBackColor = true;
-            // 
             // CreateMaintenaceRequestScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -747,6 +750,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCats)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -757,8 +762,6 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRepairParts)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -796,11 +799,6 @@
         private System.Windows.Forms.Label Part;
         private System.Windows.Forms.TextBox textPartName;
         private System.Windows.Forms.DataGridView dataRepairParts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataPartName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataInventory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataCost;
-        private System.Windows.Forms.DataGridViewButtonColumn dataEditbtn;
-        private System.Windows.Forms.DataGridViewButtonColumn data;
         private System.Windows.Forms.Label lblDogs;
         private System.Windows.Forms.Label lblCats;
         private System.Windows.Forms.NumericUpDown numericUpDogs;
@@ -824,5 +822,10 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.RadioButton radioDishwasher;
         private System.Windows.Forms.RadioButton radioRange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataPartName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataInventory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataCost;
+        private System.Windows.Forms.DataGridViewButtonColumn dataEditbtn;
+        private System.Windows.Forms.DataGridViewButtonColumn data;
     }
 }

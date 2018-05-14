@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    class Tenant
+   public class Tenant
     {
        private int tenantId;
        private String tenantFirst;

@@ -122,6 +122,7 @@
       <DependentUpon>CreateMaintenaceRequestScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="DataFormat.cs" />
     <Compile Include="Fetch.cs" />
     <Compile Include="FetchComboxList.cs" />
     <Compile Include="FinalizeHouse.cs">
@@ -196,6 +197,18 @@
       <DependentUpon>TenantInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="TenantManager.cs" />
+    <Compile Include="TenantPaymentManger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TenantPaymentManger.Designer.cs">
+      <DependentUpon>TenantPaymentManger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TenantSearchScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TenantSearchScreen.Designer.cs">
+      <DependentUpon>TenantSearchScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="TenantTransaction.cs" />
     <Compile Include="TransactionManager.cs" />
     <Compile Include="UpdateHouse.cs" />
@@ -238,6 +251,12 @@
     </Compile>
     <EmbeddedResource Include="TenantInfo.resx">
       <DependentUpon>TenantInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TenantPaymentManger.resx">
+      <DependentUpon>TenantPaymentManger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TenantSearchScreen.resx">
+      <DependentUpon>TenantSearchScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

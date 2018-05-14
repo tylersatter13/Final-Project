@@ -21,8 +21,8 @@ namespace Final_Project
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-           
+
+
             /*  DatabaseConnection databaseConnection = new DatabaseConnection();
               // databaseConnection.insert("INSERT Users VALUES ('Rick','paper0',4);");
               // databaseConnection.select("SELECT * FROM Users");
@@ -163,12 +163,14 @@ namespace Final_Project
             update.UpdatePart(results.Parts[0], results.MaintenenceRequestID1);
             results = search.searchByHouseNumber("4611");
             results.print();*/
-           /* TenantManager manager = new TenantManager();
-            Tenant tenant = new Tenant(0, "General", "Jennings", "503-409-9350");
-           var  results = manager.addTenant(tenant);
-            LeadTenant lead = new LeadTenant(0, 0);
-            lead.LeadTenantID1 = results.TenantId;
-            var leadTenant = manager.addLeadTenant(lead);*/
+            /* TenantManager manager = new TenantManager();
+             Tenant tenant = new Tenant(0, "General", "Jennings", "503-409-9350");
+            var  results = manager.addTenant(tenant);
+             LeadTenant lead = new LeadTenant(0, 0);
+             lead.LeadTenantID1 = results.TenantId;
+             var leadTenant = manager.addLeadTenant(lead);*/
+
+         
    }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -193,9 +195,9 @@ namespace Final_Project
                 //  var requests = request.GenerateBasicMaintenceRequest(house.LeadTenant.TenantLast);
                 ///  Hide();
                 // create.Show();
-                MaintenaceRequestsSearchScreen searchScreen = new MaintenaceRequestsSearchScreen();
+                PaintSearch paintSearch = new PaintSearch();
                 Hide();
-                searchScreen.ShowDialog();
+                paintSearch.Show();
             }
         }
 

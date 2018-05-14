@@ -1,0 +1,1 @@
+﻿SELECT TransactionType FROM dbo.TransactionTypes

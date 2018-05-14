@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    class TenantTransaction
+   public class TenantTransaction
     {
        public int transactionID;
        public int LeadtenantID;
@@ -28,6 +28,16 @@ namespace Final_Project
             this.currentBalance = currentBalance;
             notes.Append(Notes);
         }
+     /*   TenantTransaction( Int32 LeadtenantID, DateTime transactionDate,
+           Int32 transactiontype, decimal transactionAmount, decimal currentBalance, String Notes)
+        {
+            this.LeadtenantID = LeadtenantID;
+            this.transactionDate = transactionDate;
+            this.transactiontype = transactiontype;
+            this.transactionAmount = transactionAmount;
+            this.currentBalance = currentBalance;
+            notes.Append(Notes);
+        }*/
         public String getTransactionType()
         {
             switch (transactiontype)
