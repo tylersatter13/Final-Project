@@ -64,17 +64,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblPetCount = new System.Windows.Forms.Label();
             this.lblHouseNumber = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblAddress = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblPetCount = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -87,6 +85,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblNextPayment);
             this.panel1.Controls.Add(this.label15);
@@ -94,7 +93,8 @@
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.lblCurrentBalanceAmount);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(29, 35);
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(33, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1102, 62);
             this.panel1.TabIndex = 0;
@@ -102,72 +102,73 @@
             // lblNextPayment
             // 
             this.lblNextPayment.AutoSize = true;
-            this.lblNextPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNextPayment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNextPayment.Location = new System.Drawing.Point(954, 19);
             this.lblNextPayment.Name = "lblNextPayment";
-            this.lblNextPayment.Size = new System.Drawing.Size(71, 20);
+            this.lblNextPayment.Size = new System.Drawing.Size(76, 21);
             this.lblNextPayment.TabIndex = 72;
             this.lblNextPayment.Text = "00/00/00";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(804, 19);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(150, 20);
+            this.label15.Size = new System.Drawing.Size(145, 21);
             this.label15.TabIndex = 71;
             this.label15.Text = "Next Payment Date:";
             // 
             // lblLastPaymentDate
             // 
             this.lblLastPaymentDate.AutoSize = true;
-            this.lblLastPaymentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastPaymentDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastPaymentDate.Location = new System.Drawing.Point(535, 19);
             this.lblLastPaymentDate.Name = "lblLastPaymentDate";
-            this.lblLastPaymentDate.Size = new System.Drawing.Size(71, 20);
+            this.lblLastPaymentDate.Size = new System.Drawing.Size(76, 21);
             this.lblLastPaymentDate.TabIndex = 70;
             this.lblLastPaymentDate.Text = "00/00/00";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(385, 19);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(149, 20);
+            this.label13.Size = new System.Drawing.Size(141, 21);
             this.label13.TabIndex = 69;
             this.label13.Text = "Last Payment Date:";
             // 
             // lblCurrentBalanceAmount
             // 
             this.lblCurrentBalanceAmount.AutoSize = true;
-            this.lblCurrentBalanceAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentBalanceAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentBalanceAmount.Location = new System.Drawing.Point(151, 19);
             this.lblCurrentBalanceAmount.Name = "lblCurrentBalanceAmount";
-            this.lblCurrentBalanceAmount.Size = new System.Drawing.Size(58, 20);
+            this.lblCurrentBalanceAmount.Size = new System.Drawing.Size(58, 21);
             this.lblCurrentBalanceAmount.TabIndex = 68;
             this.lblCurrentBalanceAmount.Text = "$00.00";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(21, 19);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 20);
+            this.label10.Size = new System.Drawing.Size(119, 21);
             this.label10.TabIndex = 67;
             this.label10.Text = "CurrentBalance:";
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.btnFilter);
             this.panel3.Controls.Add(this.dateRangeEnd);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.lblLastPainted);
             this.panel3.Controls.Add(this.dateRangeStart);
-            this.panel3.Location = new System.Drawing.Point(588, 103);
+            this.panel3.Location = new System.Drawing.Point(592, 80);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(543, 69);
             this.panel3.TabIndex = 2;
@@ -197,10 +198,10 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(203, 29);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(38, 20);
+            this.label16.Size = new System.Drawing.Size(36, 21);
             this.label16.TabIndex = 23;
             this.label16.Text = "End";
             // 
@@ -229,7 +230,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.dataTransactions);
-            this.panel4.Location = new System.Drawing.Point(588, 178);
+            this.panel4.Location = new System.Drawing.Point(592, 155);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(543, 349);
             this.panel4.TabIndex = 2;
@@ -286,6 +287,7 @@
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.dateTransactionDate);
@@ -297,7 +299,8 @@
             this.panel5.Controls.Add(this.drpPaymentType);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.textDescription);
-            this.panel5.Location = new System.Drawing.Point(29, 297);
+            this.panel5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.Location = new System.Drawing.Point(33, 274);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(530, 230);
             this.panel5.TabIndex = 3;
@@ -305,10 +308,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(298, 122);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(295, 91);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 20);
+            this.label6.Size = new System.Drawing.Size(42, 21);
             this.label6.TabIndex = 33;
             this.label6.Text = "Date";
             // 
@@ -318,7 +321,7 @@
             this.dateTransactionDate.Checked = false;
             this.dateTransactionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTransactionDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTransactionDate.Location = new System.Drawing.Point(358, 119);
+            this.dateTransactionDate.Location = new System.Drawing.Point(355, 88);
             this.dateTransactionDate.Name = "dateTransactionDate";
             this.dateTransactionDate.ShowCheckBox = true;
             this.dateTransactionDate.Size = new System.Drawing.Size(145, 26);
@@ -339,7 +342,7 @@
             // 
             this.panel6.Controls.Add(this.radioCredit);
             this.panel6.Controls.Add(this.radioDebit);
-            this.panel6.Location = new System.Drawing.Point(25, 119);
+            this.panel6.Location = new System.Drawing.Point(22, 88);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(184, 33);
             this.panel6.TabIndex = 30;
@@ -371,33 +374,34 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(298, 78);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(295, 47);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 20);
+            this.label4.Size = new System.Drawing.Size(42, 21);
             this.label4.TabIndex = 29;
             this.label4.Text = "Type";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(25, 78);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(22, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.Size = new System.Drawing.Size(66, 21);
             this.label3.TabIndex = 28;
             this.label3.Text = "Amount";
             // 
             // textPaymentAmount
             // 
             this.textPaymentAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPaymentAmount.Location = new System.Drawing.Point(96, 75);
+            this.textPaymentAmount.Location = new System.Drawing.Point(93, 44);
             this.textPaymentAmount.MaxLength = 10;
             this.textPaymentAmount.Name = "textPaymentAmount";
             this.textPaymentAmount.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textPaymentAmount.Size = new System.Drawing.Size(105, 26);
             this.textPaymentAmount.TabIndex = 27;
             this.textPaymentAmount.Text = "000.00";
+            this.textPaymentAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericKeyPress);
             // 
             // drpPaymentType
             // 
@@ -405,7 +409,7 @@
             this.drpPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.drpPaymentType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.drpPaymentType.FormattingEnabled = true;
-            this.drpPaymentType.Location = new System.Drawing.Point(358, 75);
+            this.drpPaymentType.Location = new System.Drawing.Point(355, 44);
             this.drpPaymentType.Name = "drpPaymentType";
             this.drpPaymentType.Size = new System.Drawing.Size(145, 28);
             this.drpPaymentType.TabIndex = 26;
@@ -413,28 +417,31 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(186, 11);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(184, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 20);
+            this.label2.Size = new System.Drawing.Size(121, 21);
             this.label2.TabIndex = 25;
-            this.label2.Text = "Payment Description";
+            this.label2.Text = "Add Transaction";
             // 
             // textDescription
             // 
             this.textDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDescription.Location = new System.Drawing.Point(28, 34);
+            this.textDescription.Location = new System.Drawing.Point(26, 142);
             this.textDescription.MaxLength = 40;
             this.textDescription.Name = "textDescription";
             this.textDescription.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textDescription.Size = new System.Drawing.Size(478, 26);
             this.textDescription.TabIndex = 1;
+            this.textDescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMiscellaneous_KeyPress);
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.tableLayoutPanel1);
-            this.panel2.Location = new System.Drawing.Point(29, 103);
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(33, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(530, 188);
             this.panel2.TabIndex = 1;
@@ -445,7 +452,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.19157F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.80843F));
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.lblPetCount, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblHouseNumber, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblFirstName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
@@ -454,6 +460,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblPhoneNumber, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblAddress, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblLastName, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblPetCount, 1, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -478,20 +485,6 @@
             this.label9.TabIndex = 74;
             this.label9.Text = "Pets";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblPetCount
-            // 
-            this.lblPetCount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPetCount.AutoSize = true;
-            this.lblPetCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPetCount.Location = new System.Drawing.Point(264, 145);
-            this.lblPetCount.Name = "lblPetCount";
-            this.lblPetCount.Size = new System.Drawing.Size(255, 38);
-            this.lblPetCount.TabIndex = 75;
-            this.lblPetCount.Text = "0";
-            this.lblPetCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblHouseNumber
             // 
@@ -521,20 +514,6 @@
             this.lblFirstName.Text = "John";
             this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblAddress
-            // 
-            this.lblAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(264, 108);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(255, 37);
-            this.lblAddress.TabIndex = 73;
-            this.lblAddress.Text = "1234 Seasme St";
-            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -563,17 +542,19 @@
             this.label7.Text = "Address";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblLastName
+            // label5
             // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(264, 27);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(255, 42);
-            this.lblLastName.TabIndex = 69;
-            this.lblLastName.Text = "Doe";
-            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(255, 39);
+            this.label5.TabIndex = 70;
+            this.label5.Text = "Phone Number";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPhoneNumber
             // 
@@ -589,53 +570,62 @@
             this.lblPhoneNumber.Text = "(503)123-4567";
             this.lblPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // lblAddress
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(255, 39);
-            this.label5.TabIndex = 70;
-            this.label5.Text = "Phone Number";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.Location = new System.Drawing.Point(264, 108);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(255, 37);
+            this.lblAddress.TabIndex = 73;
+            this.lblAddress.Text = "1234 Seasme St";
+            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // toolStrip1
+            // lblLastName
             // 
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1165, 25);
-            this.toolStrip1.TabIndex = 4;
-            this.toolStrip1.Text = "toolStrip1";
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Location = new System.Drawing.Point(264, 27);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(255, 42);
+            this.lblLastName.TabIndex = 69;
+            this.lblLastName.Text = "Doe";
+            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnBack
+            // lblPetCount
             // 
-            this.btnBack.AccessibleName = "btnBack";
-            this.btnBack.Location = new System.Drawing.Point(33, 545);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(156, 39);
-            this.btnBack.TabIndex = 16;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.lblPetCount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPetCount.AutoSize = true;
+            this.lblPetCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPetCount.Location = new System.Drawing.Point(264, 145);
+            this.lblPetCount.Name = "lblPetCount";
+            this.lblPetCount.Size = new System.Drawing.Size(255, 38);
+            this.lblPetCount.TabIndex = 75;
+            this.lblPetCount.Text = "0";
+            this.lblPetCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TenantPaymentManger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(250)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(1165, 596);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "TenantPaymentManger";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TenantPaymentManger";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TenantPaymentManger_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -651,7 +641,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -694,9 +683,7 @@
         private System.Windows.Forms.RadioButton radioCredit;
         private System.Windows.Forms.RadioButton radioDebit;
         private System.Windows.Forms.Button btnPaymentSubmit;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.DataGridView dataTransactions;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPaymentDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPaymentDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataCreditAmount;

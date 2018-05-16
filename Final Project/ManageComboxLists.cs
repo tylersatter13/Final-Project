@@ -74,6 +74,10 @@ namespace Final_Project
         {
             return GetList("TransactionTypes", "TransactionType"); 
         }
+        public List<String> GetPetTypes()
+        {
+            return GetList("PetType", "PetTypeName");
+        }
         
     }
 }

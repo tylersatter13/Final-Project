@@ -38,7 +38,7 @@ namespace Final_Project
         }
         private void AddListToBox(ComboBox combobox, List<String> items)
         {
-            combobox.Items.Add("Add Item");
+            combobox.Items.Add("None");
             foreach (String item in items)
             {
                 payment.Add(item);
@@ -103,7 +103,7 @@ namespace Final_Project
         private void btnBack_Click(object sender, EventArgs e)
         {
             TenantSearchScreen searchScreen = new TenantSearchScreen();
-            Hide();
+            Close();
             ShowDialog();
 
         }
@@ -111,10 +111,11 @@ namespace Final_Project
 
         private void btnPaymentSubmit_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(tenant.LeadTenantID1);
             if (transactionValidation() == true){
 
                 Console.WriteLine($"Payment Amount:{textPaymentAmount.Text}");
-                AddRequestsToTable(Manager.CreateTenantTransaction(tenant.TenantId, dateTransactionDate.Value,
+                AddRequestsToTable(Manager.CreateTenantTransaction(tenant.LeadTenantID1, dateTransactionDate.Value,
                      drpPaymentType.SelectedIndex, decimal.Parse(textPaymentAmount.Text), textDescription.Text).Last());
             }
        }
@@ -187,6 +188,20 @@ namespace Final_Project
                 btnFilter.Text = "Filter";
                 dataTransactions.Rows.Clear();
                 PopulateDatabase(transactions);
+            }
+        }
+        private void textMiscellaneous_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && (e.KeyChar != '.')&& !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;// inputs are strip to prevent the database from being circumnaviated
+            }
+        }
+        private void numericKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // inputs are strip to prevent the database from being circumnaviated
             }
         }
     }

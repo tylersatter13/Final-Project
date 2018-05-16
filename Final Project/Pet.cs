@@ -15,7 +15,7 @@ namespace Final_Project
         public decimal petFee;
         public bool petFeePaid;
         public decimal petRent;
-        public Pet(int PetID,Int32 petTypeID,String petType, String petBreed, decimal petFee, decimal petRent, bool petFeePaid)
+        public Pet(Int32 PetID,Int32 petTypeID,String petType, String petBreed, decimal petFee, decimal petRent, bool petFeePaid)
         {
             this.PetID = PetID;
             PetTypeID = petTypeID;

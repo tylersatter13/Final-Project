@@ -15,6 +15,7 @@ namespace Final_Project
         private Alert alert = new Alert();
         private SearchMaintenanceRequests search = new SearchMaintenanceRequests();
         private House house;
+        
         private MaintenanceRequest maintenanceRequest;
         private List<MaintenanceRequest> requestlist = new List<MaintenanceRequest>();
         private ManageComboxLists comboxLists = new ManageComboxLists();
@@ -36,7 +37,7 @@ namespace Final_Project
         private void AddListToBox(ComboBox combobox, List<String> items)
         {
           
-            combobox.Items.Add("Add Item");
+            combobox.Items.Add("None");
             foreach (String item in items)
             {
                 combobox.Items.Add(item);
@@ -140,20 +141,43 @@ namespace Final_Project
             {
                 if (validation.getValidationInt().validateHouseNumber(textHouseNumber) == true)
                 {
+
                     List<MaintenanceRequest> requests = search.searchByHouseNumber(textHouseNumber.Text);
-                    PopulateDatabase(requests);
+                    if (requests.Count != 0)
+                    {
+                        PopulateDatabase(requests);
+                    }
+                    else
+                    {
+                        alert.CreateBasicAlert(1, "No results found", "Invalid Entry");
+                    }
                 }
             }
             else if (textLastName.Text != "")
             {
                     List<MaintenanceRequest> requests = search.searchByLastName(textLastName.Text.ToString());
-                PopulateDatabase(requests);
+                if (requests.Count != 0)
+                {
+                    PopulateDatabase(requests);
+                }
+                else
+                {
+                    alert.CreateBasicAlert(1, "No results found", "Invalid Entry");
+                }
+               
             }
                else if(drpRequestType.SelectedIndex > 0)
             {
                 Console.WriteLine($"Repair Type{drpRequestType.SelectedIndex}");
                 List<MaintenanceRequest> requests = search.searchForRequestsByType(drpRequestType.SelectedIndex);
-                PopulateDatabase(requests);     
+                if (requests.Count != 0)
+                {
+                    PopulateDatabase(requests);
+                }
+                else
+                {
+                    alert.CreateBasicAlert(1, "No results found", "Invalid Entry");
+                }
             }
             else
             {
@@ -172,13 +196,52 @@ namespace Final_Project
             var row = e.RowIndex;
 
             CreateMaintenaceRequestScreen requestScreen = new CreateMaintenaceRequestScreen(requestlist[row]);
-            Hide();
+            //   requestScreen.MdiParent = this.ParentForm;
+            //Hide();
+           
+            requestScreen.StartPosition = FormStartPosition.Manual;
+            requestScreen.SetDesktopLocation(this.Location.X, this.Location.X);
+           // Close();
+           
             requestScreen.Show();
         }
 
         private void dataHouse_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private void numericKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // inputs are strip to prevent the database from being circumnaviated
+            }
+        }
+
+        private void letterKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;// inputs are strip to prevent the database from being circumnaviated
+            }
+        }
+
+        private void checkOpenRequests_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkOpenRequests.Checked == true)
+            {
+                drpRequestType.SelectedIndex = -1;
+                textHouseNumber.SelectedText = "";
+                textLastName.SelectedText = "";
+
+                textHouseNumber.Enabled = false;
+                textLastName.Enabled = false;
+                drpRequestType.Enabled = false; 
+            }else if (checkOpenRequests.Checked == false)
+            {
+               
+                updateRadioBtn();
+            }
         }
     }
 }

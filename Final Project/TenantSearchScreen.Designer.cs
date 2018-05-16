@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dataTenant = new System.Windows.Forms.DataGridView();
-            this.textLastName = new System.Windows.Forms.TextBox();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnSearchLatePayments = new System.Windows.Forms.Button();
             this.dataIsSelected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +40,11 @@
             this.dataBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataPeople = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataPets = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textLastName = new System.Windows.Forms.TextBox();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSearchLatePayments = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataTenant)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,69 +68,14 @@
             this.dataPeople,
             this.dataPets});
             this.dataTenant.GridColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataTenant.Location = new System.Drawing.Point(12, 94);
+            this.dataTenant.Location = new System.Drawing.Point(12, 68);
             this.dataTenant.Name = "dataTenant";
             this.dataTenant.ReadOnly = true;
             this.dataTenant.RowTemplate.ReadOnly = true;
-            this.dataTenant.Size = new System.Drawing.Size(1141, 464);
+            this.dataTenant.Size = new System.Drawing.Size(1141, 490);
             this.dataTenant.TabIndex = 49;
-            this.dataTenant.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTenant_CellContentClick);
-            // 
-            // textLastName
-            // 
-            this.textLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLastName.Location = new System.Drawing.Point(105, 13);
-            this.textLastName.MaxLength = 30;
-            this.textLastName.Name = "textLastName";
-            this.textLastName.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textLastName.Size = new System.Drawing.Size(105, 26);
-            this.textLastName.TabIndex = 50;
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(13, 10);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(86, 33);
-            this.lblLastName.TabIndex = 51;
-            this.lblLastName.Text = "Last Name";
-            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.lblLastName);
-            this.flowLayoutPanel1.Controls.Add(this.textLastName);
-            this.flowLayoutPanel1.Controls.Add(this.btnSearch);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 28);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(383, 50);
-            this.flowLayoutPanel1.TabIndex = 52;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(216, 13);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(111, 27);
-            this.btnSearch.TabIndex = 61;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnSearchLatePayments
-            // 
-            this.btnSearchLatePayments.Location = new System.Drawing.Point(943, 41);
-            this.btnSearchLatePayments.Name = "btnSearchLatePayments";
-            this.btnSearchLatePayments.Size = new System.Drawing.Size(141, 40);
-            this.btnSearchLatePayments.TabIndex = 62;
-            this.btnSearchLatePayments.Text = "Search";
-            this.btnSearchLatePayments.UseVisualStyleBackColor = true;
-            this.btnSearchLatePayments.Click += new System.EventHandler(this.btnSearchLatePayments_Click);
+            this.dataTenant.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTenant_CellContentClick);
+            this.dataTenant.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTenant_CellContentClick_1);
             // 
             // dataIsSelected
             // 
@@ -204,16 +149,80 @@
             this.dataPets.ReadOnly = true;
             this.dataPets.Width = 50;
             // 
+            // textLastName
+            // 
+            this.textLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLastName.Location = new System.Drawing.Point(105, 13);
+            this.textLastName.MaxLength = 30;
+            this.textLastName.Name = "textLastName";
+            this.textLastName.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textLastName.Size = new System.Drawing.Size(105, 26);
+            this.textLastName.TabIndex = 50;
+            this.textLastName.Text = "Arnold";
+            this.textLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterKeyPress);
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Location = new System.Drawing.Point(13, 10);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(86, 33);
+            this.lblLastName.TabIndex = 51;
+            this.lblLastName.Text = "Last Name";
+            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.lblLastName);
+            this.flowLayoutPanel1.Controls.Add(this.textLastName);
+            this.flowLayoutPanel1.Controls.Add(this.btnSearch);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(383, 50);
+            this.flowLayoutPanel1.TabIndex = 52;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(216, 13);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(111, 27);
+            this.btnSearch.TabIndex = 61;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnSearchLatePayments
+            // 
+            this.btnSearchLatePayments.Location = new System.Drawing.Point(979, 12);
+            this.btnSearchLatePayments.Name = "btnSearchLatePayments";
+            this.btnSearchLatePayments.Size = new System.Drawing.Size(174, 40);
+            this.btnSearchLatePayments.TabIndex = 62;
+            this.btnSearchLatePayments.Text = "Late Payment Search";
+            this.btnSearchLatePayments.UseVisualStyleBackColor = true;
+            this.btnSearchLatePayments.Click += new System.EventHandler(this.btnSearchLatePayments_Click);
+            // 
             // TenantSearchScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(250)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(1165, 596);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.dataTenant);
             this.Controls.Add(this.btnSearchLatePayments);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TenantSearchScreen";
             this.Text = "TenantSearchScreen";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.TenantSearchScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTenant)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

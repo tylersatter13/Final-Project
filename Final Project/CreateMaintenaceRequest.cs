@@ -26,18 +26,9 @@ namespace Final_Project
             House house = null;
              house = search.findAHouseByLastName(LastName).clone();
 
-            Console.WriteLine("Did House created a returned");
-            Console.WriteLine(house.LeadTenant.TenantLast);
-            Console.WriteLine(house.LeadTenant.TenantFirst);
-            Console.WriteLine(house.LeadTenant.TenantPhone);
-
-
-            MaintenanceRequest request = new MaintenanceRequest(house.clone());
-
-            Console.WriteLine("House added to maintenace Request");
-            Console.WriteLine(request.House.LeadTenant.TenantLast);
-            Console.WriteLine(request.House.LeadTenant.TenantFirst);
-            Console.WriteLine(request.House.LeadTenant.TenantPhone);
+ 
+                MaintenanceRequest request = new MaintenanceRequest(house.clone());
+            
 
             return request; 
         }

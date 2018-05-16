@@ -30,6 +30,7 @@ namespace Final_Project
             Model = model;
             SerialNumber = serialNumber;
             LastReplacementDate1 = lastReplacementDate;
+            Type1 = applianceType;
         }
 
         public int ApplianceID1 { get => ApplianceID; set => ApplianceID = value; }

@@ -114,7 +114,7 @@ namespace Final_Project
         }
         public Nullable<int> CheckNullForeignKey(int t)
         {
-            if (fieldHasValue(t) == true)
+            if (fieldHasValue(t) == true || t == -1)
             {
                 return null;
             }

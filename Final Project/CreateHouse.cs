@@ -14,6 +14,7 @@ namespace Final_Project
         private ValidationType validation = new ValidationType();
         public House CreateNewHouse(House house)
         {
+            TenantManager manager = new TenantManager();
             house.Keys.KeysID1 = CreateHouseKeys(house.Keys);
             house.HouseAppliances.Range1.ApplianceID1 = CreateAppliances(house.HouseAppliances.Range1);
             house.HouseAppliances.Dishwasher1.ApplianceID1 = CreateAppliances(house.HouseAppliances.Dishwasher1);
@@ -22,18 +23,16 @@ namespace Final_Project
             house.ExteriorFeatures.ExteriorFeaturesID1 = CreateExterrioFeatures(house.ExteriorFeatures);
             house.HouseInterrior.HouseInteriorID1 = CreateInterrior(house.HouseInterrior);
             house.HouseExterior.HouseExteriorID1 = CreateExterrior(house.HouseExterior);
-
+            house.LeadTenant = manager.addLeadTenant(house.LeadTenant);
             var results = CreateFinishedHouse(house);
 
-
-
-            foreach (Tenant tenant in house.Tenants1)
+            foreach (Tenant tenant in results.Tenants1)
             {
-                CreateHouseTenant(tenant, house.HouseID1);
+                CreateHouseTenant(tenant, results.HouseID1);
             }
             foreach (Pet pet in house.LeadTenant.Pets)
             {
-                CreateHousePet(pet, house.LeadTenant.LeadTenantID1);
+                CreateHousePet(pet, results.LeadTenant.LeadTenantID1);
             }
 
             return house;
@@ -55,7 +54,7 @@ namespace Final_Project
         {
             String spName = "spCreatePet";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@fk_PetTypeID", pet.PetID);
+            parameters.Add("@fk_PetTypeID", pet.PetTypeID);
             parameters.Add("@PetBreed", pet.petBreed);
             parameters.Add("@PetRent", pet.petRent);
             parameters.Add("@PetFee", pet.petFee);
@@ -132,7 +131,7 @@ namespace Final_Project
         {
             String spName = "spCreateHouseInterrior";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@fk_PrimaryColorID", interrior.PrimaryPaintColorID1);
+            parameters.Add("@fk_PrimaryColorID", validation.getValidationInt().CheckNullForeignKey(interrior.PrimaryPaintColorID1));
             parameters.Add("@fk_SecondaryColorID", validation.getValidationInt().CheckNullForeignKey(interrior.SecondaryPaintColorID1));
             parameters.Add("@HouseLastPaintDate", validation.getValidationDateTime().checkNullDate((interrior.LastPaintDate1)));
             parameters.Add("@fk_CarpetColorID", validation.getValidationInt().CheckNullForeignKey(interrior.CarpetColorID1));

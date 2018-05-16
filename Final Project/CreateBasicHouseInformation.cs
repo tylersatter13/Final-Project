@@ -30,10 +30,10 @@ namespace Final_Project
         private void CreateBasicHouseInformation_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'propertyManagerDataSet.HouseInteriorColors' table. You can move, or remove it, as needed.
-            this.houseInteriorColorsTableAdapter.Fill(this.propertyManagerDataSet.HouseInteriorColors);
+            //this.houseInteriorColorsTableAdapter.Fill(this.propertyManagerDataSet.HouseInteriorColors);
 
             FillComboBox();
-
+           
             if (house != null)
             {
                 SetChosenFields();
@@ -126,7 +126,7 @@ namespace Final_Project
 
         private void AddListToBox(ComboBox combobox, List<String> items)
         {
-            combobox.Items.Add("Add Item");
+            combobox.Items.Add("None");
             foreach(String item in items)
             {
                 combobox.Items.Add(item);
@@ -187,8 +187,24 @@ namespace Final_Project
             if (descsion == true)
             {
                 Menu menu = new Menu();
-                Hide();
+                Close();
                 menu.ShowDialog();
+            }
+        }
+        private void textHouseNumber_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox.Text, "  ^ [0-9]"))
+            {
+                textHouseNumber.Text = "";
+            }
+        }
+
+        private void textHouseNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

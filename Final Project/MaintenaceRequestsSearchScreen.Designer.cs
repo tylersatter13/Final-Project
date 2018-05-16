@@ -73,7 +73,7 @@
             this.dataCarpetInstallDate,
             this.dataTechnicianName});
             this.dataHouse.GridColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataHouse.Location = new System.Drawing.Point(12, 111);
+            this.dataHouse.Location = new System.Drawing.Point(12, 93);
             this.dataHouse.Name = "dataHouse";
             this.dataHouse.ReadOnly = true;
             this.dataHouse.RowTemplate.ReadOnly = true;
@@ -176,6 +176,8 @@
             this.textHouseNumber.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textHouseNumber.Size = new System.Drawing.Size(105, 26);
             this.textHouseNumber.TabIndex = 54;
+            this.textHouseNumber.Text = "4611";
+            this.textHouseNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericKeyPress);
             // 
             // lblHouseNumber
             // 
@@ -196,6 +198,7 @@
             this.textLastName.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textLastName.Size = new System.Drawing.Size(157, 26);
             this.textLastName.TabIndex = 56;
+            this.textLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterKeyPress);
             // 
             // label1
             // 
@@ -209,7 +212,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(1034, 51);
+            this.btnSearch.Location = new System.Drawing.Point(1034, 33);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(110, 32);
             this.btnSearch.TabIndex = 59;
@@ -220,13 +223,16 @@
             // checkOpenRequests
             // 
             this.checkOpenRequests.AutoSize = true;
+            this.checkOpenRequests.Checked = true;
+            this.checkOpenRequests.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkOpenRequests.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkOpenRequests.Location = new System.Drawing.Point(873, 59);
+            this.checkOpenRequests.Location = new System.Drawing.Point(873, 41);
             this.checkOpenRequests.Name = "checkOpenRequests";
             this.checkOpenRequests.Size = new System.Drawing.Size(140, 24);
             this.checkOpenRequests.TabIndex = 64;
             this.checkOpenRequests.Text = "Open Requests";
             this.checkOpenRequests.UseVisualStyleBackColor = true;
+            this.checkOpenRequests.CheckedChanged += new System.EventHandler(this.checkOpenRequests_CheckedChanged);
             // 
             // panel1
             // 
@@ -239,7 +245,7 @@
             this.panel1.Controls.Add(this.drpRequestType);
             this.panel1.Controls.Add(this.lblOwner);
             this.panel1.Controls.Add(this.textLastName);
-            this.panel1.Location = new System.Drawing.Point(12, 51);
+            this.panel1.Location = new System.Drawing.Point(12, 33);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(855, 42);
             this.panel1.TabIndex = 65;
@@ -253,6 +259,7 @@
             this.radioRequestType.TabIndex = 60;
             this.radioRequestType.TabStop = true;
             this.radioRequestType.UseVisualStyleBackColor = true;
+            this.radioRequestType.CheckedChanged += new System.EventHandler(this.radioHouse_CheckedChanged);
             // 
             // radioLastName
             // 
@@ -280,13 +287,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1165, 596);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkOpenRequests);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dataHouse);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MaintenaceRequestsSearchScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MaintenaceRequestsSearchScreen";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MaintenaceRequestsSearchScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataHouse)).EndInit();
             this.panel1.ResumeLayout(false);

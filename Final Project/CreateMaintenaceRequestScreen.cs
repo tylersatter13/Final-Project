@@ -20,7 +20,6 @@ namespace Final_Project
         private ValidationType validation = new ValidationType();
         public CreateMaintenaceRequestScreen(MaintenanceRequest request)
         {
-           
             maintenanceRequest = request;
             house = maintenanceRequest.House;
             leadTenant = maintenanceRequest.House.LeadTenant;
@@ -28,6 +27,7 @@ namespace Final_Project
         }
         private void CreateMaintenaceRequestScreen_Load(object sender, EventArgs e)
         {
+            
             FillCombobox();
             if (maintenanceRequest.MaintenenceRequestID1 != 0)
             {
@@ -241,9 +241,13 @@ namespace Final_Project
                 UpdateMaintenaceRequest updateMaintenace = new UpdateMaintenaceRequest();
                 updateMaintenace.MaintenaceRequestUpdate(maintenanceRequest);
             }
-            MaintenaceRequestsSearchScreen searchScreen = new MaintenaceRequestsSearchScreen();
-            Hide();
-            searchScreen.ShowDialog();
+            Menu menu = new Menu();
+           
+            //menu.StartPosition = FormStartPosition.Manual;
+            //menu.SetDesktopLocation(this.Location.X, this.Location.X);
+            Close();
+            ///this.Owner.Dispose();
+            //menu.Show();
 
         }
 
@@ -252,11 +256,31 @@ namespace Final_Project
            var descsion = alert.CreateChoiceAlert(4, "Unsaved Data", "If you exit you will loose any unsaved data");
            if(descsion == true)
             {
-                MaintenaceRequestsSearchScreen searchScreen = new MaintenaceRequestsSearchScreen();
-                Hide();
-                searchScreen.ShowDialog();
+                Close();              
             }
 
+        }
+        private void letterKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;// inputs are strip to prevent the database from being circumnaviated
+            }
+        }
+
+        private void numericKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // inputs are strip to prevent the database from being circumnaviated
+            }
+        }
+        private void textMiscellaneous_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && (e.KeyChar != '.') && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;// inputs are strip to prevent the database from being circumnaviated
+            }
         }
     }
 }

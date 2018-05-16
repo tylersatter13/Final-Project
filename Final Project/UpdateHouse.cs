@@ -11,7 +11,7 @@ namespace Final_Project
     {
         private Fetch fetch = new Fetch();
         private ValidationType validation = new ValidationType();
-
+        private CreateHouse createHouse = new CreateHouse();
         public House generatUpdatedHouse(House house)
         {
             var houseappliance = house.HouseAppliances;
@@ -30,8 +30,10 @@ namespace Final_Project
             UpdateExterrioFeatures(exterriorfeature.ExteriorFeaturesID1, exterriorfeature);
             UpdateInterrior(interrior.HouseInteriorID1, interrior);
             UpdateExterrior(exterrior.ExteriorColorID1, exterrior);
+            updateLeadTenant(house.LeadTenant);
 
             checkTenants(house.Tenants1, house.HouseID1);
+            checkPets(house.LeadTenant.Pets, house.LeadTenant.LeadTenantID1);
             return house;
         }
         private void checkTenants(List<Tenant> tenants, int HouseID)
@@ -40,6 +42,21 @@ namespace Final_Project
             {
                 updateTenant(tenant, HouseID);
             }
+        }
+        private void updateLeadTenant(LeadTenant tenant)
+        {
+            String spName = "spUpdateLeadTenant";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@LeadTenantID",tenant.LeadTenantID1);
+            parameters.Add("@fk_TennantID",tenant.TenantId);
+            parameters.Add("@LeadPetFeePaid",null);
+            parameters.Add("@LeadTenantRentStart ", tenant.RentDate);
+            parameters.Add("@Children",tenant.Children);
+            parameters.Add("@LeadTenantRentAmount",tenant.RentAmount);
+            parameters.Add("@LeadTenantBalance",tenant.Balance);
+            parameters.Add("@fk_TenatFlag",tenant.TenantFlag);
+
+            fetch.fetchLeadTenants(parameters, spName);
         }
         private void updateTenant(Tenant tenant, int HouseID)
         {
@@ -50,13 +67,33 @@ namespace Final_Project
             }
             else if (tenant.TenantId == -1)
             {
-
+                //Add delete function
             }
             else
             {
                 UpdateHouseTenant(tenant);
             }
 
+        }
+        public void checkPets(List<Pet> Pets, int LeadTenantID)
+        {
+            foreach (Pet pet in Pets)
+            {
+                updatePet(pet, LeadTenantID);
+            }
+        }
+        private void updatePet(Pet pet, int LeadTenantID)
+        {
+           if(pet.PetID == 0)
+            {
+                createHouse.CreateHousePet(pet, LeadTenantID);
+            }else if(pet.PetID == -1){
+                //add delete function
+            }
+            else
+            {
+                //add update function
+            }
         }
         private void UpdateHouseTenant(Tenant tenant)
         {
@@ -93,7 +130,7 @@ namespace Final_Project
             parameters.Add("@ApplianceLastRepalcementDate", validation.getValidationDateTime().checkNullDate((appliance.LastReplacementDate1)) ?? null);
             parameters.Add("@ApplianceColor", appliance.Color1);
 
-            var results = fetch.fetchAppliances(parameters, spName)[0].ApplianceID1;
+            var results = fetch.fetchAppliances(parameters, spName); 
             //return results;
 
         }
@@ -123,7 +160,7 @@ namespace Final_Project
             parameters.Add("@InterriorFeaturesFurnanceReplacement", validation.getValidationDateTime().checkNullDate((interriorFeatures.FurnanceReplacementDate1)));
             var results = fetch.fetchHouseInterriorFeatures(parameters, spName);
         }
-        private int UpdateExterrioFeatures(int ExterriorFeaturesID, HouseExteriorFeatures exteriorFeatures)
+        private void UpdateExterrioFeatures(int ExterriorFeaturesID, HouseExteriorFeatures exteriorFeatures)
         {
             String spName = "spUpdateExterriorFeatures";
             DynamicParameters parameters = new DynamicParameters();
@@ -134,7 +171,7 @@ namespace Final_Project
             parameters.Add("@ExteriorDriveWay", validation.getValidationDateTime().checkNullDate((exteriorFeatures.DrivewayReplacemnt1)));
             parameters.Add("@ExteriorChimney", validation.getValidationDateTime().checkNullDate((exteriorFeatures.ChimneyReplacement1)));
 
-            return fetch.fetchHouseExteriorFeatures(parameters, spName)[0].ExteriorFeaturesID1;
+            fetch.fetchHouseExteriorFeatures(parameters, spName);
         }
         private void UpdateInterrior(int InterriorID, HouseInterrior interrior)
         {
@@ -153,9 +190,9 @@ namespace Final_Project
             parameters.Add("@fk_StainID", validation.getValidationInt().CheckNullForeignKey(interrior.StainID1));
             parameters.Add("@HouseBlindReplacement", validation.getValidationDateTime().checkNullDate(interrior.Blindreplacement1));
 
-            var results = fetch.fetchHouseInterrior(parameters, spName)[0].HouseInteriorID1;
+            var results = fetch.fetchHouseInterrior(parameters, spName);
         }
-        private int UpdateExterrior(int exterriorID, HouseExterior exterior)
+        private void UpdateExterrior(int exterriorID, HouseExterior exterior)
         {
             String spName = "spUpdateHouseExterrior";
             DynamicParameters parameters = new DynamicParameters();
@@ -168,7 +205,7 @@ namespace Final_Project
             parameters.Add("@fk_RoofColorID", validation.getValidationInt().CheckNullForeignKey(exterior.RoofColorID1));
             parameters.Add("@HouseExteriorRoofInstall", validation.getValidationDateTime().checkNullDate(exterior.RoofInstall1));
 
-            return fetch.HouseExteriors(parameters, spName)[0].HouseExteriorID1;
+            fetch.HouseExteriors(parameters, spName);
         }
         /*  private House UpdateFinishedHouse(House house)
           {

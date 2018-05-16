@@ -80,6 +80,8 @@
             this.textHouseNumber.Size = new System.Drawing.Size(105, 26);
             this.textHouseNumber.TabIndex = 0;
             this.textHouseNumber.Text = "0000";
+            this.textHouseNumber.TextChanged += new System.EventHandler(this.textHouseNumber_TextChanged);
+            this.textHouseNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textHouseNumber_KeyPress);
             // 
             // gbBasicInfo
             // 
@@ -251,9 +253,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(313, 176);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 20);
+            this.label2.Size = new System.Drawing.Size(89, 20);
             this.label2.TabIndex = 19;
-            this.label2.Text = "Primary Color";
+            this.label2.Text = "Vynal Color";
             // 
             // label1
             // 

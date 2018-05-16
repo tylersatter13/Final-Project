@@ -128,6 +128,14 @@ namespace Final_Project
             tenantInfo.ShowDialog();
 
         }
+
+        private void keyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
  

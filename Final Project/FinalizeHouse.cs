@@ -12,6 +12,7 @@ namespace Final_Project
 {
     public partial class FinalizeHouse : Form
     {
+        private ManageComboxLists comboxLists = new ManageComboxLists();
         private ValidationType validation = new ValidationType();
         private House house;
         public FinalizeHouse(House homes)
@@ -25,9 +26,29 @@ namespace Final_Project
             if (house.Keys != null)
             {
                 SetInputs();
-                LoadPets();
+               
             }
+            FillCombobox();
+            LoadPets();
+        }
+       
+            
+        
+        private void FillCombobox()
+        {
+            List<String> petTypes = comboxLists.GetPetTypes();
+            AddListToBox(drpPetType, petTypes);
+            
+        }
+        private void AddListToBox(ComboBox combobox, List<String> items)
+        {
 
+            combobox.Items.Add("None");
+            foreach (String item in items)
+            {
+                combobox.Items.Add(item);
+
+            }
         }
         private void LoadPets()
         {
@@ -73,7 +94,7 @@ namespace Final_Project
         }
         private void clearPetInputs()
         {
-            textPetType.Text = "";
+            drpPetType.SelectedIndex = -1;
             textPetBread.Text = "";
             textPetRent.Text = "";
             textPetFee.Text = "";
@@ -103,17 +124,17 @@ namespace Final_Project
                 updateHouse.generatUpdatedHouse(house);
             }
             Hide();
-            Menu mainMenu = new Menu();
-            mainMenu.ShowDialog();
+           Menu mainMenu = new Menu();
+           mainMenu.ShowDialog();
         }
 
         private void btnAddPet_Click(object sender, EventArgs e)
         {
             var intval = validation.getValidationInt();
-          /*  house.LeadTenant.Pets.Add(new Pet(0, textPetType.Text, textPetBread.Text,
+            house.LeadTenant.Pets.Add(new Pet(0, drpPetType.SelectedIndex, drpPetType.SelectedItem.ToString(), textPetBread.Text,
                 intval.convertStringToDecimal(textPetFee.Text),
                 intval.convertStringToDecimal(textPetRent.Text),  checkPetFee.Checked
-                ));*/
+                ));
             var entry = house.LeadTenant.Pets.Count-1;
             AddPetToTable(house.LeadTenant.Pets[entry]);
             clearPetInputs();
@@ -142,6 +163,37 @@ namespace Final_Project
             {
                 dataPets.Rows.RemoveAt(row);
 
+            }
+        }
+        private void numericKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // inputs are strip to prevent the database from being circumnaviated
+            }
+        }
+
+        private void letterKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;// inputs are strip to prevent the database from being circumnaviated
+            }
+        }
+
+        private void txtCurrentKey_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // inputs are strip to prevent the database from being circumnaviated
+            }
+        }
+
+        private void textMiscellaneous_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar)&& (e.KeyChar != '.') && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;// inputs are strip to prevent the database from being circumnaviated
             }
         }
     }

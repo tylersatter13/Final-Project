@@ -36,7 +36,7 @@ namespace Final_Project
 
         private void setupFields()
         {
-            textLeadTenantFirst.Text = house.LeadTenant.TenantLast;
+            textLeadTenantFirst.Text = house.LeadTenant.TenantFirst;
             textLeadTenantLast.Text = house.LeadTenant.TenantLast;
             textLeadPhone.Text = house.LeadTenant.TenantPhone;
             numChildren.Value = house.LeadTenant.Children;
@@ -57,7 +57,7 @@ namespace Final_Project
 
             house.LeadTenant.TenantFirst = textLeadTenantFirst.Text;
             house.LeadTenant.TenantLast = textLeadTenantLast.Text;
-            house.LeadTenant.TenantPhone = textTenantPhone.Text;
+            house.LeadTenant.TenantPhone = textLeadPhone.Text;
             house.LeadTenant.Children =(int)numChildren.Value;
             if (validation.getValidationInt().checkInt(numRent.Text,"Rent")==true)
             {
@@ -143,6 +143,22 @@ namespace Final_Project
 
             }
 
+        }
+
+        private void numericKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // inputs are strip to prevent the database from being circumnaviated
+            }
+        }
+
+        private void letterKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;// inputs are strip to prevent the database from being circumnaviated
+            }
         }
     }
 }

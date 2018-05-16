@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Final_Project
 {
-    public partial class PaintSearch : Form
+   public partial class PaintSearch:Form
     {
         private ManageComboxLists comboxLists = new ManageComboxLists();
         private List<House> Houses = new List<House>();
@@ -34,7 +34,7 @@ namespace Final_Project
         private void AddListToBox(ComboBox combobox, List<String> items)
         {
             
-            combobox.Items.Add("Add Item");
+            combobox.Items.Add("None");
             foreach (String item in items)
             {
                 combobox.Items.Add(item);
@@ -111,10 +111,6 @@ namespace Final_Project
            return date.ToString("MM/dd/yyyy");
         }
 
-        private void textHouseNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void radioInterrior_CheckedChanged(object sender, EventArgs e)
         {
@@ -140,9 +136,26 @@ namespace Final_Project
         {
             var row = e.RowIndex;
             CreateBasicHouseInformation createBasic = new CreateBasicHouseInformation(Houses[row]);
-            Hide();
+            Close();
             createBasic.Show();
             
+        }
+
+        private void textHouseNumber_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox.Text, "  ^ [0-9]"))
+            {
+                textHouseNumber.Text = "";
+            }
+        }
+
+        private void textHouseNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

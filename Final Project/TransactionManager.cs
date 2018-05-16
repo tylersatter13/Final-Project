@@ -31,7 +31,10 @@ namespace Final_Project
 
             String spName = "spCreateTransaction";
 
-            var results = fetch.fetchTransaction(parameters,spName);
+            DatabaseConnection<String> conncetion = new DatabaseConnection<String>();
+            var results /*lastname*/ = fetch.fetchTransaction(parameters, spName);
+
+           // var results = GetTenantTransactions(lastname[0]);
             return results; // returns  updated transactions List
         }
         public List<TenantTransaction> UpdateTenantTransactions (TenantTransaction transaction)

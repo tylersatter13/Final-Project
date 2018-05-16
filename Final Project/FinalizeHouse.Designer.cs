@@ -42,6 +42,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textMiscellaneous = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.drpPetType = new System.Windows.Forms.ComboBox();
             this.btnAddPet = new System.Windows.Forms.Button();
             this.checkPetFee = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textPetBread = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.textPetType = new System.Windows.Forms.TextBox();
             this.dataPets = new System.Windows.Forms.DataGridView();
             this.dataPetType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataPetBread = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +92,7 @@
             this.textPrevKey.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textPrevKey.Size = new System.Drawing.Size(143, 26);
             this.textPrevKey.TabIndex = 31;
+            this.textPrevKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCurrentKey_KeyPress);
             // 
             // txtCurrentKey
             // 
@@ -102,6 +103,7 @@
             this.txtCurrentKey.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtCurrentKey.Size = new System.Drawing.Size(143, 26);
             this.txtCurrentKey.TabIndex = 30;
+            this.txtCurrentKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCurrentKey_KeyPress);
             // 
             // label3
             // 
@@ -208,9 +210,11 @@
             this.textMiscellaneous.Name = "textMiscellaneous";
             this.textMiscellaneous.Size = new System.Drawing.Size(841, 55);
             this.textMiscellaneous.TabIndex = 0;
+            this.textMiscellaneous.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMiscellaneous_KeyPress);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.drpPetType);
             this.groupBox2.Controls.Add(this.btnAddPet);
             this.groupBox2.Controls.Add(this.checkPetFee);
             this.groupBox2.Controls.Add(this.label6);
@@ -220,7 +224,6 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textPetBread);
             this.groupBox2.Controls.Add(this.lblFirstName);
-            this.groupBox2.Controls.Add(this.textPetType);
             this.groupBox2.Controls.Add(this.dataPets);
             this.groupBox2.Location = new System.Drawing.Point(33, 25);
             this.groupBox2.Name = "groupBox2";
@@ -228,6 +231,17 @@
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pets";
+            // 
+            // drpPetType
+            // 
+            this.drpPetType.AccessibleName = "drpOwner";
+            this.drpPetType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drpPetType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drpPetType.FormattingEnabled = true;
+            this.drpPetType.Location = new System.Drawing.Point(83, 37);
+            this.drpPetType.Name = "drpPetType";
+            this.drpPetType.Size = new System.Drawing.Size(157, 28);
+            this.drpPetType.TabIndex = 61;
             // 
             // btnAddPet
             // 
@@ -269,6 +283,7 @@
             this.textPetRent.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textPetRent.Size = new System.Drawing.Size(111, 26);
             this.textPetRent.TabIndex = 58;
+            this.textPetRent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericKeyPress);
             // 
             // label5
             // 
@@ -289,6 +304,7 @@
             this.textPetFee.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textPetFee.Size = new System.Drawing.Size(111, 26);
             this.textPetFee.TabIndex = 56;
+            this.textPetFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericKeyPress);
             // 
             // label4
             // 
@@ -309,6 +325,7 @@
             this.textPetBread.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textPetBread.Size = new System.Drawing.Size(131, 26);
             this.textPetBread.TabIndex = 54;
+            this.textPetBread.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterKeyPress);
             // 
             // lblFirstName
             // 
@@ -321,18 +338,9 @@
             this.lblFirstName.Text = "Pet Type";
             this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // textPetType
-            // 
-            this.textPetType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPetType.Location = new System.Drawing.Point(83, 37);
-            this.textPetType.MaxLength = 20;
-            this.textPetType.Name = "textPetType";
-            this.textPetType.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textPetType.Size = new System.Drawing.Size(122, 26);
-            this.textPetType.TabIndex = 52;
-            // 
             // dataPets
             // 
+            this.dataPets.AllowUserToAddRows = false;
             this.dataPets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataPets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataPetType,
@@ -437,7 +445,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textPetBread;
         private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.TextBox textPetType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPetType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPetBread;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPetFee;
@@ -445,5 +452,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPetRent;
         private System.Windows.Forms.DataGridViewButtonColumn dataBtnEdit;
         private System.Windows.Forms.DataGridViewButtonColumn dataBtnDelete;
+        private System.Windows.Forms.ComboBox drpPetType;
     }
 }

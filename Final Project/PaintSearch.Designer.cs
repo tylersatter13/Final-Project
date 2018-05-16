@@ -1,6 +1,6 @@
 ﻿namespace Final_Project
 {
-    partial class PaintSearch
+    partial class PaintSearch 
     {
         /// <summary>
         /// Required designer variable.
@@ -53,7 +53,6 @@
             this.drpInterriorColor = new System.Windows.Forms.ComboBox();
             this.lblOwner = new System.Windows.Forms.Label();
             this.drpExteriorColor = new System.Windows.Forms.ComboBox();
-            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataHouse)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -61,6 +60,7 @@
             // 
             // dataHouse
             // 
+            this.dataHouse.AllowUserToAddRows = false;
             this.dataHouse.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataHouse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataHouse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -78,10 +78,10 @@
             this.dataExteriorPaintDate,
             this.dataBlindRepalcement});
             this.dataHouse.GridColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataHouse.Location = new System.Drawing.Point(12, 166);
+            this.dataHouse.Location = new System.Drawing.Point(12, 82);
             this.dataHouse.Name = "dataHouse";
             this.dataHouse.RowTemplate.ReadOnly = true;
-            this.dataHouse.Size = new System.Drawing.Size(1141, 405);
+            this.dataHouse.Size = new System.Drawing.Size(1141, 489);
             this.dataHouse.TabIndex = 47;
             this.dataHouse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataHouse_CellClick);
             // 
@@ -95,47 +95,40 @@
             // 
             this.dataOwner.HeaderText = "Owner";
             this.dataOwner.Name = "dataOwner";
-            this.dataOwner.ReadOnly = true;
             this.dataOwner.Width = 50;
             // 
             // dataAddress
             // 
             this.dataAddress.HeaderText = "Address";
             this.dataAddress.Name = "dataAddress";
-            this.dataAddress.ReadOnly = true;
             this.dataAddress.Width = 120;
             // 
             // dataFloorPlan
             // 
             this.dataFloorPlan.HeaderText = "Floor Plan";
             this.dataFloorPlan.Name = "dataFloorPlan";
-            this.dataFloorPlan.ReadOnly = true;
             this.dataFloorPlan.Width = 75;
             // 
             // dataInterriorColor
             // 
             this.dataInterriorColor.HeaderText = "Interrior Color";
             this.dataInterriorColor.Name = "dataInterriorColor";
-            this.dataInterriorColor.ReadOnly = true;
             // 
             // dataLastPaint
             // 
             this.dataLastPaint.HeaderText = "Last Painted";
             this.dataLastPaint.Name = "dataLastPaint";
-            this.dataLastPaint.ReadOnly = true;
             this.dataLastPaint.Width = 75;
             // 
             // dataCarpetColor
             // 
             this.dataCarpetColor.HeaderText = "Carpet Color";
             this.dataCarpetColor.Name = "dataCarpetColor";
-            this.dataCarpetColor.ReadOnly = true;
             // 
             // dataCarpetInstallDate
             // 
             this.dataCarpetInstallDate.HeaderText = "Carpet Installed";
             this.dataCarpetInstallDate.Name = "dataCarpetInstallDate";
-            this.dataCarpetInstallDate.ReadOnly = true;
             this.dataCarpetInstallDate.Width = 75;
             // 
             // dataExterriorPaint
@@ -163,7 +156,6 @@
             // 
             this.dataBlindRepalcement.HeaderText = "Blind Replacement";
             this.dataBlindRepalcement.Name = "dataBlindRepalcement";
-            this.dataBlindRepalcement.ReadOnly = true;
             this.dataBlindRepalcement.Width = 75;
             // 
             // lblHouseNumber
@@ -185,7 +177,9 @@
             this.textHouseNumber.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textHouseNumber.Size = new System.Drawing.Size(105, 26);
             this.textHouseNumber.TabIndex = 48;
+            this.textHouseNumber.Text = "4588";
             this.textHouseNumber.TextChanged += new System.EventHandler(this.textHouseNumber_TextChanged);
+            this.textHouseNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textHouseNumber_KeyPress);
             // 
             // btnSearch
             // 
@@ -288,26 +282,17 @@
             this.drpExteriorColor.Size = new System.Drawing.Size(157, 28);
             this.drpExteriorColor.TabIndex = 50;
             // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(1045, 128);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(93, 29);
-            this.btnPrint.TabIndex = 52;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // PaintSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1165, 596);
-            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataHouse);
             this.Name = "PaintSearch";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PaintSearch";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PaintSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataHouse)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -345,6 +330,5 @@
         private System.Windows.Forms.RadioButton radioInterrior;
         private System.Windows.Forms.RadioButton radioExterrior;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnPrint;
     }
 }

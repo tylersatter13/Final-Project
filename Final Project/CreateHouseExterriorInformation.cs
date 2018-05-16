@@ -61,7 +61,7 @@ namespace Final_Project
 
         private void AddListToBox(ComboBox combobox, List<String> items)
         {
-            combobox.Items.Add("Add Item");
+            combobox.Items.Add("None");
             foreach (String item in items)
             {
                 combobox.Items.Add(item);

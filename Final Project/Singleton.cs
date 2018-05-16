@@ -18,7 +18,7 @@ namespace Final_Project
   
         public void setUpUser(String username, int UserRoleID)
         {
-            if (userIsSet == false)
+            if (UserIsSet == false)
             {
                 user = new User(username, UserRoleID);
                 userIsSet = true;
@@ -29,6 +29,10 @@ namespace Final_Project
 
             }
             
+        }
+        public void Logout()
+        {
+            userIsSet = false;
         }
         public static Singleton Instance
         {
@@ -43,7 +47,8 @@ namespace Final_Project
             }
         }
 
-        internal User User { get => user; set => user = value; }
+        internal User User { get => user; }
+        public bool UserIsSet { get => userIsSet;}
     }
     
 

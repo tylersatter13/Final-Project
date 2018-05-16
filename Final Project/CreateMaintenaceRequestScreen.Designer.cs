@@ -80,8 +80,9 @@
             this.Part = new System.Windows.Forms.Label();
             this.textPartName = new System.Windows.Forms.TextBox();
             this.dataRepairParts = new System.Windows.Forms.DataGridView();
-            this.btnFinish = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnFinish = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dataPartName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataInventory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,11 +100,12 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRepairParts)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
             this.panel1.Controls.Add(this.textTennantPhone);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -120,7 +122,8 @@
             this.panel1.Controls.Add(this.textTenantLast);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.textTenantFirstName);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(12, 41);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(521, 193);
             this.panel1.TabIndex = 0;
@@ -137,10 +140,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 155);
+            this.label5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(5, 154);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 20);
+            this.label5.Size = new System.Drawing.Size(116, 21);
             this.label5.TabIndex = 75;
             this.label5.Text = "Phone Number";
             // 
@@ -157,6 +160,7 @@
             // drpRequestType
             // 
             this.drpRequestType.AccessibleName = "drpStreetName";
+            this.drpRequestType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(59)))), ((int)(((byte)(63)))));
             this.drpRequestType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.drpRequestType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.drpRequestType.FormattingEnabled = true;
@@ -169,7 +173,7 @@
             // 
             this.lblStreetName.AutoSize = true;
             this.lblStreetName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreetName.Location = new System.Drawing.Point(249, 104);
+            this.lblStreetName.Location = new System.Drawing.Point(252, 107);
             this.lblStreetName.Name = "lblStreetName";
             this.lblStreetName.Size = new System.Drawing.Size(93, 20);
             this.lblStreetName.TabIndex = 71;
@@ -178,7 +182,9 @@
             // drpStreetName
             // 
             this.drpStreetName.AccessibleName = "drpStreetName";
+            this.drpStreetName.BackColor = System.Drawing.Color.White;
             this.drpStreetName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drpStreetName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.drpStreetName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.drpStreetName.FormattingEnabled = true;
             this.drpStreetName.Location = new System.Drawing.Point(351, 101);
@@ -189,10 +195,10 @@
             // lblHouseNumber
             // 
             this.lblHouseNumber.AutoSize = true;
-            this.lblHouseNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHouseNumber.Location = new System.Drawing.Point(12, 104);
+            this.lblHouseNumber.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHouseNumber.Location = new System.Drawing.Point(5, 103);
             this.lblHouseNumber.Name = "lblHouseNumber";
-            this.lblHouseNumber.Size = new System.Drawing.Size(116, 20);
+            this.lblHouseNumber.Size = new System.Drawing.Size(116, 21);
             this.lblHouseNumber.TabIndex = 69;
             this.lblHouseNumber.Text = "House Number";
             // 
@@ -231,10 +237,10 @@
             // lblreated
             // 
             this.lblreated.AutoSize = true;
-            this.lblreated.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblreated.Location = new System.Drawing.Point(12, 62);
+            this.lblreated.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblreated.Location = new System.Drawing.Point(5, 61);
             this.lblreated.Name = "lblreated";
-            this.lblreated.Size = new System.Drawing.Size(66, 20);
+            this.lblreated.Size = new System.Drawing.Size(64, 21);
             this.lblreated.TabIndex = 65;
             this.lblreated.Text = "Created";
             // 
@@ -244,7 +250,7 @@
             this.dateJobCreated.Checked = false;
             this.dateJobCreated.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateJobCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateJobCreated.Location = new System.Drawing.Point(104, 60);
+            this.dateJobCreated.Location = new System.Drawing.Point(104, 61);
             this.dateJobCreated.Name = "dateJobCreated";
             this.dateJobCreated.ShowCheckBox = true;
             this.dateJobCreated.Size = new System.Drawing.Size(139, 26);
@@ -274,10 +280,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 20);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(5, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 20);
+            this.label3.Size = new System.Drawing.Size(86, 21);
             this.label3.TabIndex = 55;
             this.label3.Text = "First Name";
             // 
@@ -285,6 +291,7 @@
             // 
             this.textTenantFirstName.Enabled = false;
             this.textTenantFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTenantFirstName.ForeColor = System.Drawing.Color.DarkGray;
             this.textTenantFirstName.Location = new System.Drawing.Point(104, 17);
             this.textTenantFirstName.MaxLength = 20;
             this.textTenantFirstName.Name = "textTenantFirstName";
@@ -294,14 +301,15 @@
             // 
             // panel2
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
             this.panel2.Controls.Add(this.checkAppliance);
             this.panel2.Controls.Add(this.checkPermissionToEnter);
             this.panel2.Controls.Add(this.lblDogs);
             this.panel2.Controls.Add(this.lblCats);
             this.panel2.Controls.Add(this.numericUpDogs);
             this.panel2.Controls.Add(this.numCats);
-            this.panel2.Location = new System.Drawing.Point(546, 12);
+            this.panel2.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(546, 41);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(607, 96);
             this.panel2.TabIndex = 1;
@@ -309,10 +317,10 @@
             // checkAppliance
             // 
             this.checkAppliance.AutoSize = true;
-            this.checkAppliance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkAppliance.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkAppliance.Location = new System.Drawing.Point(451, 61);
             this.checkAppliance.Name = "checkAppliance";
-            this.checkAppliance.Size = new System.Drawing.Size(113, 24);
+            this.checkAppliance.Size = new System.Drawing.Size(110, 25);
             this.checkAppliance.TabIndex = 64;
             this.checkAppliance.Text = "Is appliance";
             this.checkAppliance.UseVisualStyleBackColor = true;
@@ -321,10 +329,10 @@
             // checkPermissionToEnter
             // 
             this.checkPermissionToEnter.AutoSize = true;
-            this.checkPermissionToEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkPermissionToEnter.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkPermissionToEnter.Location = new System.Drawing.Point(22, 57);
             this.checkPermissionToEnter.Name = "checkPermissionToEnter";
-            this.checkPermissionToEnter.Size = new System.Drawing.Size(166, 24);
+            this.checkPermissionToEnter.Size = new System.Drawing.Size(164, 25);
             this.checkPermissionToEnter.TabIndex = 63;
             this.checkPermissionToEnter.Text = "Permission to Enter";
             this.checkPermissionToEnter.UseVisualStyleBackColor = true;
@@ -369,11 +377,13 @@
             // 
             // panel3
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.textJobDescsription);
             this.panel3.Controls.Add(this.lblJobDescription);
-            this.panel3.Location = new System.Drawing.Point(546, 117);
+            this.panel3.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(546, 146);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(607, 197);
             this.panel3.TabIndex = 2;
@@ -402,6 +412,7 @@
             // radioRange
             // 
             this.radioRange.AutoSize = true;
+            this.radioRange.Checked = true;
             this.radioRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioRange.Location = new System.Drawing.Point(8, 3);
             this.radioRange.Name = "radioRange";
@@ -419,23 +430,25 @@
             this.textJobDescsription.Name = "textJobDescsription";
             this.textJobDescsription.Size = new System.Drawing.Size(599, 118);
             this.textJobDescsription.TabIndex = 37;
+            this.textJobDescsription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMiscellaneous_KeyPress);
             // 
             // lblJobDescription
             // 
             this.lblJobDescription.AutoSize = true;
-            this.lblJobDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJobDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJobDescription.Location = new System.Drawing.Point(230, 4);
             this.lblJobDescription.Name = "lblJobDescription";
-            this.lblJobDescription.Size = new System.Drawing.Size(119, 20);
+            this.lblJobDescription.Size = new System.Drawing.Size(129, 21);
             this.lblJobDescription.TabIndex = 38;
             this.lblJobDescription.Text = "Job Description";
             // 
             // panel4
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.textWorkPreformed);
-            this.panel4.Location = new System.Drawing.Point(546, 320);
+            this.panel4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel4.Location = new System.Drawing.Point(546, 349);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(607, 132);
             this.panel4.TabIndex = 3;
@@ -443,10 +456,10 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(242, 14);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(124, 20);
+            this.label13.Size = new System.Drawing.Size(140, 21);
             this.label13.TabIndex = 39;
             this.label13.Text = "Work Preformed";
             // 
@@ -458,10 +471,11 @@
             this.textWorkPreformed.Name = "textWorkPreformed";
             this.textWorkPreformed.Size = new System.Drawing.Size(599, 90);
             this.textWorkPreformed.TabIndex = 38;
+            this.textWorkPreformed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMiscellaneous_KeyPress);
             // 
             // panel5
             // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
             this.panel5.Controls.Add(this.label17);
             this.panel5.Controls.Add(this.drpTechnicians);
             this.panel5.Controls.Add(this.label16);
@@ -470,7 +484,8 @@
             this.panel5.Controls.Add(this.dateJobCompleted);
             this.panel5.Controls.Add(this.lblJobStart);
             this.panel5.Controls.Add(this.dateJobStart);
-            this.panel5.Location = new System.Drawing.Point(12, 468);
+            this.panel5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.Location = new System.Drawing.Point(12, 497);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1141, 57);
             this.panel5.TabIndex = 4;
@@ -478,49 +493,51 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(837, 15);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(85, 20);
+            this.label17.Size = new System.Drawing.Size(81, 21);
             this.label17.TabIndex = 75;
             this.label17.Text = "Technician";
             // 
             // drpTechnicians
             // 
             this.drpTechnicians.AccessibleName = "drpStreetName";
+            this.drpTechnicians.BackColor = System.Drawing.Color.White;
             this.drpTechnicians.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drpTechnicians.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drpTechnicians.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.drpTechnicians.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.drpTechnicians.FormattingEnabled = true;
             this.drpTechnicians.Location = new System.Drawing.Point(940, 11);
             this.drpTechnicians.Name = "drpTechnicians";
-            this.drpTechnicians.Size = new System.Drawing.Size(158, 28);
+            this.drpTechnicians.Size = new System.Drawing.Size(158, 29);
             this.drpTechnicians.TabIndex = 74;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(604, 16);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(111, 20);
+            this.label16.Size = new System.Drawing.Size(110, 21);
             this.label16.TabIndex = 73;
             this.label16.Text = "Hours Worked";
             // 
             // numJobHours
             // 
-            this.numJobHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numJobHours.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numJobHours.Location = new System.Drawing.Point(732, 13);
             this.numJobHours.Name = "numJobHours";
-            this.numJobHours.Size = new System.Drawing.Size(75, 26);
+            this.numJobHours.Size = new System.Drawing.Size(75, 29);
             this.numJobHours.TabIndex = 72;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(296, 16);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(116, 20);
+            this.label14.Size = new System.Drawing.Size(114, 21);
             this.label14.TabIndex = 71;
             this.label14.Text = "Job Completed";
             // 
@@ -528,21 +545,21 @@
             // 
             this.dateJobCompleted.AccessibleName = "dateLastPaint";
             this.dateJobCompleted.Checked = false;
-            this.dateJobCompleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateJobCompleted.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateJobCompleted.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateJobCompleted.Location = new System.Drawing.Point(419, 13);
             this.dateJobCompleted.Name = "dateJobCompleted";
             this.dateJobCompleted.ShowCheckBox = true;
-            this.dateJobCompleted.Size = new System.Drawing.Size(153, 26);
+            this.dateJobCompleted.Size = new System.Drawing.Size(153, 29);
             this.dateJobCompleted.TabIndex = 70;
             // 
             // lblJobStart
             // 
             this.lblJobStart.AutoSize = true;
-            this.lblJobStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJobStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJobStart.Location = new System.Drawing.Point(29, 16);
             this.lblJobStart.Name = "lblJobStart";
-            this.lblJobStart.Size = new System.Drawing.Size(92, 20);
+            this.lblJobStart.Size = new System.Drawing.Size(87, 21);
             this.lblJobStart.TabIndex = 69;
             this.lblJobStart.Text = "Job Started";
             // 
@@ -550,17 +567,17 @@
             // 
             this.dateJobStart.AccessibleName = "dateLastPaint";
             this.dateJobStart.Checked = false;
-            this.dateJobStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateJobStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateJobStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateJobStart.Location = new System.Drawing.Point(128, 14);
             this.dateJobStart.Name = "dateJobStart";
             this.dateJobStart.ShowCheckBox = true;
-            this.dateJobStart.Size = new System.Drawing.Size(139, 26);
+            this.dateJobStart.Size = new System.Drawing.Size(139, 29);
             this.dateJobStart.TabIndex = 68;
             // 
             // panel6
             // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(235)))), ((int)(((byte)(242)))));
             this.panel6.Controls.Add(this.btnAddPart);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.label6);
@@ -568,19 +585,23 @@
             this.panel6.Controls.Add(this.Part);
             this.panel6.Controls.Add(this.textPartName);
             this.panel6.Controls.Add(this.dataRepairParts);
-            this.panel6.Location = new System.Drawing.Point(12, 211);
+            this.panel6.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Location = new System.Drawing.Point(12, 240);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(521, 241);
             this.panel6.TabIndex = 3;
             // 
             // btnAddPart
             // 
+            this.btnAddPart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnAddPart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPart.ForeColor = System.Drawing.Color.DarkGray;
             this.btnAddPart.Location = new System.Drawing.Point(463, 16);
             this.btnAddPart.Name = "btnAddPart";
             this.btnAddPart.Size = new System.Drawing.Size(46, 31);
             this.btnAddPart.TabIndex = 78;
             this.btnAddPart.Text = "+";
-            this.btnAddPart.UseVisualStyleBackColor = true;
+            this.btnAddPart.UseVisualStyleBackColor = false;
             this.btnAddPart.Click += new System.EventHandler(this.btnAddPart_Click);
             // 
             // panel7
@@ -595,20 +616,22 @@
             // radioCharge
             // 
             this.radioCharge.AutoSize = true;
-            this.radioCharge.Location = new System.Drawing.Point(3, 26);
+            this.radioCharge.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioCharge.Location = new System.Drawing.Point(3, 22);
             this.radioCharge.Name = "radioCharge";
-            this.radioCharge.Size = new System.Drawing.Size(65, 17);
+            this.radioCharge.Size = new System.Drawing.Size(75, 21);
             this.radioCharge.TabIndex = 1;
-            this.radioCharge.TabStop = true;
             this.radioCharge.Text = "Charage";
             this.radioCharge.UseVisualStyleBackColor = true;
             // 
             // radioStock
             // 
             this.radioStock.AutoSize = true;
+            this.radioStock.Checked = true;
+            this.radioStock.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioStock.Location = new System.Drawing.Point(3, 3);
             this.radioStock.Name = "radioStock";
-            this.radioStock.Size = new System.Drawing.Size(53, 17);
+            this.radioStock.Size = new System.Drawing.Size(57, 21);
             this.radioStock.TabIndex = 0;
             this.radioStock.TabStop = true;
             this.radioStock.Text = "Stock";
@@ -633,6 +656,7 @@
             this.textPartCost.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textPartCost.Size = new System.Drawing.Size(99, 26);
             this.textPartCost.TabIndex = 75;
+            this.textPartCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericKeyPress);
             // 
             // Part
             // 
@@ -653,11 +677,14 @@
             this.textPartName.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textPartName.Size = new System.Drawing.Size(122, 26);
             this.textPartName.TabIndex = 57;
+            this.textPartName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterKeyPress);
             // 
             // dataRepairParts
             // 
             this.dataRepairParts.AllowUserToAddRows = false;
             this.dataRepairParts.AllowUserToDeleteRows = false;
+            this.dataRepairParts.BackgroundColor = System.Drawing.Color.DarkGray;
+            this.dataRepairParts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataRepairParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataRepairParts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataPartName,
@@ -668,31 +695,40 @@
             this.dataRepairParts.Location = new System.Drawing.Point(3, 57);
             this.dataRepairParts.Name = "dataRepairParts";
             this.dataRepairParts.ReadOnly = true;
-            this.dataRepairParts.Size = new System.Drawing.Size(524, 183);
+            this.dataRepairParts.Size = new System.Drawing.Size(513, 179);
             this.dataRepairParts.TabIndex = 0;
             this.dataRepairParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataRepairParts_CellContentClick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Red;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnFinish,
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1165, 38);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // btnFinish
             // 
-            this.btnFinish.AccessibleName = "btnNext";
-            this.btnFinish.Location = new System.Drawing.Point(993, 545);
+            this.btnFinish.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnFinish.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinish.ForeColor = System.Drawing.SystemColors.Control;
             this.btnFinish.Name = "btnFinish";
-            this.btnFinish.Size = new System.Drawing.Size(156, 39);
-            this.btnFinish.TabIndex = 35;
+            this.btnFinish.Size = new System.Drawing.Size(85, 34);
             this.btnFinish.Text = "Create";
-            this.btnFinish.UseVisualStyleBackColor = true;
             this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
-            // btnBack
+            // toolStripMenuItem1
             // 
-            this.btnBack.AccessibleName = "btnBack";
-            this.btnBack.Location = new System.Drawing.Point(12, 545);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(156, 39);
-            this.btnBack.TabIndex = 36;
-            this.btnBack.Text = "Cancel";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.Control;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(87, 34);
+            this.toolStripMenuItem1.Text = "Cancel";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // dataPartName
             // 
@@ -719,26 +755,30 @@
             this.dataEditbtn.HeaderText = "";
             this.dataEditbtn.Name = "dataEditbtn";
             this.dataEditbtn.ReadOnly = true;
+            this.dataEditbtn.Width = 98;
             // 
             // data
             // 
             this.data.HeaderText = "";
             this.data.Name = "data";
             this.data.ReadOnly = true;
+            this.data.Width = 97;
             // 
             // CreateMaintenaceRequestScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1165, 596);
-            this.Controls.Add(this.btnFinish);
-            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CreateMaintenaceRequestScreen";
             this.Text = "CreateMaintenaceRequestScreen";
             this.Load += new System.EventHandler(this.CreateMaintenaceRequestScreen_Load);
@@ -762,7 +802,10 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRepairParts)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -817,11 +860,12 @@
         private System.Windows.Forms.DateTimePicker dateJobCompleted;
         private System.Windows.Forms.Label lblJobStart;
         private System.Windows.Forms.DateTimePicker dateJobStart;
-        private System.Windows.Forms.Button btnFinish;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.RadioButton radioDishwasher;
         private System.Windows.Forms.RadioButton radioRange;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem btnFinish;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPartName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataInventory;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataCost;

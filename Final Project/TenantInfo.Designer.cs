@@ -69,7 +69,7 @@
             this.btnNext.Location = new System.Drawing.Point(747, 493);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(156, 39);
-            this.btnNext.TabIndex = 46;
+            this.btnNext.TabIndex = 11;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -80,7 +80,7 @@
             this.btnBack.Location = new System.Drawing.Point(32, 493);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(156, 39);
-            this.btnBack.TabIndex = 47;
+            this.btnBack.TabIndex = 10;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -126,7 +126,7 @@
             this.dateRentStart.Name = "dateRentStart";
             this.dateRentStart.ShowCheckBox = true;
             this.dateRentStart.Size = new System.Drawing.Size(144, 26);
-            this.dateRentStart.TabIndex = 62;
+            this.dateRentStart.TabIndex = 6;
             // 
             // numRent
             // 
@@ -136,7 +136,8 @@
             this.numRent.Name = "numRent";
             this.numRent.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.numRent.Size = new System.Drawing.Size(163, 26);
-            this.numRent.TabIndex = 61;
+            this.numRent.TabIndex = 5;
+            this.numRent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericKeyPress);
             // 
             // label7
             // 
@@ -164,7 +165,7 @@
             this.numChildren.Location = new System.Drawing.Point(104, 94);
             this.numChildren.Name = "numChildren";
             this.numChildren.Size = new System.Drawing.Size(120, 26);
-            this.numChildren.TabIndex = 58;
+            this.numChildren.TabIndex = 4;
             // 
             // textLeadPhone
             // 
@@ -173,7 +174,7 @@
             this.textLeadPhone.Mask = "999-000-0000";
             this.textLeadPhone.Name = "textLeadPhone";
             this.textLeadPhone.Size = new System.Drawing.Size(144, 26);
-            this.textLeadPhone.TabIndex = 52;
+            this.textLeadPhone.TabIndex = 3;
             // 
             // label1
             // 
@@ -203,7 +204,8 @@
             this.textLeadTenantLast.Name = "textLeadTenantLast";
             this.textLeadTenantLast.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textLeadTenantLast.Size = new System.Drawing.Size(163, 26);
-            this.textLeadTenantLast.TabIndex = 56;
+            this.textLeadTenantLast.TabIndex = 2;
+            this.textLeadTenantLast.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterKeyPress);
             // 
             // label3
             // 
@@ -223,7 +225,8 @@
             this.textLeadTenantFirst.Name = "textLeadTenantFirst";
             this.textLeadTenantFirst.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textLeadTenantFirst.Size = new System.Drawing.Size(122, 26);
-            this.textLeadTenantFirst.TabIndex = 54;
+            this.textLeadTenantFirst.TabIndex = 1;
+            this.textLeadTenantFirst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterKeyPress);
             // 
             // groupBox2
             // 
@@ -249,7 +252,7 @@
             this.textTenantPhone.Mask = "999-000-0000";
             this.textTenantPhone.Name = "textTenantPhone";
             this.textTenantPhone.Size = new System.Drawing.Size(124, 26);
-            this.textTenantPhone.TabIndex = 37;
+            this.textTenantPhone.TabIndex = 9;
             // 
             // btnAddTenant
             // 
@@ -289,7 +292,8 @@
             this.textTenantLast.Name = "textTenantLast";
             this.textTenantLast.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textTenantLast.Size = new System.Drawing.Size(163, 26);
-            this.textTenantLast.TabIndex = 50;
+            this.textTenantLast.TabIndex = 8;
+            this.textTenantLast.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterKeyPress);
             // 
             // lblFirstName
             // 
@@ -309,7 +313,8 @@
             this.textTenantFirst.Name = "textTenantFirst";
             this.textTenantFirst.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textTenantFirst.Size = new System.Drawing.Size(122, 26);
-            this.textTenantFirst.TabIndex = 48;
+            this.textTenantFirst.TabIndex = 7;
+            this.textTenantFirst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterKeyPress);
             // 
             // dataTenants
             // 

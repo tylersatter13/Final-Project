@@ -40,21 +40,6 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblLastPainted = new System.Windows.Forms.Label();
-            this.datePurchaseDate = new System.Windows.Forms.DateTimePicker();
-            this.txtRangeColor = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textRangeBrand = new System.Windows.Forms.TextBox();
-            this.textModel = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Model = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.checkRefrigerator = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dateGD = new System.Windows.Forms.DateTimePicker();
-            this.textSerialNumber = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textDWSerial = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,11 +51,26 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textDishwasherColor = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkRefrigerator = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dateGD = new System.Windows.Forms.DateTimePicker();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textSerialNumber = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Model = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textModel = new System.Windows.Forms.TextBox();
+            this.datePurchaseDate = new System.Windows.Forms.DateTimePicker();
+            this.textRangeBrand = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtRangeColor = new System.Windows.Forms.TextBox();
+            this.lblLastPainted = new System.Windows.Forms.Label();
             this.Roofing.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Roofing
@@ -213,109 +213,133 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Appliances";
             // 
-            // groupBox2
+            // groupBox3
             // 
-            this.groupBox2.Controls.Add(this.textSerialNumber);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.Model);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textModel);
-            this.groupBox2.Controls.Add(this.datePurchaseDate);
-            this.groupBox2.Controls.Add(this.textRangeBrand);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtRangeColor);
-            this.groupBox2.Controls.Add(this.lblLastPainted);
-            this.groupBox2.Location = new System.Drawing.Point(6, 19);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(859, 111);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Range";
+            this.groupBox3.Controls.Add(this.textDWSerial);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.textDWModel);
+            this.groupBox3.Controls.Add(this.dateDWPurchase);
+            this.groupBox3.Controls.Add(this.textDWBrand);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.textDishwasherColor);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Location = new System.Drawing.Point(6, 136);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(859, 111);
+            this.groupBox3.TabIndex = 31;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Dishwasher";
             // 
-            // lblLastPainted
+            // textDWSerial
             // 
-            this.lblLastPainted.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textDWSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDWSerial.Location = new System.Drawing.Point(116, 63);
+            this.textDWSerial.MaxLength = 30;
+            this.textDWSerial.Name = "textDWSerial";
+            this.textDWSerial.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textDWSerial.Size = new System.Drawing.Size(143, 26);
+            this.textDWSerial.TabIndex = 30;
+            this.textDWSerial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(1, 66);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(109, 20);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Serial Number";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(329, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 20);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Brand";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(569, 63);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 20);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Purchase Date";
+            // 
+            // textDWModel
+            // 
+            this.textDWModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDWModel.Location = new System.Drawing.Point(699, 22);
+            this.textDWModel.MaxLength = 30;
+            this.textDWModel.Name = "textDWModel";
+            this.textDWModel.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textDWModel.Size = new System.Drawing.Size(143, 26);
+            this.textDWModel.TabIndex = 26;
+            this.textDWModel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
+            // 
+            // dateDWPurchase
+            // 
+            this.dateDWPurchase.AccessibleName = "dateLastPaint";
+            this.dateDWPurchase.Checked = false;
+            this.dateDWPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateDWPurchase.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateDWPurchase.Location = new System.Drawing.Point(698, 60);
+            this.dateDWPurchase.Name = "dateDWPurchase";
+            this.dateDWPurchase.ShowCheckBox = true;
+            this.dateDWPurchase.Size = new System.Drawing.Size(144, 26);
+            this.dateDWPurchase.TabIndex = 21;
+            // 
+            // textDWBrand
+            // 
+            this.textDWBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDWBrand.Location = new System.Drawing.Point(390, 22);
+            this.textDWBrand.MaxLength = 20;
+            this.textDWBrand.Name = "textDWBrand";
+            this.textDWBrand.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textDWBrand.Size = new System.Drawing.Size(143, 26);
+            this.textDWBrand.TabIndex = 25;
+            this.textDWBrand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(632, 25);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 20);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Model";
+            // 
+            // textDishwasherColor
+            // 
+            this.textDishwasherColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDishwasherColor.Location = new System.Drawing.Point(116, 22);
+            this.textDishwasherColor.MaxLength = 20;
+            this.textDishwasherColor.Name = "textDishwasherColor";
+            this.textDishwasherColor.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textDishwasherColor.Size = new System.Drawing.Size(143, 26);
+            this.textDishwasherColor.TabIndex = 24;
+            this.textDishwasherColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblLastPainted.AutoSize = true;
-            this.lblLastPainted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastPainted.Location = new System.Drawing.Point(52, 25);
-            this.lblLastPainted.Name = "lblLastPainted";
-            this.lblLastPainted.Size = new System.Drawing.Size(46, 20);
-            this.lblLastPainted.TabIndex = 22;
-            this.lblLastPainted.Text = "Color";
-            // 
-            // datePurchaseDate
-            // 
-            this.datePurchaseDate.AccessibleName = "dateLastPaint";
-            this.datePurchaseDate.Checked = false;
-            this.datePurchaseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePurchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePurchaseDate.Location = new System.Drawing.Point(698, 60);
-            this.datePurchaseDate.Name = "datePurchaseDate";
-            this.datePurchaseDate.ShowCheckBox = true;
-            this.datePurchaseDate.Size = new System.Drawing.Size(144, 26);
-            this.datePurchaseDate.TabIndex = 21;
-            // 
-            // txtRangeColor
-            // 
-            this.txtRangeColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRangeColor.Location = new System.Drawing.Point(116, 22);
-            this.txtRangeColor.MaxLength = 20;
-            this.txtRangeColor.Name = "txtRangeColor";
-            this.txtRangeColor.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtRangeColor.Size = new System.Drawing.Size(143, 26);
-            this.txtRangeColor.TabIndex = 24;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(632, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 20);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Model";
-            // 
-            // textRangeBrand
-            // 
-            this.textRangeBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textRangeBrand.Location = new System.Drawing.Point(390, 22);
-            this.textRangeBrand.MaxLength = 4;
-            this.textRangeBrand.Name = "textRangeBrand";
-            this.textRangeBrand.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textRangeBrand.Size = new System.Drawing.Size(143, 26);
-            this.textRangeBrand.TabIndex = 25;
-            // 
-            // textModel
-            // 
-            this.textModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textModel.Location = new System.Drawing.Point(699, 22);
-            this.textModel.MaxLength = 30;
-            this.textModel.Name = "textModel";
-            this.textModel.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textModel.Size = new System.Drawing.Size(143, 26);
-            this.textModel.TabIndex = 26;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(569, 63);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 20);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Purchase Date";
-            // 
-            // Model
-            // 
-            this.Model.AutoSize = true;
-            this.Model.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Model.Location = new System.Drawing.Point(329, 25);
-            this.Model.Name = "Model";
-            this.Model.Size = new System.Drawing.Size(52, 20);
-            this.Model.TabIndex = 28;
-            this.Model.Text = "Brand";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(52, 25);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 20);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Color";
             // 
             // groupBox5
             // 
@@ -361,6 +385,25 @@
             this.dateGD.Size = new System.Drawing.Size(144, 26);
             this.dateGD.TabIndex = 33;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textSerialNumber);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.Model);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.textModel);
+            this.groupBox2.Controls.Add(this.datePurchaseDate);
+            this.groupBox2.Controls.Add(this.textRangeBrand);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtRangeColor);
+            this.groupBox2.Controls.Add(this.lblLastPainted);
+            this.groupBox2.Location = new System.Drawing.Point(6, 19);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(859, 111);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Range";
+            // 
             // textSerialNumber
             // 
             this.textSerialNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -370,6 +413,7 @@
             this.textSerialNumber.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textSerialNumber.Size = new System.Drawing.Size(143, 26);
             this.textSerialNumber.TabIndex = 30;
+            this.textSerialNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
             // label6
             // 
@@ -381,129 +425,93 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Serial Number";
             // 
-            // groupBox3
+            // Model
             // 
-            this.groupBox3.Controls.Add(this.textDWSerial);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textDWModel);
-            this.groupBox3.Controls.Add(this.dateDWPurchase);
-            this.groupBox3.Controls.Add(this.textDWBrand);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textDishwasherColor);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Location = new System.Drawing.Point(6, 136);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(859, 111);
-            this.groupBox3.TabIndex = 31;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Dishwasher";
+            this.Model.AutoSize = true;
+            this.Model.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Model.Location = new System.Drawing.Point(329, 25);
+            this.Model.Name = "Model";
+            this.Model.Size = new System.Drawing.Size(52, 20);
+            this.Model.TabIndex = 28;
+            this.Model.Text = "Brand";
             // 
-            // textDWSerial
+            // label5
             // 
-            this.textDWSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDWSerial.Location = new System.Drawing.Point(116, 63);
-            this.textDWSerial.MaxLength = 30;
-            this.textDWSerial.Name = "textDWSerial";
-            this.textDWSerial.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textDWSerial.Size = new System.Drawing.Size(143, 26);
-            this.textDWSerial.TabIndex = 30;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(569, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 20);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Purchase Date";
             // 
-            // label7
+            // textModel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1, 66);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 20);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Serial Number";
+            this.textModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textModel.Location = new System.Drawing.Point(699, 22);
+            this.textModel.MaxLength = 30;
+            this.textModel.Name = "textModel";
+            this.textModel.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textModel.Size = new System.Drawing.Size(143, 26);
+            this.textModel.TabIndex = 26;
+            this.textModel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
-            // label8
+            // datePurchaseDate
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(329, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 20);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Brand";
+            this.datePurchaseDate.AccessibleName = "dateLastPaint";
+            this.datePurchaseDate.Checked = false;
+            this.datePurchaseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePurchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePurchaseDate.Location = new System.Drawing.Point(698, 60);
+            this.datePurchaseDate.Name = "datePurchaseDate";
+            this.datePurchaseDate.ShowCheckBox = true;
+            this.datePurchaseDate.Size = new System.Drawing.Size(144, 26);
+            this.datePurchaseDate.TabIndex = 21;
             // 
-            // label9
+            // textRangeBrand
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(569, 63);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(115, 20);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Purchase Date";
+            this.textRangeBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRangeBrand.Location = new System.Drawing.Point(390, 22);
+            this.textRangeBrand.MaxLength = 4;
+            this.textRangeBrand.Name = "textRangeBrand";
+            this.textRangeBrand.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textRangeBrand.Size = new System.Drawing.Size(143, 26);
+            this.textRangeBrand.TabIndex = 25;
+            this.textRangeBrand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
-            // textDWModel
+            // label4
             // 
-            this.textDWModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDWModel.Location = new System.Drawing.Point(699, 22);
-            this.textDWModel.MaxLength = 30;
-            this.textDWModel.Name = "textDWModel";
-            this.textDWModel.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textDWModel.Size = new System.Drawing.Size(143, 26);
-            this.textDWModel.TabIndex = 26;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(632, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 20);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Model";
             // 
-            // dateDWPurchase
+            // txtRangeColor
             // 
-            this.dateDWPurchase.AccessibleName = "dateLastPaint";
-            this.dateDWPurchase.Checked = false;
-            this.dateDWPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateDWPurchase.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateDWPurchase.Location = new System.Drawing.Point(698, 60);
-            this.dateDWPurchase.Name = "dateDWPurchase";
-            this.dateDWPurchase.ShowCheckBox = true;
-            this.dateDWPurchase.Size = new System.Drawing.Size(144, 26);
-            this.dateDWPurchase.TabIndex = 21;
+            this.txtRangeColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRangeColor.Location = new System.Drawing.Point(116, 22);
+            this.txtRangeColor.MaxLength = 20;
+            this.txtRangeColor.Name = "txtRangeColor";
+            this.txtRangeColor.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtRangeColor.Size = new System.Drawing.Size(143, 26);
+            this.txtRangeColor.TabIndex = 24;
+            this.txtRangeColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
-            // textDWBrand
+            // lblLastPainted
             // 
-            this.textDWBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDWBrand.Location = new System.Drawing.Point(390, 22);
-            this.textDWBrand.MaxLength = 4;
-            this.textDWBrand.Name = "textDWBrand";
-            this.textDWBrand.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textDWBrand.Size = new System.Drawing.Size(143, 26);
-            this.textDWBrand.TabIndex = 25;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(632, 25);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 20);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Model";
-            // 
-            // textDishwasherColor
-            // 
-            this.textDishwasherColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDishwasherColor.Location = new System.Drawing.Point(116, 22);
-            this.textDishwasherColor.MaxLength = 20;
-            this.textDishwasherColor.Name = "textDishwasherColor";
-            this.textDishwasherColor.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textDishwasherColor.Size = new System.Drawing.Size(143, 26);
-            this.textDishwasherColor.TabIndex = 24;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblLastPainted.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(52, 25);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 20);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Color";
+            this.lblLastPainted.AutoSize = true;
+            this.lblLastPainted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastPainted.Location = new System.Drawing.Point(52, 25);
+            this.lblLastPainted.Name = "lblLastPainted";
+            this.lblLastPainted.Size = new System.Drawing.Size(46, 20);
+            this.lblLastPainted.TabIndex = 22;
+            this.lblLastPainted.Text = "Color";
             // 
             // Appliances
             // 
@@ -521,12 +529,12 @@
             this.Roofing.ResumeLayout(false);
             this.Roofing.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
