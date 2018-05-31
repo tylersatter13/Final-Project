@@ -14,15 +14,35 @@ namespace Final_Project
     {
         private ManageComboxLists comboxLists = new ManageComboxLists();
         private List<House> Houses = new List<House>();
+        private HouseSearch search = new HouseSearch();
+        private Alert alert = new Alert();
         public PaintSearch()
         {
             InitializeComponent();
+            Console.WriteLine(this.Size);
+            //onsole.WriteLine(this.
+            //
+            //Console.Write(ActiveMdiChild.w);  
+          //  this.WindowState = FormWindowState.Maximized;
+         //   this.WindowState = FormWindowState.Maximized;
+          //  this.WindowState = FormWindowState.Maximized;
         }
-        
+        private void print()
+        {
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printHouses;
+            printDialog.UseEXDialog = true;
+
+            printHouses.DocumentName = "Test";
+            printHouses.Print();
+            
+        }
 
         private void PaintSearch_Load(object sender, EventArgs e)
         {
             FillCombobox();
+           List<House> houses = search.findHouses();
+           PopulateDatabase(houses);
         }
         private void FillCombobox()
         {
@@ -68,7 +88,7 @@ namespace Final_Project
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            HouseSearch search = new HouseSearch();
+           
             Houses.Clear();
             dataHouse.Rows.Clear();
             dataHouse.Refresh();
@@ -155,6 +175,49 @@ namespace Final_Project
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnAddHouse_Click(object sender, EventArgs e)
+        {
+            CreateBasicHouseInformation createhouse = new CreateBasicHouseInformation();
+            Close();
+            createhouse.Show();
+           
+            
+        }
+
+        private void btnPrint_Click_1(object sender, EventArgs e)
+        {
+            print();
+        }
+
+        private void printHouses_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+               /* strFormat = new StringFormat();
+                strFormat.Alignment = StringAlignment.Near;
+                strFormat.LineAlignment = StringAlignment.Center;
+                strFormat.Trimming = StringTrimming.EllipsisCharacter;
+
+                arrColumnLefts.Clear();
+                arrColumnWidths.Clear();
+                iCellHeight = 0;
+                iCount = 0;
+                bFirstPage = true;
+                bNewPage = true;
+
+                // Calculating Total Widths
+                iTotalWidth = 0;
+                foreach (DataGridViewColumn dgvGridCol in dataGridView1.Columns)
+                {
+                    iTotalWidth += dgvGridCol.Width;
+                }*/
+            }
+            catch (Exception ex)
+            {
+                alert.CreateBasicAlert(3, ex.ToString(), "Printing Error");
             }
         }
     }

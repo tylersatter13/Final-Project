@@ -117,6 +117,8 @@ namespace Final_Project
                 Console.WriteLine($"Payment Amount:{textPaymentAmount.Text}");
                 AddRequestsToTable(Manager.CreateTenantTransaction(tenant.LeadTenantID1, dateTransactionDate.Value,
                      drpPaymentType.SelectedIndex, decimal.Parse(textPaymentAmount.Text), textDescription.Text).Last());
+
+                textPaymentAmount.Text = "";
             }
        }
      private bool transactionValidation()
@@ -129,9 +131,13 @@ namespace Final_Project
                 Console.WriteLine($"SelectIndex {drpPaymentType.SelectedIndex}");
                if (drpPaymentType.SelectedIndex > 0)
                 {
-                    if (radioDebit.Checked == true) { } // If transaction is payment do nothing because it should equate to a postive balance
+                    if (radioDebit.Checked == true) {
+
+                        Console.WriteLine("Debit");
+                    } // If transaction is payment do nothing because it should equate to a postive balance
                     if (radioCredit.Checked == true)
                     {
+                        Console.WriteLine("Credit");
                         if (firstDigit.ToString() == "-") { }
 
                         else
@@ -140,6 +146,7 @@ namespace Final_Project
                             textPaymentAmount.Text = payment;
                         }
                     }
+
                     return true;
                 }
                else

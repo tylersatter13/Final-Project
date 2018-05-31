@@ -45,7 +45,8 @@ namespace Final_Project
             DynamicParameters parameters = new DynamicParameters();
 
            var results = fetch.fetchHouseInformation(parameters, spName);
-            return generateHouse(results);
+
+           return generateHouse(results);
 
         }
         public List<House> findHouseByExteriorColor(int ColorID)

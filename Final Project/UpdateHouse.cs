@@ -45,6 +45,7 @@ namespace Final_Project
         }
         private void updateLeadTenant(LeadTenant tenant)
         {
+            var fkCheck = validation.getValidationInt();
             String spName = "spUpdateLeadTenant";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@LeadTenantID",tenant.LeadTenantID1);
@@ -54,7 +55,7 @@ namespace Final_Project
             parameters.Add("@Children",tenant.Children);
             parameters.Add("@LeadTenantRentAmount",tenant.RentAmount);
             parameters.Add("@LeadTenantBalance",tenant.Balance);
-            parameters.Add("@fk_TenatFlag",tenant.TenantFlag);
+            parameters.Add("@fk_TenatFlag", fkCheck.CheckNullForeignKey(tenant.TenantFlag));
 
             fetch.fetchLeadTenants(parameters, spName);
         }
@@ -62,6 +63,7 @@ namespace Final_Project
         {
             if (tenant.TenantId == 0)
             {
+                
                 CreateHouse createHouse = new CreateHouse();
                 createHouse.CreateHouseTenant(tenant, HouseID);
             }

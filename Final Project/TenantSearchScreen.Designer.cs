@@ -72,7 +72,7 @@
             this.dataTenant.Name = "dataTenant";
             this.dataTenant.ReadOnly = true;
             this.dataTenant.RowTemplate.ReadOnly = true;
-            this.dataTenant.Size = new System.Drawing.Size(1141, 490);
+            this.dataTenant.Size = new System.Drawing.Size(1141, 454);
             this.dataTenant.TabIndex = 49;
             this.dataTenant.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTenant_CellContentClick);
             this.dataTenant.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTenant_CellContentClick_1);
@@ -212,14 +212,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(250)))), ((int)(((byte)(253)))));
-            this.ClientSize = new System.Drawing.Size(1165, 596);
+            this.ClientSize = new System.Drawing.Size(1177, 567);
+            this.ControlBox = false;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.dataTenant);
             this.Controls.Add(this.btnSearchLatePayments);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TenantSearchScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TenantSearchScreen";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TenantSearchScreen_Load);

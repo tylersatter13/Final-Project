@@ -130,12 +130,13 @@ namespace Final_Project
                     Console.WriteLine(row);
                     dataTenants.CurrentCell.Value = "Done";
                     dataTenants.Rows[row].ReadOnly = false;
+                     
                 }
                 else if (cell.ToString() == "Done")
                 {
                     dataTenants.CurrentCell.Value = "Edit";
                     dataTenants.Rows[row].ReadOnly = true;
-                   Console.WriteLine( house.Tenants1[row].TenantLast);
+                  //  dataTenants.Rows[row]
                 }
             }
             else if (column == 4) {
@@ -159,6 +160,11 @@ namespace Final_Project
             {
                 e.Handled = true;// inputs are strip to prevent the database from being circumnaviated
             }
+        }
+
+        private void textLeadTenantFirst_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

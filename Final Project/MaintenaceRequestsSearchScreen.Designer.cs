@@ -77,7 +77,7 @@
             this.dataHouse.Name = "dataHouse";
             this.dataHouse.ReadOnly = true;
             this.dataHouse.RowTemplate.ReadOnly = true;
-            this.dataHouse.Size = new System.Drawing.Size(1141, 464);
+            this.dataHouse.Size = new System.Drawing.Size(1141, 423);
             this.dataHouse.TabIndex = 48;
             this.dataHouse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataHouse_CellContentClick);
             this.dataHouse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataHouse_CellContentClick_1);
@@ -289,11 +289,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1165, 596);
+            this.ClientSize = new System.Drawing.Size(1161, 528);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkOpenRequests);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dataHouse);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MaintenaceRequestsSearchScreen";

@@ -17,21 +17,7 @@ namespace Final_Project
         {
             this.IsMdiContainer= true;
             InitializeComponent();
-        }
-
-        private void btnHouse_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void btnTenants_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnMaintenace_Click(object sender, EventArgs e)
-        {
-
+            searchHouses();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,33 +26,12 @@ namespace Final_Project
             Close();
            logout.Show();
         }
-
-        private void houseSearchToolStripMenuItem_Click(object sender, EventArgs e)
+  
+        private void tenantToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            PaintSearch search = new PaintSearch();
-            search.MdiParent = this;
-            search.Show();
-        }
-
-        private void createHouseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CreateBasicHouseInformation house = new CreateBasicHouseInformation();
-            Close();
-            house.StartPosition = FormStartPosition.Manual;
-            house.SetDesktopLocation(this.Location.X, this.Location.X);
-            house.Show();
-        }
-
-        private void btntenantSearch_Click(object sender, EventArgs e)
-        {
-            
-            TenantSearchScreen searchscreen = new TenantSearchScreen();
-            //Close();
-            searchscreen.MdiParent = this;
-           // searchscreen.Dock = DockStyle.Fill;
-            searchscreen.Show();
-
+           
+            TenantSearchScreen search = new TenantSearchScreen();
+            loadChildForm(search);
         }
 
         private void btnCreateRequest_Click(object sender, EventArgs e)
@@ -86,10 +51,63 @@ namespace Final_Project
             
             searchScreen.Show();
         }
-
+        private void searchHouses()
+        {
+            PaintSearch search = new PaintSearch();
+            loadChildForm(search);
+        }
+        private void loadChildForm(Form form) // creates a new child form of the selected type
+        {
+            form.MdiParent = this;
+            if (this.ActiveMdiChild != null) // close previous child before opening a new one
+            {
+                this.ActiveMdiChild.Close();
+            }
+          
+            sizeChildForm(form);
+            form.Show();
+        }
+        private void sizeChildForm(Form form) // adjust the size of the child form to fit inside the parent
+        {
+          
+            form.Top = 0;
+            form.Left = 0;
+            form.Dock = DockStyle.Fill;
+            form.WindowState = FormWindowState.Maximized;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.MaximizeBox = false;
+        }
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void btnCreateHouse_Click(object sender, EventArgs e)
+        {
+            searchHouses();
+        }
+
+        private void Menu_Resize(object sender, EventArgs e)
+        {
+            //this.sizeChildForm(ActiveMdiChild);
+        }
+
+        private void Menu_AutoSizeChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("autosize changed");
+            sizeChildForm(ActiveMdiChild);
+        }
+
+        private void Menu_ResizeEnd(object sender, EventArgs e)
+        {
+            Console.WriteLine("resize end");
+            sizeChildForm(ActiveMdiChild);
+        }
+
+        private void maintenaceRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MaintenaceRequestsSearchScreen searchScreen = new MaintenaceRequestsSearchScreen();
+            loadChildForm(searchScreen);
         }
     }
 }

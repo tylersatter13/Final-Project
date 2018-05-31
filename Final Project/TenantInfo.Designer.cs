@@ -226,6 +226,7 @@
             this.textLeadTenantFirst.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textLeadTenantFirst.Size = new System.Drawing.Size(122, 26);
             this.textLeadTenantFirst.TabIndex = 1;
+            this.textLeadTenantFirst.TextChanged += new System.EventHandler(this.textLeadTenantFirst_TextChanged);
             this.textLeadTenantFirst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterKeyPress);
             // 
             // groupBox2

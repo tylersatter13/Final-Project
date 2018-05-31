@@ -53,6 +53,10 @@
             this.drpInterriorColor = new System.Windows.Forms.ComboBox();
             this.lblOwner = new System.Windows.Forms.Label();
             this.drpExteriorColor = new System.Windows.Forms.ComboBox();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnAddHouse = new System.Windows.Forms.Button();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.printHouses = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dataHouse)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -78,10 +82,10 @@
             this.dataExteriorPaintDate,
             this.dataBlindRepalcement});
             this.dataHouse.GridColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataHouse.Location = new System.Drawing.Point(12, 82);
+            this.dataHouse.Location = new System.Drawing.Point(12, 138);
             this.dataHouse.Name = "dataHouse";
             this.dataHouse.RowTemplate.ReadOnly = true;
-            this.dataHouse.Size = new System.Drawing.Size(1141, 489);
+            this.dataHouse.Size = new System.Drawing.Size(1141, 371);
             this.dataHouse.TabIndex = 47;
             this.dataHouse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataHouse_CellClick);
             // 
@@ -201,7 +205,7 @@
             this.groupBox1.Controls.Add(this.drpExteriorColor);
             this.groupBox1.Controls.Add(this.textHouseNumber);
             this.groupBox1.Controls.Add(this.lblHouseNumber);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 68);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1141, 64);
             this.groupBox1.TabIndex = 51;
@@ -282,14 +286,51 @@
             this.drpExteriorColor.Size = new System.Drawing.Size(157, 28);
             this.drpExteriorColor.TabIndex = 50;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(1044, 22);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(109, 30);
+            this.btnPrint.TabIndex = 53;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click_1);
+            // 
+            // btnAddHouse
+            // 
+            this.btnAddHouse.Location = new System.Drawing.Point(12, 22);
+            this.btnAddHouse.Name = "btnAddHouse";
+            this.btnAddHouse.Size = new System.Drawing.Size(109, 30);
+            this.btnAddHouse.TabIndex = 52;
+            this.btnAddHouse.Text = "Add House";
+            this.btnAddHouse.UseVisualStyleBackColor = true;
+            this.btnAddHouse.Click += new System.EventHandler(this.btnAddHouse_Click);
+            // 
+            // printDialog
+            // 
+            this.printDialog.UseEXDialog = true;
+            // 
+            // printHouses
+            // 
+            this.printHouses.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printHouses_BeginPrint);
+            // 
             // PaintSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 596);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1177, 567);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btnAddHouse);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataHouse);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PaintSearch";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PaintSearch";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -330,5 +371,9 @@
         private System.Windows.Forms.RadioButton radioInterrior;
         private System.Windows.Forms.RadioButton radioExterrior;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnAddHouse;
+        private System.Windows.Forms.PrintDialog printDialog;
+        private System.Drawing.Printing.PrintDocument printHouses;
     }
 }
